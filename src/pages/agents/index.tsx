@@ -1,6 +1,6 @@
-import Agent1 from "../assets/images/agent1.jpg";
-import Agent2 from "../assets/images/agent2.jpg";
-import Agent3 from "../assets/images/agent3.jpg";
+import Agent1 from "@assets/images/agent1.jpg";
+import Agent2 from "@assets/images/agent2.jpg";
+import Agent3 from "@assets/images/agent3.jpg";
 
 const agents = [
     {id: 1, name: "John", image: Agent1, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed libero consectetur, volutpat ante vitae, pellentesque justo. Ut varius leo nunc, vel lacinia purus finibus ut. Etiam ultricies vulputate enim eget bibendum. Duis dignissim, quam sed hendrerit vehicula, ligula mi egestas turpis, a volutpat risus est at nisl."},

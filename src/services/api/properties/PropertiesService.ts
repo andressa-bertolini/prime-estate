@@ -1,4 +1,5 @@
 import { Api } from "../ApiConfig";
+import { useEnvContext } from "../../../hooks/useEnvContext";
 
 export interface IProperty {
     id: string;
@@ -39,15 +40,15 @@ export interface IPropertyById {
   description: string;
 }
 
-const getRent = async (): Promise<IProperty[]> => {
-  try {
-    const { data } = await Api().get('/properties/list?locationExternalIDs=5002%2C6020&purpose=for-rent&hitsPerPage=4&page=0&rentFrequency=monthly&categoryExternalID=4&priceMax=9000&priceMin=6000');
-    return Array.isArray(data.hits) ? data.hits : [];
-  } catch (error: any) {
-    console.error(error);
-    return [];
-  }
-};
+const development:boolean = true;
+
+const rentURL = development ? (
+  '/properties'
+): '/properties/list?locationExternalIDs=5002%2C6020&purpose=for-rent&hitsPerPage=4&page=0&rentFrequency=monthly&categoryExternalID=4&priceMax=9000&priceMin=6000';
+
+const saleURL = development ? (
+  '/properties'
+): '/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=4&page=0&rentFrequency=monthly&categoryExternalID=4'
 
 const getProperties = async (query: string): Promise<{ hits: IProperty[] }> => {
   try {
@@ -59,10 +60,22 @@ const getProperties = async (query: string): Promise<{ hits: IProperty[] }> => {
   }
 };
 
+const getRent = async (): Promise<IProperty[]> => {
+  try {
+    const { data } = await Api().get(rentURL);
+    const hits = development ? await data : await data.hits;
+    return Array.isArray(hits) ? hits : [];
+  } catch (error: any) {
+    console.error(error);
+    return [];
+  }
+};
+
 const getSale = async (): Promise<IProperty[]> => {
     try {
-      const { data } = await Api().get('/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=4&page=0&rentFrequency=monthly&categoryExternalID=4');
-      return Array.isArray(data.hits) ? data.hits : [];
+      const { data } = await Api().get(saleURL);
+      const hits = development ? await data : await data.hits;
+      return Array.isArray(hits) ? hits : [];
   } catch (error: any) {
         console.error(error);
         return [];
