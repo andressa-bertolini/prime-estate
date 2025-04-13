@@ -6,6 +6,7 @@ The API I'm using is ***bayut***
 https://rapidapi.com/apidojo/api/bayut/playground/apiendpoint_70bbc8e9-918c-430e-ad12-0c71d815b3d3
 
 This project uses:
+- Vite
 - React 19
 - Typescript
 - React Router DOM

@@ -2,13 +2,13 @@ import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { useQuery } from "@tanstack/react-query";
-import { IPropertyById, PropertiesService } from "../services/api/properties/PropertiesService";
+import { IPropertyById, PropertiesService } from "@services/api/properties/PropertiesService";
 
-import RelatedProperties from "../components/RelatedProperties";
+import RelatedProperties from "@components/RelatedProperties";
 
-import IconSqft2 from "../assets/icons/icon-sqft.svg";
-import IconBed2 from "../assets/icons/icon-bed.svg";
-import IconBath2 from "../assets/icons/icon-bath.svg";
+import IconSqft2 from "@assets/icons/icon-sqft.svg";
+import IconBed2 from "@assets/icons/icon-bed.svg";
+import IconBath2 from "@assets/icons/icon-bath.svg";
 
 const Property = () => {
     const { id } = useParams<{ id: string }>();

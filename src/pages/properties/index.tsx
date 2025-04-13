@@ -1,10 +1,10 @@
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { IProperty, PropertiesService } from "../services/api/properties/PropertiesService";
+import { IProperty, PropertiesService } from "@services/api/properties/PropertiesService";
 
-import Property from "../components/Property";
-import Search from "../components/Search";
-import Skeleton from "../components/Skeleton";
+import Property from "@components/Property";
+import Search from "@components/Search";
+import Skeleton from "@components/Skeleton";
 
 const Properties = () => {
     const [searchParams] = useSearchParams();

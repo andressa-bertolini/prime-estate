@@ -9,11 +9,12 @@ const Footer = () => {
             <nav>
                 <NavLink to="/properties?purpose=for-rent">Rent</NavLink>
                 <NavLink to="/properties?purpose=for-sale">Buy</NavLink>
+                <NavLink to="/properties?purpose=for-rent">Search</NavLink>
             </nav>
             <nav>
-                <NavLink to="/agents">Agents</NavLink>
+                <NavLink to="/agents">About Us</NavLink>
+                <NavLink to="/agents">Realtors</NavLink>
                 <NavLink to="/calculator">Calculator</NavLink>
-                <NavLink to="/properties?purpose=for-rent">Search</NavLink>
             </nav>
         </div>
     )
