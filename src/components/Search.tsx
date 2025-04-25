@@ -3,6 +3,8 @@ import IconLocation from "../assets/icons/icon-location.svg";
 import IconCaretDown from "../assets/icons/icon-caret-down.svg";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 const Search = () => {
     const [searchParams] = useSearchParams();
@@ -146,6 +148,13 @@ const Search = () => {
                                 )}
                                 
                             </div> */}
+
+                            <Autocomplete
+                                disablePortal
+                                sx={{ width: 300 }}
+                                renderInput={(params) => <TextField {...params} label="Movie" />}
+                            />
+
                             <div className="search-bar__container">
                                 <img src={IconLocation} alt="Location Icon" onClick={handleSubmit}/>
                                 <input 
