@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Apartamento em Santos",
+    "price": 420000,
+    "area": 85,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "location": "Boqueirão",
+    "image": "https://via.placeholder.com/300x200"
+  },
+  {
+    "id": 2,
+    "title": "Casa em São Vicente",
+    "price": 310000,
+    "area": 120,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "location": "Centro",
+    "image": "https://via.placeholder.com/300x200"
+  }
+]
