@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { IProperty, PropertiesService } from "@services/api/properties/PropertiesService";
+import { PropertiesService } from "@services/properties/PropertiesService";
+import { IProperty } from "@types/properties.types"
 
 /* Components */
 import Search from "@components/Search";
@@ -25,10 +26,10 @@ const Home = () => {
     };
 
     const { data: propertiesRent, isError: isErrorRent, isLoading: isPendingRent } = 
-        usePropertyQuery("propertiesRent", PropertiesService.getRent);
+        usePropertyQuery("propertiesRent", () => PropertiesService.fetchProperties("purpose=rent"));
 
     const { data: propertiesSale, isError: isErrorSale, isLoading: isPendingSale } = 
-        usePropertyQuery("propertiesSale", PropertiesService.getSale);
+        usePropertyQuery("propertiesSale", () => PropertiesService.fetchProperties("purpose=sale"));
 
     return(
         <>  

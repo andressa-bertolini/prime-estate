@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Apartamento em Santos",
+    "purpose": "rent",
     "price": 420000,
     "area": 85,
     "bedrooms": 2,
@@ -12,6 +13,7 @@
   {
     "id": 2,
     "title": "Casa em São Vicente",
+    "purpose": "sale",
     "price": 310000,
     "area": 120,
     "bedrooms": 3,

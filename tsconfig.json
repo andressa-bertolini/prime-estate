@@ -8,6 +8,7 @@
     "jsx": "react-jsx",
     "types": ["react", "react-dom"],
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "strict": false,
     "baseUrl": "./src",
@@ -23,7 +24,8 @@
       "@services/*": ["services/*"],
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@types/*": ["types/*"]
     }
   },
 }

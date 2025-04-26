@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { useQuery } from "@tanstack/react-query";
-import { IPropertyById, PropertiesService } from "@services/api/properties/PropertiesService";
+import { IPropertyById, PropertiesService } from "@services/properties/PropertiesService";
 
 import RelatedProperties from "@components/RelatedProperties";
 

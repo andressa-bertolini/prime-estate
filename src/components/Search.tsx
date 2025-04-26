@@ -152,7 +152,7 @@ const Search = () => {
                             <Autocomplete
                                 disablePortal
                                 sx={{ width: 300 }}
-                                renderInput={(params) => <TextField {...params} label="Movie" />}
+                                renderInput={(params) => <TextField {...params} label="City, neighborhood, street..." />}
                             />
 
                             <div className="search-bar__container">
