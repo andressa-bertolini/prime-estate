@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { IProperty, PropertiesService } from "@services/api/properties/PropertiesService";
+import { IProperty, PropertiesService } from "@services/properties/PropertiesService";
 
 import Property from "@components/Property";
 import Search from "@components/Search";

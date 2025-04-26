@@ -25,7 +25,7 @@ const Property: React.FC<PropertyProps> = ({ property }) => {
 
     return (
         <NavLink to={`/property/${property.externalID}`} className="property-card">
-            <img src={property.coverPhoto.url} className="property-cover" alt={property.title}/>
+            <img src={property.image} className="property-cover" alt={property.title}/>
             <span className="property-badge">
                 {property.purpose === 'for-rent' ? 'For Rent' : ''}
                 {property.purpose === 'for-sale' ? 'For Sale' : ''}
