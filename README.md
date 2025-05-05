@@ -14,4 +14,7 @@ This project uses:
 - React Query
 - Axios
 
-In the future I'm implementing Tailwind CSS
+To do:
+- api data
+- organize routes folder
+- implement material

@@ -149,11 +149,11 @@ const Search = () => {
                                 
                             </div> */}
 
-                            <Autocomplete
+                            {/* <Autocomplete
                                 disablePortal
                                 sx={{ width: 300 }}
                                 renderInput={(params) => <TextField {...params} label="City, neighborhood, street..." />}
-                            />
+                            /> */}
 
                             <div className="search-bar__container">
                                 <img src={IconLocation} alt="Location Icon" onClick={handleSubmit}/>

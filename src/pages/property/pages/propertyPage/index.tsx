@@ -51,8 +51,8 @@ const Property = () => {
             </Swiper>
 
             <span className="property-badge">
-                {property.purpose === "for-rent" ? "For Rent" : ""}
-                {property.purpose === "for-sale" ? "For Sale" : ""}
+                {property.purpose === "rent" ? "For Rent" : ""}
+                {property.purpose === "sale" ? "For Sale" : ""}
             </span>
 
             <p className="property-page__price">

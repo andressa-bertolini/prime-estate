@@ -48,8 +48,8 @@ const Properties = () => {
                     <Search />
                 </div>
                 <div>
-                    {purpose === "for-rent" ? <h1 className="properties-page__title" style={{paddingLeft: "25px"}}>For Rent</h1> : ""}
-                    {purpose === "for-sale" ? <h1 className="properties-page__title" style={{paddingLeft: "25px"}}>For Sale</h1> : ""}
+                    {purpose === "rent" ? <h1 className="properties-page__title" style={{paddingLeft: "25px"}}>For Rent</h1> : ""}
+                    {purpose === "sale" ? <h1 className="properties-page__title" style={{paddingLeft: "25px"}}>For Sale</h1> : ""}
                     <div className="properties-page__list">
                         {isPending &&
                             [...Array(9)].map((_, i) => <Skeleton key={i} />)
