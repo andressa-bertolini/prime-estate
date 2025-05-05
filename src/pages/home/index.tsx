@@ -26,10 +26,10 @@ const Home = () => {
     };
 
     const { data: propertiesRent, isError: isErrorRent, isLoading: isPendingRent } = 
-        usePropertyQuery("propertiesRent", () => PropertiesService.fetchProperties("purpose=rent"));
+        usePropertyQuery("propertiesRent", () => PropertiesService.fetchProperties({ purpose: "rent" }));
 
     const { data: propertiesSale, isError: isErrorSale, isLoading: isPendingSale } = 
-        usePropertyQuery("propertiesSale", () => PropertiesService.fetchProperties("purpose=sale"));
+        usePropertyQuery("propertiesSale", () => PropertiesService.fetchProperties({ purpose: "sale" }));
 
     return(
         <>  

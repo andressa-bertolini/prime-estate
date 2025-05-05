@@ -7,7 +7,7 @@ interface PropertyProps {
     property: {
         externalID: string;
         coverPhoto: { url: string };
-        purpose: "for-rent" | "for-sale";
+        purpose: "rent" | "sale";
         title: string;
         area?: number;
         rooms: number;
@@ -27,8 +27,8 @@ const Property: React.FC<PropertyProps> = ({ property }) => {
         <NavLink to={`/property/${property.externalID}`} className="property-card">
             <img src={property.image} className="property-cover" alt={property.title}/>
             <span className="property-badge">
-                {property.purpose === 'for-rent' ? 'For Rent' : ''}
-                {property.purpose === 'for-sale' ? 'For Sale' : ''}
+                {property.purpose === 'rent' ? 'For Rent' : ''}
+                {property.purpose === 'sale' ? 'For Sale' : ''}
             </span>
             <h3>{property.title}</h3>
             <p className="property-features">
