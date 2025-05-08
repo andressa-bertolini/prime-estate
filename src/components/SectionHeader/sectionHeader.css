@@ -1,0 +1,45 @@
+.section-header {
+  background-color: #1296a9;
+}
+
+.section-header-content {
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-family: "Lexend", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.section-header h4 {
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 0 0 2px 0;
+  font-size: 14px;
+}
+
+.section-header p {
+  margin: 0;
+}
+
+.section-header a {
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+@media(min-width: 768px){
+  .section-header a {
+    text-align: center;
+  }
+}

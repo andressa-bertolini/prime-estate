@@ -1,30 +1,18 @@
+import "./propertyItem.css";
+import { PropertyItemProps } from "./propertyItem.types";
+
 import { NavLink } from "react-router-dom";
 import IconSqft from "../assets/icons/icon-sqft.svg";
 import IconBed from "../assets/icons/icon-bed.svg";
 import IconBath from "../assets/icons/icon-bath.svg";
 
-interface PropertyProps {
-    property: {
-        externalID: string;
-        coverPhoto: { url: string };
-        purpose: "rent" | "sale";
-        title: string;
-        area?: number;
-        rooms: number;
-        baths: number;
-        amenities?: string[];
-        price: number;
-        agency: { logo: { url: string } };
-    };
-}
-
-const Property: React.FC<PropertyProps> = ({ property }) => {
+const PropertyItem = ({ property }: PropertyItemProps) => {
     const amenities = Array.isArray(property.amenities) ? property.amenities : [];
     const limit = 4;
     const limitedAmenities = amenities.slice(0, limit);
 
     return (
-        <NavLink to={`/property/${property.externalID}`} className="property-card">
+        <NavLink to={`/property/${property.externalID}`} className="property-item">
             <img src={property.image} className="property-cover" alt={property.title}/>
             <span className="property-badge">
                 {property.purpose === 'rent' ? 'For Rent' : ''}
@@ -63,4 +51,4 @@ const Property: React.FC<PropertyProps> = ({ property }) => {
     );
 }
 
-export default Property;
+export default PropertyItem;

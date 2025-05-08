@@ -28,4 +28,5 @@
       "@types/*": ["types/*"]
     }
   },
+  "include": ["src"]
 }
