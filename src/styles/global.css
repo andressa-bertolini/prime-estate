@@ -78,55 +78,6 @@ html, body {
       display: none;
     }
   }
-
-  .banner {
-    background-color: #1296a9;
-  }
-  
-  .banner-content {
-    padding: 15px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #fff;
-    /* max-width: 1000px;
-    margin: 0 auto; */
-    /* gap: 100px; */
-  }
-  
-  .banner h2 {
-    margin: 0;
-    font-size: 20px;
-    font-family: "Lexend", sans-serif;
-    text-transform: uppercase;
-    font-weight: normal;
-  }
-  
-  .banner h4 {
-    text-transform: uppercase;
-    font-weight: normal;
-    margin: 0 0 2px 0;
-    font-size: 14px;
-  }
-  
-  .banner p {
-    margin: 0;
-  }
-  
-  .banner a {
-    border: 1px solid #fff;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    display: inline-block;
-    text-transform: uppercase;
-  }
-  
-  @media(min-width: 768px){
-    .banner a {
-      text-align: center;
-    }
-  }
   
   /* .container {
     max-width: 1200px;
@@ -141,7 +92,7 @@ html, body {
     flex-wrap: wrap;
   }
 
-  .properties-list .property-card {
+  .properties-list .property-item {
     padding-bottom: 0;
   }
   
@@ -150,33 +101,6 @@ html, body {
       display: grid;
       grid-template-columns: 1fr 3fr;
     }
-  }
-  
-  .property-card {
-    background-color: #fff;
-    padding: 0 25px 50px 25px;
-    box-sizing: border-box;
-    width: 100%;
-    text-decoration: none;
-    color: #000;
-  }
-  
-  @media(min-width: 768px){
-    .property-card {
-      width: 33%;
-    }
-  }
-  
-  @media(min-width: 1000px){
-    .properties-list .property-card {
-      width: 25%;
-    }
-  }
-  
-  .property-card .property-cover{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
   }
   
   .property-badge {
@@ -189,7 +113,7 @@ html, body {
     margin-top: 20px;
   }
   
-  .property-card h3 {
+  .property-item h3 {
     font-weight: normal;
     margin-top: 5px;
   }

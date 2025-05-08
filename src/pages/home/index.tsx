@@ -4,7 +4,7 @@ import { IProperty } from "@types/properties.types"
 
 /* Components */
 import Search from "@components/Search";
-import Banner from "@components/Banner";
+import SectionHeader from "@components/SectionHeader";
 import Property from "@components/Property";
 import Skeleton from "@components/Skeleton";
 import FullBackgroundCTA from "@layouts/FullBackgroundCTA";
@@ -41,7 +41,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Banner 
+            <SectionHeader 
                 heading="Featured properties"
                 title="Rent a Home"
                 buttonText="Explore Renting"
@@ -67,7 +67,7 @@ const Home = () => {
                 buttonText="Calculate"
                 link="calculator"
             />
-            <Banner 
+            <SectionHeader 
                 heading="Featured properties"
                 title="Buy a Home"
                 buttonText="Explore Buying"
