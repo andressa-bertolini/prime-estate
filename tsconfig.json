@@ -1,32 +1,10 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "types": ["react", "react-dom"],
-    "esModuleInterop": true,
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": ["*"],
-      "@icons/*": ["assets/icons/*"],
-      "@images/*": ["assets/images/*"],
-      "@components/*": ["components/*"],
-      "@features/*": ["features/*"],
-      "@hooks/*": ["hooks/*"],
-      "@layouts/*": ["layouts/*"],
-      "@routes/*": ["routes/*"],
-      "@services/*": ["services/*"],
-      "@store/*": ["store/*"],
-      "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"],
-      "@types/*": ["types/*"]
-    }
+    "noEmit": true
   },
-  "include": ["src"]
+  "include": ["vite.config.ts"]
 }

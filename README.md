@@ -18,3 +18,6 @@ To do:
 - api data
 - organize routes folder
 - implement material
+
+- Images: AI generated https://labs.google/fx/tools/image-fx
+- API: mocky.io

@@ -321,7 +321,7 @@ html, body {
   
   .search-container {
     padding: 50px 0;
-    background-image: url('../assets/images/search-bg2.jpg');
+    background-image: url('@assets/images/search-bg2.jpg');
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -366,6 +366,44 @@ html, body {
     font-size: 24px;
     font-family: "Lexend", sans-serif;
     font-weight: normal;
+  }
+
+  .custom-input {
+    background-color: #fff;
+    border-radius: 20px;
+    height: 42px;
+  }
+
+  .custom-input .MuiOutlinedInput-root {
+    border-radius: 20px;
+    font-size: 14px;
+    height: 42px;
+  }
+
+  .custom-input .MuiOutlinedInput-notchedOutline {
+    border: none;
+  }
+
+  .custom-input .MuiSvgIcon-root {
+    color: #000;
+  }
+
+  .custom-slider {
+    padding-top: 9px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 3px !important;
+  }
+
+  .custom-slider .MuiSlider-thumb {
+    background-color: #1296a9;
+  }
+  
+  .custom-slider .MuiSlider-track {
+    background-color: #1296a9;
+  }
+  
+  .custom-slider .MuiSlider-rail {
+    background-color: #ddd;
   }
   
   .search-bar {

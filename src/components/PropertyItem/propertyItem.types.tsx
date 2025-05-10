@@ -1,14 +1,17 @@
 export interface PropertyItemProps {
   property: {
-      externalID: string;
-      coverPhoto: { url: string };
-      purpose: "rent" | "sale";
+      id: string;
       title: string;
-      area?: number;
-      rooms: number;
-      baths: number;
-      amenities?: string[];
+      purpose: "rent" | "sale";
       price: number;
+      area?: number;
+      bedrooms: number;
+      bathrooms: number;
+      location: string,
+      featuredImage: string,
+      images: { url: string };
+
+      amenities?: string[];
       agency: { logo: { url: string } };
   };
 }
