@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../assets/images/logo-text.png";
-import IconMagnifyingGlass from "../assets/icons/icon-magnifying-glass.svg";
-import IconBurgerMenu from "../assets/icons/icon-burger-menu.svg";
+import Logo from "@assets/images/logo-text.png";
+import IconMagnifyingGlass from "@assets/icons/icon-magnifying-glass.svg";
+import IconBurgerMenu from "@assets/icons/icon-burger-menu.svg";
 
 const Navigation = () => {
     const [navOpen, setNavOpen] = useState(false);

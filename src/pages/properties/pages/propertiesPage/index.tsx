@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { IProperty, PropertiesService } from "@services/properties/PropertiesService";
 
-import Property from "@components/Property";
+import PropertyItem from "@components/PropertyItem";
 import Search from "@components/Search";
 import Skeleton from "@components/Skeleton";
 
@@ -56,7 +56,7 @@ const Properties = () => {
                         }
                         {!isPending &&
                             properties?.map((property: IProperty) => (
-                                <Property property={property} key={property.id} />
+                                <PropertyItem property={property} key={property.id} />
                             ))
                         }
                     </div>

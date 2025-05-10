@@ -1,12 +1,34 @@
-import ChoiceChips from "./ChoiceChips";
-import IconLocation from "../assets/icons/icon-location.svg";
-import IconCaretDown from "../assets/icons/icon-caret-down.svg";
+import ChoiceChips from "../ChoiceChips";
+import IconCaretDown from "@assets/icons/icon-caret-down.svg";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
+import { 
+    Autocomplete, 
+    TextField,
+    Slider,
+    InputAdornment
+} from '@mui/material';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+
+interface Option {
+    label: string;
+    value: string;
+  }
 
 const Search = () => {
+    const [option, setOption] = useState("");
+
+    const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+        setOption(event.target.value as string);
+    };
+
+    const [value, setValue] = useState<number[]>([1000, 5000]);
+
+    const handleChange2 = (event: Event, newValue: number | number[]) => {
+        setValue(newValue as number[]);
+      };
+    
     const [searchParams] = useSearchParams();
     const paramQuery = searchParams.get("query") || "";
     const paramPurpose = searchParams.get("purpose") || "for-rent";
@@ -46,11 +68,21 @@ const Search = () => {
     const selectRef2 = useRef<HTMLDivElement | null>(null);
     const selectRef3 = useRef<HTMLDivElement | null>(null);
 
+    const options: Option[] = [
+        { label: 'Apartment', value: '1' },
+        { label: 'House', value: '2' }
+    ];
+
+    const [selectedValue, setSelectedValue] = useState<Option | null>(null);
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement> | React.MouseEvent<HTMLImageElement>) => {
         e.preventDefault();
         setOpenFilter(false);
         navigate(`/properties?query=${query}&purpose=${purpose}&homeType=${homeType}&priceLimit=${priceRange}&beds=${beds}&baths=${baths}&sqft=${sqft}`);
     };
+
+    const [selected, setSelected] = useState<string>("");
+    const chips = ["Rent", "Buy"];
 
     const handlePurposeValue = (data: string) => {
         setPurpose(data);
@@ -135,60 +167,51 @@ const Search = () => {
                     <div>
                         <label>
                             <span>Where do you want to live?</span>
-                            {/* <div className="custom-select" ref={selectRef}>
-                                <div className="custom-select__trigger" onClick={toggleDropdown}>
-                                    <span>{homeType.charAt(0).toUpperCase() + homeType.slice(1)}</span>
-                                    <div className="arrow"></div>
-                                </div>
-                                {isOpen && (
-                                    <div className="custom-options">
-                                        <div className="custom-option" onClick={() => handleSelect('apartment')}>Apartment</div>
-                                        <div className="custom-option" onClick={() => handleSelect('house')}>House</div>
-                                    </div>
-                                )}
-                                
-                            </div> */}
-
-                            {/* <Autocomplete
-                                disablePortal
-                                sx={{ width: 300 }}
-                                renderInput={(params) => <TextField {...params} label="City, neighborhood, street..." />}
-                            /> */}
-
-                            <div className="search-bar__container">
-                                <img src={IconLocation} alt="Location Icon" onClick={handleSubmit}/>
-                                <input 
-                                    type="text" 
-                                    className={(isSearching ? "open-input " : "") + "search-bar"}
-                                    placeholder="City, neighborhood, street..." 
-                                    value={query}
-                                    onChange={handleInputChange}
-                                    onKeyDown={handleKeyDown}
-                                />
-                                { isSearching ? (
-                                    <div className="custom-options">
-                                        {locations.map((location) => (
-                                            <div className="custom-option" key={location}>{location}</div>
-                                        ))}
-                                    </div>
-                                ) : ''}
-                            </div>
+                            <Autocomplete
+                                freeSolo
+                                options={[]}
+                                className="custom-input"
+                                renderInput={(params) => 
+                                    <TextField 
+                                        {...params}
+                                        placeholder="City, neighborhood, street..."
+                                        InputProps={{
+                                            ...params.InputProps,
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                <LocationOnOutlinedIcon />
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                }
+                            />
                         </label>
                         <label>
                             <span>Property Type</span>
-                            <div className="custom-select" ref={selectRef}>
-                                <div className={(isOpen ? "open-input ": "") + "custom-select__trigger"} onClick={toggleDropdown}>
-                                    <span>{homeType.charAt(0).toUpperCase() + homeType.slice(1)}</span>
-                                    <div className="arrow"></div>
-                                </div>
-                                {isOpen && (
-                                    <div className="custom-options">
-                                        <div className="custom-option" onClick={() => handleSelect('apartment')}>Apartment</div>
-                                        <div className="custom-option" onClick={() => handleSelect('house')}>House</div>
-                                    </div>
+                            <Autocomplete
+                                options={["Apartment", "House"]}
+                                defaultValue="Apartment"
+                                disableClearable
+                                className="custom-input"
+                                renderInput={(params) => (
+                                    <TextField 
+                                    {...params}
+                                    inputProps={{
+                                        ...params.inputProps,
+                                        readOnly: true, 
+                                    }}
+                                    InputProps={{
+                                        ...params.InputProps,
+                                        startAdornment: (
+                                        <InputAdornment position="start">
+                                            <HomeOutlinedIcon />
+                                        </InputAdornment>
+                                        ),
+                                    }}
+                                    />
                                 )}
-                                
-                            </div>
+                            />
                         </label>
                         {/* <label>
                             <span>Beds</span>
@@ -238,16 +261,14 @@ const Search = () => {
                         <label>
                             <span>Price limit</span>
                             <div className="search-options__range">
-                                <input 
-                                    type="range" 
-                                    min={rangeMin} 
-                                    max={rangeMax} 
-                                    step={100} 
-                                    value={priceRange} 
-                                    onChange={(e) => setPriceRange(Number(e.target.value))}
-                                    style={{
-                                        background: `linear-gradient(to right, #1296a9 ${calculatePercentage()}%, #8d8c8c ${calculatePercentage()}%)`,
-                                    }}
+                                <Slider
+                                    className="custom-slider"
+                                    value={value}
+                                    onChange={handleChange2}
+                                    valueLabelDisplay="auto"
+                                    min={0}
+                                    max={10000}
+                                    step={100}
                                 />
                                 <p>${priceRange.toLocaleString('en-US')}</p>
                             </div>

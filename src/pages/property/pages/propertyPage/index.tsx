@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { useQuery } from "@tanstack/react-query";
-import { IPropertyById, PropertiesService } from "@services/properties/PropertiesService";
+import { PropertiesService } from "@services/properties/PropertiesService";
 
 import RelatedProperties from "@components/RelatedProperties";
 
@@ -12,13 +12,25 @@ import IconBath2 from "@assets/icons/icon-bath.svg";
 
 const Property = () => {
     const { id } = useParams<{ id: string }>();
+    const [property, setProperty] = useState<any>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
 
-    const { data: property, isError, isLoading } = useQuery({
-        queryKey: ["property", id],
-        queryFn: () => PropertiesService.getById(Number(id)),
-        enabled: !!id,
-        staleTime: 1000 * 60 * 30,
-    });
+    useEffect(() => {
+        const fetchProperty = async () => {
+            try {
+                const found = await PropertiesService.fetchPropertyById(Number(id));
+                if (!found) throw new Error("Not found");
+                setProperty(found);
+            } catch (error) {
+                setIsError(true);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+    
+        fetchProperty();
+    }, [id]);
 
     const slidesPerView = window.innerWidth < 768 ? 1 : 1.5;
 
@@ -39,11 +51,11 @@ const Property = () => {
                 modules={[Navigation]}
                 navigation
             >
-                {property.photos?.map((photo, index) => (
+                {property.images?.map((photo: string, index: number) => (
                     <SwiperSlide key={index}>
                         <img
-                            src={photo?.url || ""}
-                            alt={photo?.title || ""}
+                            src={photo}
+                            alt={property.title}
                             className="property-page__slide"
                         />
                     </SwiperSlide>
@@ -66,62 +78,43 @@ const Property = () => {
 
             <p className="property-features">
                 <span>
-                    <img src={IconSqft2} className="property-icon sqft" alt="Square feet"/>
-                    {property.area ? Math.round(property.area * 10.764) : ""} <strong>sqft</strong>
+                    <img src={IconSqft2} className="property-icon sqft" alt="Square feet" />
+                    {property.area ? Math.round(property.area) : ""} <strong>sqft</strong>
                 </span>
                 <span>
-                    <img src={IconBed2} className="property-icon bed" alt="Bed"/>
-                    {property.rooms} <strong>bed</strong>
+                    <img src={IconBed2} className="property-icon bed" alt="Bed" />
+                    {property.bedrooms} <strong>bed</strong>
                 </span>
                 <span>
-                    <img src={IconBath2} className="property-icon bath" alt="Bath"/>
-                    {property.baths} <strong>bath</strong>
+                    <img src={IconBath2} className="property-icon bath" alt="Bath" />
+                    {property.bathrooms} <strong>bath</strong>
                 </span>
             </p>
 
             <div className="property-page__columns">
                 <div>
-                    <h3>Amenities</h3>
-                    <ul className="property-page__amenities">
-                        {property.amenities?.map((group) => (
-                            <li key={group.externalGroupID}>
-                                <strong>{group.text}</strong>
-                                <ul>
-                                    {group.amenities.map((amenity, index) => (
-                                        <li key={index}>{amenity.text}</li>
-                                    ))}
-                                </ul>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="property-page__contact">
-                    <div className="property-page__contact-wrapper">
-                        {property.agency?.logo?.url && (
-                            <img src={property.agency.logo.url} alt="Agency Logo" />
-                        )}
-                        <h3>Interested? Send your information and we will contact you shortly</h3>
-                        <label>
-                            <span>Name</span>
-                            <input type="text" className="input" />
-                        </label>
-                        <label>
-                            <span>Email</span>
-                            <input type="text" className="input" />
-                        </label>
-                        <label>
-                            <span>Phone</span>
-                            <input type="text" className="input" />
-                        </label>
-                        <button className="button">Send</button>
-                    </div>
+                    <h3>Contact</h3>
+                    <p>Interested? Send your information and we will contact you shortly.</p>
+                    <label>
+                        <span>Name</span>
+                        <input type="text" className="input" />
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="text" className="input" />
+                    </label>
+                    <label>
+                        <span>Phone</span>
+                        <input type="text" className="input" />
+                    </label>
+                    <button className="button">Send</button>
                 </div>
             </div>
 
             {/* Descrição */}
             <h3>Description</h3>
             <h1>{property.title}</h1>
-            <p>{property.description}</p>
+            {property.description && <p>{property.description}</p>}
 
             {/* Propriedades relacionadas */}
             <RelatedProperties />

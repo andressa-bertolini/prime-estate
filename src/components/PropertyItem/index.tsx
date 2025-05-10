@@ -2,9 +2,9 @@ import "./propertyItem.css";
 import { PropertyItemProps } from "./propertyItem.types";
 
 import { NavLink } from "react-router-dom";
-import IconSqft from "../assets/icons/icon-sqft.svg";
-import IconBed from "../assets/icons/icon-bed.svg";
-import IconBath from "../assets/icons/icon-bath.svg";
+import IconSqft from "@assets/icons/icon-sqft.svg";
+import IconBed from "@assets/icons/icon-bed.svg";
+import IconBath from "@assets/icons/icon-bath.svg";
 
 const PropertyItem = ({ property }: PropertyItemProps) => {
     const amenities = Array.isArray(property.amenities) ? property.amenities : [];
@@ -12,8 +12,8 @@ const PropertyItem = ({ property }: PropertyItemProps) => {
     const limitedAmenities = amenities.slice(0, limit);
 
     return (
-        <NavLink to={`/property/${property.externalID}`} className="property-item">
-            <img src={property.image} className="property-cover" alt={property.title}/>
+        <NavLink to={`/property/${property.id}`} className="property-item">
+            <img src={property.featuredImage} className="property-cover" alt={property.title}/>
             <span className="property-badge">
                 {property.purpose === 'rent' ? 'For Rent' : ''}
                 {property.purpose === 'sale' ? 'For Sale' : ''}

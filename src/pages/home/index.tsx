@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { PropertiesService } from "@services/properties/PropertiesService";
-import { IProperty } from "@types/properties.types"
+import { IProperty } from "../properties.types"
 
 /* Components */
 import Search from "@components/Search";
 import SectionHeader from "@components/SectionHeader";
-import Property from "@components/Property";
+import PropertyItem from "@components/PropertyItem";
 import Skeleton from "@components/Skeleton";
 import FullBackgroundCTA from "@layouts/FullBackgroundCTA";
 
@@ -57,7 +57,7 @@ const Home = () => {
                     </>
                 }
                 {!isPendingRent && Array.isArray(propertiesRent) && propertiesRent.map((property: IProperty) => (
-                    <Property property={property} key={property.id} />
+                    <PropertyItem property={property} key={property.id} />
                 ))}
             </div>
             <FullBackgroundCTA
@@ -83,7 +83,7 @@ const Home = () => {
                     </>
                 }
                 {!isPendingSale && Array.isArray(propertiesSale) && propertiesSale.map((property: IProperty) => (
-                    <Property property={property} key={property.id} />
+                    <PropertyItem property={property} key={property.id} />
                 ))}
             </div>
             <FullBackgroundCTA
