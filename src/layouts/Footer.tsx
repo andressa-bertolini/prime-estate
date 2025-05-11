@@ -7,9 +7,9 @@ const Footer = () => {
             <img src={LogoWhite} className="logo" alt="Logo"/>
             <span>Prime Estate 2025</span>
             <nav>
-                <NavLink to="/properties?purpose=for-rent">Rent</NavLink>
-                <NavLink to="/properties?purpose=for-sale">Buy</NavLink>
-                <NavLink to="/properties?purpose=for-rent">Search</NavLink>
+                <NavLink to="/properties?purpose=rent">Rent</NavLink>
+                <NavLink to="/properties?purpose=sale">Buy</NavLink>
+                <NavLink to="/properties?purpose=rent">Search</NavLink>
             </nav>
             <nav>
                 <NavLink to="/agents">About Us</NavLink>

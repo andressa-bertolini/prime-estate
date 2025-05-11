@@ -15,7 +15,7 @@ import CalculatorRoutes from "@pages/calculator/calculatorRoutes";
 const AppRoutes = () => {
   const development = useEnvContext();
   return (
-    <Router basename={(development ? "/" : "/project/prime-estate")}>
+    <Router basename="/project/prime-estate">
       <div className="App">
           <Navigation />
           <main>

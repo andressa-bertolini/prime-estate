@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { PropertiesService } from "@services/properties/PropertiesService";
+import { useQuery } from "@tanstack/react-query";
 
 import RelatedProperties from "@components/RelatedProperties";
 
@@ -12,25 +12,12 @@ import IconBath2 from "@assets/icons/icon-bath.svg";
 
 const Property = () => {
     const { id } = useParams<{ id: string }>();
-    const [property, setProperty] = useState<any>(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
 
-    useEffect(() => {
-        const fetchProperty = async () => {
-            try {
-                const found = await PropertiesService.fetchPropertyById(Number(id));
-                if (!found) throw new Error("Not found");
-                setProperty(found);
-            } catch (error) {
-                setIsError(true);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-    
-        fetchProperty();
-    }, [id]);
+    const { data: property, isLoading, isError } = useQuery({
+        queryKey: ["property", id],
+        queryFn: () => PropertiesService.fetchPropertyById(Number(id)),
+        enabled: !!id,
+    });
 
     const slidesPerView = window.innerWidth < 768 ? 1 : 1.5;
 

@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 export default defineConfig({
+    base: '/project/prime-estate/',
     plugins: [react()],
     resolve: {
         alias: {

@@ -1,6 +1,5 @@
 import ChoiceChips from "../ChoiceChips";
-import IconCaretDown from "@assets/icons/icon-caret-down.svg";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { 
     Autocomplete, 
@@ -10,140 +9,33 @@ import {
 } from '@mui/material';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-
-interface Option {
-    label: string;
-    value: string;
-  }
+import { Option } from "./search.types";
 
 const Search = () => {
-    const [option, setOption] = useState("");
-
-    const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-        setOption(event.target.value as string);
-    };
-
-    const [value, setValue] = useState<number[]>([1000, 5000]);
-
-    const handleChange2 = (event: Event, newValue: number | number[]) => {
-        setValue(newValue as number[]);
-      };
-    
     const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
+    
     const paramQuery = searchParams.get("query") || "";
-    const paramPurpose = searchParams.get("purpose") || "for-rent";
+    const paramPurpose = searchParams.get("purpose") || "rent";
     const paramHomeType = searchParams.get("homeType") || "apartment";
-    const paramPriceLimit = Number(searchParams.get("priceLimit")) || 0;
+    const paramPriceMin = Number(searchParams.get("priceLimit")) || 0;
+    const paramPriceMax = Number(searchParams.get("priceLimit")) || 0;
     const paramBeds = searchParams.get("beds") || 0;
     const paramBaths = searchParams.get("baths") || 0;
     const paramSqft = Number(searchParams.get("sqft")) || 5000;
 
     const [query, setQuery] = useState(paramQuery);
     const [purpose, setPurpose] = useState(paramPurpose);
-    const [rangeMin, setRangeMin] = useState(100);
-    const [rangeMax, setRangeMax] = useState(50000);
-    const [priceRange, setPriceRange] = useState<number>(paramPriceLimit);
     const [homeType, setHomeType] = useState<string>(paramHomeType);
+    const [price, setPrice] = useState<number[]>([1000, 5000]);
+    const [beds, setBeds] = useState(paramBeds);
+    const [baths, setBaths] = useState(paramBaths);
+    const [sqft, setSqft] = useState<number>(paramSqft);
 
     const [openFilter, setOpenFilter] = useState(false);
     const [isSearching, setIsSearching] = useState<boolean>(false);
 
-    const navigate = useNavigate();
-
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleDropdown = () => setIsOpen(!isOpen);
-
-    const [isOpen2, setIsOpen2] = useState(false);
-    const [beds, setBeds] = useState(paramBeds);
-    const toggleDropdown2 = () => setIsOpen2(!isOpen2);
-
-    const [sqft, setSqft] = useState<number>(paramSqft);
-
-    const calculatePercentage = () => 
-        ((priceRange - rangeMin) / (rangeMax - rangeMin)) * 100;
-
-    const percentage = () => ((sqft - 1) / (5000 - 1)) * 100;
-
-    const selectRef = useRef<HTMLDivElement | null>(null);
-    const selectRef2 = useRef<HTMLDivElement | null>(null);
-    const selectRef3 = useRef<HTMLDivElement | null>(null);
-
-    const options: Option[] = [
-        { label: 'Apartment', value: '1' },
-        { label: 'House', value: '2' }
-    ];
-
-    const [selectedValue, setSelectedValue] = useState<Option | null>(null);
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement> | React.MouseEvent<HTMLImageElement>) => {
-        e.preventDefault();
-        setOpenFilter(false);
-        navigate(`/properties?query=${query}&purpose=${purpose}&homeType=${homeType}&priceLimit=${priceRange}&beds=${beds}&baths=${baths}&sqft=${sqft}`);
-    };
-
-    const [selected, setSelected] = useState<string>("");
-    const chips = ["Rent", "Buy"];
-
-    const handlePurposeValue = (data: string) => {
-        setPurpose(data);
-        if (data === "for-sale") {
-            setRangeMin(1000);
-            setRangeMax(5000000);
-            if(!priceRange){setPriceRange(5000000)};
-        } else if (data === "for-rent") {
-            setRangeMin(100);
-            setRangeMax(50000);
-            if(!priceRange){setPriceRange(50000)};
-        }
-    };
-
-    const handleSelect = (type:string) => {
-        setHomeType(type);
-        setIsOpen(false);
-    }
-
-    const handleSelect2 = (number: number) => {
-        const displayValue = number === 5 ? `${number}+` : number;
-        setBeds(displayValue);
-        setIsOpen2(false);
-    }
-
-    const [isOpen3, setIsOpen3] = useState(false);
-    const [baths, setBaths] = useState(paramBaths);
-
-    const handleDropdown3 = (baths: number) => {
-        const displayValue = baths === 5 ? `${baths}+` : baths;
-        setBaths(displayValue);
-        setIsOpen3(false);
-    }
-
-    const handleClickOutside = (event: MouseEvent) => {
-        if(selectRef.current && !selectRef.current.contains(event.target as Node)){
-            setIsOpen(false);
-        }
-        if(selectRef2.current && !selectRef2.current.contains(event.target as Node)){
-            setIsOpen2(false);
-        }
-        if(selectRef3.current && !selectRef3.current.contains(event.target as Node)){
-            setIsOpen3(false);
-        }
-    }
-
-    useEffect(() => {
-        document.addEventListener("mousedown", handleClickOutside);
-
-        return () => {
-            document.addEventListener("mousedown", handleClickOutside);
-        };
-    },[]);
-
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === 'Enter') {
-            handleSubmit(event);
-        }
-    };
-
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newQuery = event.currentTarget.value;
         setQuery(newQuery);
 
@@ -154,14 +46,41 @@ const Search = () => {
         }
     }
 
-    const locations = ["abu dabi","Dubai"];
+    const handlePurposeValue = (data: string) => {
+        setPurpose(data);
+        if (data === "sale") {
+            // setRangeMin(1000);
+            // setRangeMax(5000000);
+            // if(!priceRange){setPriceRange(5000000)};
+        } else if (data === "rent") {
+            // setRangeMin(100);
+            // setRangeMax(50000);
+            // if(!priceRange){setPriceRange(50000)};
+        }
+    };
+
+    const handlePriceChange = (event: Event, newValue: number | number[]) => {
+        setPrice(newValue as number[]);
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement> | React.MouseEvent<HTMLImageElement>) => {
+        e.preventDefault();
+        setOpenFilter(false);
+        navigate(`/properties?query=${query}&purpose=${purpose}&homeType=${homeType}&priceLimit=${price[0]}&beds=${beds}&baths=${baths}&sqft=${sqft}`);
+    };
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            handleSubmit(event);
+        }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="search-options">
                 <div className="search-options__tab" onClick={() => setOpenFilter(!openFilter)}>
                     {openFilter ? "Hide filters": "More filters" }
-                    <img src={IconCaretDown} alt="Toggle filters" className={(openFilter ? "rotate" : "")}/>
+                    open{/* <img src={IconCaretDown} alt="Toggle filters" className={(openFilter ? "rotate" : "")}/> */}
                 </div>
                 <div className={(openFilter ? "open" : "") + "search-fields"}>
                     <div>
@@ -171,10 +90,13 @@ const Search = () => {
                                 freeSolo
                                 options={[]}
                                 className="custom-input"
+                                onInputChange={(event, newInputValue) => {
+                                    setQuery(newInputValue);
+                                }}
                                 renderInput={(params) => 
                                     <TextField 
                                         {...params}
-                                        placeholder="City, neighborhood, street..."
+                                        placeholder="State, city or neighborhood"
                                         InputProps={{
                                             ...params.InputProps,
                                             startAdornment: (
@@ -194,6 +116,9 @@ const Search = () => {
                                 defaultValue="Apartment"
                                 disableClearable
                                 className="custom-input"
+                                onInputChange={(event, newInputValue) => {
+                                    setHomeType(newInputValue);
+                                }}
                                 renderInput={(params) => (
                                     <TextField 
                                     {...params}
@@ -263,14 +188,14 @@ const Search = () => {
                             <div className="search-options__range">
                                 <Slider
                                     className="custom-slider"
-                                    value={value}
-                                    onChange={handleChange2}
+                                    value={price}
+                                    onChange={handlePriceChange}
                                     valueLabelDisplay="auto"
                                     min={0}
                                     max={10000}
                                     step={100}
                                 />
-                                <p>${priceRange.toLocaleString('en-US')}</p>
+                                {/* <p>${priceRange.toLocaleString('en-US')}</p> */}
                             </div>
                         </label>
                         {/* <label>

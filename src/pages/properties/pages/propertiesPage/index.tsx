@@ -9,7 +9,7 @@ import Skeleton from "@components/Skeleton";
 const Properties = () => {
     const [searchParams] = useSearchParams();
     const queryString = searchParams.get("query");
-    const purpose = searchParams.get("purpose") || "for-rent";
+    const purpose = searchParams.get("purpose") || "rent";
     const homeType = searchParams.get("homeType");
     const priceLimit = searchParams.get("priceLimit");
     const beds = searchParams.get("beds");
@@ -31,13 +31,18 @@ const Properties = () => {
         data: properties,
         isError,
         isPending
-    } = useQuery({
+      } = useQuery({
         queryKey: ["properties", purpose, homeType, priceLimit, beds, baths],
-        staleTime: 1000 * 60 * 30,
         queryFn: async () => {
-            const response = await PropertiesService.getProperties(query);
-            return response.hits || [];
-        }
+          return await PropertiesService.fetchProperties({
+            purpose,
+            homeType: homeType || "",
+            priceLimit: priceLimit || "",
+            beds: beds || "",
+            baths: baths || "",
+          });
+        },
+        staleTime: 1000 * 60 * 30,
     });
 
     return (

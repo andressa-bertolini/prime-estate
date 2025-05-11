@@ -26,10 +26,10 @@ const Home = () => {
     };
 
     const { data: propertiesRent, isError: isErrorRent, isLoading: isPendingRent } = 
-        usePropertyQuery("propertiesRent", () => PropertiesService.fetchProperties({ purpose: "rent" }));
+        usePropertyQuery("propertiesRent", () => PropertiesService.fetchProperties({ purpose: "rent", limit: "4" }));
 
     const { data: propertiesSale, isError: isErrorSale, isLoading: isPendingSale } = 
-        usePropertyQuery("propertiesSale", () => PropertiesService.fetchProperties({ purpose: "sale" }));
+        usePropertyQuery("propertiesSale", () => PropertiesService.fetchProperties({ purpose: "sale", limit: "4" }));
 
     return(
         <>  
@@ -45,7 +45,7 @@ const Home = () => {
                 heading="Featured properties"
                 title="Rent a Home"
                 buttonText="Explore Renting"
-                linkUrl="/properties?purpose=for-rent"
+                linkUrl="/properties?purpose=rent"
             />
             <div className="properties-list">
                 {isPendingRent && 
@@ -71,7 +71,7 @@ const Home = () => {
                 heading="Featured properties"
                 title="Buy a Home"
                 buttonText="Explore Buying"
-                linkUrl="/properties?purpose=for-sale"
+                linkUrl="/properties?purpose=sale"
             />
             <div className="properties-list">
                 {isPendingSale && 
