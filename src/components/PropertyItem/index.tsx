@@ -21,6 +21,9 @@ const PropertyItem = ({ property }: PropertyItemProps) => {
             <h3>{property.title}</h3>
             <p className="property-features">
                 <span>
+                    {property.location}
+                </span>
+                <span>
                     <img src={IconSqft} className="property-icon sqft" alt="Square feet"/>
                     {property.area && typeof property.area === "number"
                         ? Math.round(property.area * 10.764)
@@ -28,24 +31,21 @@ const PropertyItem = ({ property }: PropertyItemProps) => {
                 </span>
                 <span>
                     <img src={IconBed} className="property-icon bed" alt="Bed"/>
-                    {property.rooms} <strong>bed</strong>&nbsp;
+                    {property.bedrooms} <strong>bed</strong>&nbsp;
                 </span>
                 <span>
                     <img src={IconBath} className="property-icon bath" alt="Bath"/>
-                    {property.baths} <strong>bath</strong>
+                    {property.bathrooms} <strong>bath</strong>
                 </span>
             </p>
             <ul className="property-amenities">
                 {limitedAmenities.map((amenity, index) => (
                     <li key={index}>{amenity}</li>
                 ))}
-                {limitedAmenities.length < amenities.length && <li>...</li>} {/* Exibe '...' se houver mais de 4 amenities */}
+                {limitedAmenities.length < amenities.length && <li>...</li>}
             </ul>
             <div className="property-footer">
                 <p className="property-price">${property.price.toLocaleString('en-US')}</p>
-                {property.agency && property.agency.logo && (
-                    <img src={property.agency.logo.url} alt="Agency Logo" />
-                )}
             </div>
         </NavLink>
     );

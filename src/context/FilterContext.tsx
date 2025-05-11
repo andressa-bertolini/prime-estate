@@ -5,7 +5,7 @@ interface filterContextType {
     priceLimit: string;
 
     // const queryString = searchParams.get("query");
-    // const purpose = searchParams.get("purpose") || "for-rent";
+    // const purpose = searchParams.get("purpose") || "rent";
     // const homeType = searchParams.get("homeType");
     // const priceLimit = searchParams.get("priceLimit");
     // const beds = searchParams.get("beds");
