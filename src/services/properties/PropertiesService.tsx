@@ -8,7 +8,7 @@ const PropertiesApi = axios.create({
 });
 
 const fetchProperties = async (params: FetchParams): Promise<Property[]> => {
-  const { limit = 10, ...filters } = params || {};
+  const { limit = 4, ...filters } = params || {};
   const query = new URLSearchParams({
     limit: String(limit),
     ...filters

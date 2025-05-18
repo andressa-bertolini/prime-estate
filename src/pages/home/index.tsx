@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { IProperty } from "../properties.types"
-import { useEffect, useState } from "react";
+import { PropertiesService } from "@services/properties/PropertiesService";
 
 /* Components */
 import Search from "@components/Search";
@@ -8,10 +8,6 @@ import SectionHeader from "@components/SectionHeader";
 import PropertyItem from "@components/PropertyItem";
 import Skeleton from "@components/Skeleton";
 import FullBackgroundCTA from "@layouts/FullBackgroundCTA";
-
-/* Services */
-import { PropertiesService } from "@services/properties/PropertiesService";
-import { SearchService } from "@services/search/SearchService";
 
 /* Images */
 import Savings from "@assets/images/savings.jpg";
@@ -21,8 +17,6 @@ import IconHandshake from "@assets/icons/icon-handshake.svg";
 import IconBulb from "@assets/icons/icon-bulb.svg";
 
 const Home = () => {
-    const [places, setPlaces] = useState([]);
-
     const usePropertyQuery = (queryKey: string, queryFn: () => Promise<IProperty[]>) => {
         return useQuery({
             queryKey: [queryKey],
@@ -30,21 +24,6 @@ const Home = () => {
             queryFn,
         });
     };
-
-    useEffect(() => {
-        let isCalled = false;
-
-        const loadPlaces = async () => {
-            if (isCalled) return;
-            isCalled = true;
-
-            const placesData = await SearchService.fetchPlaces();
-            setPlaces(placesData);
-            //console.log(places);
-        };
-
-        loadPlaces();
-    },[])
 
     const { data: propertiesRent, isError: isErrorRent, isLoading: isPendingRent } = 
         usePropertyQuery("propertiesRent", () => PropertiesService.fetchProperties({ purpose: "rent", limit: "4" }));
