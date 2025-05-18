@@ -96,7 +96,7 @@ const Search = () => {
                                 renderInput={(params) => 
                                     <TextField 
                                         {...params}
-                                        placeholder="State, city or neighborhood"
+                                        placeholder="State or city"
                                         InputProps={{
                                             ...params.InputProps,
                                             startAdornment: (
