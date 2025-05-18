@@ -1,15 +1,10 @@
 import axios from "axios";
 import { Place, FetchParams } from "../../types/search.types"
 
-const apiHost = import.meta.env.VITE_GEODB_HOST;
-const apiKey = import.meta.env.VITE_GEODB_KEY;
+const apiHost = import.meta.env.VITE_MOCKAPI_HOST;
 
 const SearchAPI = axios.create({
-  baseURL: `https://${apiHost}`,
-  headers: {
-    'X-RapidAPI-Key': apiKey,
-    'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
-  }
+  baseURL: `https://${apiHost}`
 });
 
 const fetchPlaces = async (params: FetchParams):Promise<Place[]> => {
@@ -19,10 +14,10 @@ const fetchPlaces = async (params: FetchParams):Promise<Place[]> => {
     ...filters
   });
   try{
-    const response = await SearchAPI.get(`/countries/US/regions?${query.toString()}`);
+    const response = await SearchAPI.get(`/places?${query.toString()}`);
     return response.data;
   } catch (error: any) {
-    //console.log(error);
+    console.log(error);
   }
 }
 

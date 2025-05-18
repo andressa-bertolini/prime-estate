@@ -1,5 +1,5 @@
 import ChoiceChips from "../ChoiceChips";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { 
     Autocomplete, 
@@ -10,6 +10,7 @@ import {
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import { Option } from "./search.types";
+import { SearchService } from "@services/search/SearchService";
 
 const Search = () => {
     const [searchParams] = useSearchParams();
@@ -24,6 +25,7 @@ const Search = () => {
     const paramBaths = searchParams.get("baths") || 0;
     const paramSqft = Number(searchParams.get("sqft")) || 5000;
 
+    const [places, setPlaces] = useState([]);
     const [query, setQuery] = useState(paramQuery);
     const [purpose, setPurpose] = useState(paramPurpose);
     const [homeType, setHomeType] = useState<string>(paramHomeType);
@@ -75,6 +77,29 @@ const Search = () => {
         }
     };
 
+    useEffect(() => {
+        let isCalled = false;
+
+        const loadPlaces = async () => {
+            if (isCalled) return;
+            isCalled = true;
+
+            const placesData = await SearchService.fetchPlaces();
+            const states = placesData.map((state) => ({
+                name: state.name,
+                type: "state"
+            }));
+
+            const cities = placesData.flatMap(state =>
+                state.cities ? state.cities.map(city => ({ name: city, type: "city" })) : []
+            );
+
+            setPlaces([...states, ...cities]);
+        };
+
+        loadPlaces();
+    },[])
+
     return (
         <form onSubmit={handleSubmit}>
             <div className="search-options">
@@ -88,11 +113,33 @@ const Search = () => {
                             <span>Where do you want to live?</span>
                             <Autocomplete
                                 freeSolo
-                                options={[]}
+                                options={places}
+                                getOptionLabel={(option) => option.name || ''}
+                                groupBy={(option) => option.type}
                                 className="custom-input"
                                 onInputChange={(event, newInputValue) => {
                                     setQuery(newInputValue);
                                 }}
+                                renderGroup={(params) => (
+                                    <li key={params.key}>
+                                      <div
+                                        style={{
+                                          position: 'sticky',
+                                          top: -8,
+                                          zIndex: 1,
+                                          backgroundColor: '#fff',
+                                          textTransform: 'uppercase',
+                                          fontWeight: 'bold',
+                                          padding: '8px 12px',
+                                          borderBottom: '1px solid #eee',
+                                          margin: 0,
+                                        }}
+                                      >
+                                        {params.group}
+                                      </div>
+                                      <ul style={{ paddingLeft: 0, margin: 0 }}>{params.children}</ul>
+                                    </li>
+                                )}
                                 renderInput={(params) => 
                                     <TextField 
                                         {...params}
@@ -101,7 +148,7 @@ const Search = () => {
                                             ...params.InputProps,
                                             startAdornment: (
                                                 <InputAdornment position="start">
-                                                <LocationOnOutlinedIcon />
+                                                    <LocationOnOutlinedIcon />
                                                 </InputAdornment>
                                             ),
                                         }}
