@@ -1,4 +1,4 @@
-import ChoiceChips from "../ChoiceChips";
+import { useSearch } from "@context/SearchContext";
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { 
@@ -7,35 +7,77 @@ import {
     Slider,
     InputAdornment
 } from '@mui/material';
+import { SearchService } from "@services/search/SearchService";
+import ChoiceChips from "../ChoiceChips";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import { Option } from "./search.types";
-import { SearchService } from "@services/search/SearchService";
+import { searchDefaultValues } from "@context/SearchContext";
 
 const Search = () => {
-    const [searchParams] = useSearchParams();
+    const [urlSearchParams] = useSearchParams();
     const navigate = useNavigate();
-    
-    const paramQuery = searchParams.get("query") || "";
-    const paramPurpose = searchParams.get("purpose") || "rent";
-    const paramHomeType = searchParams.get("homeType") || "apartment";
-    const paramPriceMin = Number(searchParams.get("priceLimit")) || 0;
-    const paramPriceMax = Number(searchParams.get("priceLimit")) || 0;
-    const paramBeds = searchParams.get("beds") || 0;
-    const paramBaths = searchParams.get("baths") || 0;
-    const paramSqft = Number(searchParams.get("sqft")) || 5000;
 
+    const { searchParams: {
+        query, purpose, homeType, price, beds, baths, sqft
+    }, setSearchParams } = useSearch();
+
+    const [minPrice, setMinPrice] = useState(purpose === "sale" ? 50000 : 1000);
+    const [maxPrice, setMaxPrice] = useState(purpose === "sale" ? 1000000 : 10000);
     const [places, setPlaces] = useState([]);
-    const [query, setQuery] = useState(paramQuery);
-    const [purpose, setPurpose] = useState(paramPurpose);
-    const [homeType, setHomeType] = useState<string>(paramHomeType);
-    const [price, setPrice] = useState<number[]>([1000, 5000]);
-    const [beds, setBeds] = useState(paramBeds);
-    const [baths, setBaths] = useState(paramBaths);
-    const [sqft, setSqft] = useState<number>(paramSqft);
-
     const [openFilter, setOpenFilter] = useState(false);
     const [isSearching, setIsSearching] = useState<boolean>(false);
+    const options = ["Apartment", "House"].map(opt => opt.toLowerCase());
+    const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
+    const setQuery = (newQuery: string) => {
+        setSearchParams(prev => ({
+            ...prev,
+            query: newQuery
+        }));
+    };
+
+    const setPurpose = (newPurpose: string) => {
+        setSearchParams(prev => ({
+            ...prev,
+            purpose: newPurpose
+        }));
+    };
+
+    const setHomeType = (newHomeType: string) => {
+        setSearchParams(prev => ({
+            ...prev,
+            homeType: newHomeType
+        }));
+    };
+
+    const setPrice = (newPrice: [number, number]) => {
+        setSearchParams(prev => ({
+            ...prev,
+            price: newPrice
+        }));
+    };
+
+    const setBeds = (newBeds: number) => {
+        setSearchParams(prev => ({
+            ...prev,
+            beds: newBeds
+        }));
+    };
+
+    const setBaths = (newBaths: number) => {
+        setSearchParams(prev => ({
+            ...prev,
+            baths: newBaths
+        }));
+    };
+
+    const setSqft = (newSqft: number) => {
+        setSearchParams(prev => ({
+            ...prev,
+            sqft: newSqft
+        }));
+    };
 
     const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newQuery = event.currentTarget.value;
@@ -51,24 +93,34 @@ const Search = () => {
     const handlePurposeValue = (data: string) => {
         setPurpose(data);
         if (data === "sale") {
-            // setRangeMin(1000);
-            // setRangeMax(5000000);
-            // if(!priceRange){setPriceRange(5000000)};
-        } else if (data === "rent") {
-            // setRangeMin(100);
-            // setRangeMax(50000);
-            // if(!priceRange){setPriceRange(50000)};
+          setMinPrice(50000);
+          setMaxPrice(1000000);
+          setPrice([50000, 1000000]);
+        } else {
+          setMinPrice(1000);
+          setMaxPrice(10000);
+          setPrice([1000, 10000]);
         }
     };
 
     const handlePriceChange = (event: Event, newValue: number | number[]) => {
-        setPrice(newValue as number[]);
+        setPrice(newValue as [number, number]);
     };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement> | React.MouseEvent<HTMLImageElement>) => {
+        const params = new URLSearchParams();
+        if (query) params.append('query', query);
+        if (purpose) params.append('purpose', purpose);
+        if (homeType) params.append('homeType', homeType);
+        if (price[0] !== minPrice) params.append('priceMin', String(price[0]));
+        if (price[1] !== maxPrice) params.append('priceMax', String(price[1]));
+        if (beds) params.append('beds', String(beds));
+        if (baths) params.append('baths', String(baths));
+        if (sqft) params.append('sqft', String(sqft));
+
         e.preventDefault();
         setOpenFilter(false);
-        navigate(`/properties?query=${query}&purpose=${purpose}&homeType=${homeType}&priceLimit=${price[0]}&beds=${beds}&baths=${baths}&sqft=${sqft}`);
+        navigate(`/properties?${params.toString()}`);
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -100,6 +152,39 @@ const Search = () => {
         loadPlaces();
     },[])
 
+    useEffect(() => {
+        const hasQueryParams = Array.from(urlSearchParams.keys()).length > 0;
+        
+        if (hasQueryParams) {
+            const queryParam = urlSearchParams.get("query") || '';
+            const purposeParam = urlSearchParams.get("purpose") || searchDefaultValues.purpose;
+            const homeTypeParam = urlSearchParams.get("homeType") || searchDefaultValues.homeType;
+            
+            const isPurposeSale = purposeParam === 'sale';
+            const defaultMinPrice = isPurposeSale ? 50000 : 1000;
+            const defaultMaxPrice = isPurposeSale ? 1000000 : 10000;
+            
+            const priceMin = Number(urlSearchParams.get("priceMin")) || defaultMinPrice;
+            const priceMax = Number(urlSearchParams.get("priceMax")) || defaultMaxPrice;
+            const bedsParam = Number(urlSearchParams.get("beds")) || "";
+            const bathsParam = Number(urlSearchParams.get("baths")) || "";
+            const sqftParam = Number(urlSearchParams.get("sqft")) || "";
+            
+            setMinPrice(isPurposeSale ? 50000 : 1000);
+            setMaxPrice(isPurposeSale ? 1000000 : 10000);
+            
+            setSearchParams({
+                query: queryParam,
+                purpose: purposeParam,
+                homeType: homeTypeParam,
+                price: [priceMin, priceMax],
+                beds: bedsParam,
+                baths: bathsParam,
+                sqft: sqftParam,
+            });
+        }
+    }, [urlSearchParams]);
+
     return (
         <form onSubmit={handleSubmit}>
             <div className="search-options">
@@ -113,6 +198,7 @@ const Search = () => {
                             <span>Where do you want to live?</span>
                             <Autocomplete
                                 freeSolo
+                                value={places.find(p => p.name === query) || { name: query, type: '' }}
                                 options={places}
                                 getOptionLabel={(option) => option.name || ''}
                                 groupBy={(option) => option.type}
@@ -159,71 +245,34 @@ const Search = () => {
                         <label>
                             <span>Property Type</span>
                             <Autocomplete
-                                options={["Apartment", "House"]}
-                                defaultValue="Apartment"
+                                options={options}
+                                value={homeType}
                                 disableClearable
                                 className="custom-input"
-                                onInputChange={(event, newInputValue) => {
-                                    setHomeType(newInputValue);
+                                onChange={(event, newValue) => {
+                                    setHomeType(newValue);
                                 }}
+                                getOptionLabel={(option) => capitalize(option)}
                                 renderInput={(params) => (
-                                    <TextField 
-                                    {...params}
-                                    inputProps={{
-                                        ...params.inputProps,
-                                        readOnly: true, 
-                                    }}
-                                    InputProps={{
-                                        ...params.InputProps,
-                                        startAdornment: (
-                                        <InputAdornment position="start">
-                                            <HomeOutlinedIcon />
-                                        </InputAdornment>
-                                        ),
-                                    }}
+                                    <TextField
+                                        {...params}
+                                        inputProps={{
+                                            ...params.inputProps,
+                                            readOnly: true,
+                                            value: capitalize(homeType),
+                                        }}
+                                        InputProps={{
+                                            ...params.InputProps,
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <HomeOutlinedIcon />
+                                                </InputAdornment>
+                                            ),
+                                        }}
                                     />
                                 )}
                             />
                         </label>
-                        {/* <label>
-                            <span>Beds</span>
-                            <div className="custom-select" ref={selectRef2}>
-                                <div className="custom-select__trigger" onClick={toggleDropdown2}>
-                                    <span>{beds}</span>
-                                    <div className="arrow"></div>
-                                </div>
-                                {isOpen2 && (
-                                    <div className="custom-options">
-                                        <div className="custom-option" onClick={() => handleSelect2(0)}>0</div>
-                                        <div className="custom-option" onClick={() => handleSelect2(1)}>1</div>
-                                        <div className="custom-option" onClick={() => handleSelect2(2)}>2</div>
-                                        <div className="custom-option" onClick={() => handleSelect2(3)}>3</div>
-                                        <div className="custom-option" onClick={() => handleSelect2(4)}>4</div>
-                                        <div className="custom-option" onClick={() => handleSelect2(5)}>5+</div>
-                                    </div>
-                                )}
-                            </div>
-
-                        </label> */}
-                        {/* <label>
-                            <span>Baths</span>
-                            <div className="custom-select" ref={selectRef3}>
-                                <div className="custom-select__trigger" onClick={() => {setIsOpen3(!isOpen3)}}>
-                                    <span>{baths}</span>
-                                    <div className="arrow"></div>
-                                </div>
-                                {isOpen3 && (
-                                    <div className="custom-options">
-                                        <div className="custom-option" onClick={() => handleDropdown3(0)}>0</div>
-                                        <div className="custom-option" onClick={() => handleDropdown3(1)}>1</div>
-                                        <div className="custom-option" onClick={() => handleDropdown3(2)}>2</div>
-                                        <div className="custom-option" onClick={() => handleDropdown3(3)}>3</div>
-                                        <div className="custom-option" onClick={() => handleDropdown3(4)}>4</div>
-                                        <div className="custom-option" onClick={() => handleDropdown3(5 )}>5+</div>
-                                    </div>
-                                )}
-                            </div>
-                        </label> */}
                     </div>
                     <div>
                         <label>
@@ -237,31 +286,19 @@ const Search = () => {
                                     className="custom-slider"
                                     value={price}
                                     onChange={handlePriceChange}
-                                    valueLabelDisplay="auto"
-                                    min={0}
-                                    max={10000}
+                                    valueLabelDisplay="off"
+                                    min={minPrice}
+                                    max={maxPrice}
                                     step={100}
                                 />
-                                {/* <p>${priceRange.toLocaleString('en-US')}</p> */}
+                                <p>
+                                    from&nbsp;
+                                    <strong>${price && price[0] ? price[0].toLocaleString('en-US') : minPrice.toLocaleString('en-US')}</strong>&nbsp;
+                                    to&nbsp;
+                                    <strong>${price && price[1] ? price[1].toLocaleString('en-US') : maxPrice.toLocaleString('en-US')}</strong>
+                                </p>
                             </div>
                         </label>
-                        {/* <label>
-                            <span>Square feet</span>
-                            <div className="search-options__range">
-                                <input 
-                                    type="range" 
-                                    min={1}
-                                    max={5000}
-                                    step={1}
-                                    value={sqft}
-                                    onChange={(e) => {setSqft(Number(e.target.value))}}
-                                    style={{
-                                        background: `linear-gradient(to right, #1296a9 ${percentage()}%, #8d8c8c ${percentage()}%)`,
-                                    }}
-                                />
-                                <p>{sqft}</p>
-                            </div>
-                        </label> */}
                     </div>
                 </div>
             </div>

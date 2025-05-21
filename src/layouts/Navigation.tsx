@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "@assets/images/logo-text.png";
-import IconMagnifyingGlass from "@assets/icons/icon-magnifying-glass.svg";
 import IconBurgerMenu from "@assets/icons/icon-burger-menu.svg";
+import SearchIcon from '@mui/icons-material/Search';
 
 const Navigation = () => {
     const [navOpen, setNavOpen] = useState(false);
@@ -13,9 +13,9 @@ const Navigation = () => {
                 <div className="nav-left" onClick={() => setNavOpen(false)}>
                     <NavLink to="/properties?purpose=rent"><strong>Rent</strong></NavLink>
                     <NavLink to="/properties?purpose=sale"><strong>Buy</strong></NavLink> 
-                    <NavLink to="/properties?purpose=sale">
+                    <NavLink to="/properties">
                         Search
-                        <img src={IconMagnifyingGlass} className="search-icon" alt="Search"/>
+                        <SearchIcon className="search-icon"/>
                     </NavLink>
                 </div>              
                 <div className="nav-right" onClick={() => setNavOpen(false)}>

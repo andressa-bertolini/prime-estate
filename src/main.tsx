@@ -8,16 +8,16 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import { EnvProvider } from './context/EnvContext';
+import { SearchProvider } from './context/SearchContext';
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <EnvProvider>
+    <SearchProvider>
      <QueryClientProvider client={queryClient}>
         <App />
       </QueryClientProvider>
-      </EnvProvider>
+      </SearchProvider>
   </React.StrictMode>
 );
