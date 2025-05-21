@@ -8,14 +8,23 @@ const PropertiesApi = axios.create({
 });
 
 const fetchProperties = async (params: FetchParams): Promise<Property[]> => {
-  const { limit = 4, ...filters } = params || {};
+  const { ...filters } = params || {};
   const query = new URLSearchParams({
-    limit: String(limit),
     ...filters
   });
   try {
     const response = await PropertiesApi.get(`/properties?${query.toString()}`);
-    return response.data;
+    let properties = response.data;
+
+    if (params.limit) {
+      const limitNum = Number(params.limit);
+      if (!isNaN(limitNum)) {
+        properties = properties.slice(0, limitNum);
+      }
+    }
+
+    return properties;
+
   } catch (error: any) {
     console.error(error);
     return [];

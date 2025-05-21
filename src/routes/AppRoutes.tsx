@@ -1,4 +1,3 @@
-import { useEnvContext } from "@hooks/useEnvContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 /* layouts */
@@ -13,7 +12,6 @@ import AgentsRoutes from "@pages/agents/agentsRoutes";
 import CalculatorRoutes from "@pages/calculator/calculatorRoutes";
 
 const AppRoutes = () => {
-  const development = useEnvContext();
   return (
     <Router basename="/project/prime-estate">
       <div className="App">
