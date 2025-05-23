@@ -1,32 +1,37 @@
-import { useState, useEffect } from "react";
-
 interface ChoiceChipsProps {
-    purposeValue: (value: string) => void;
-}
-
-const ChoiceChips: React.FC<ChoiceChipsProps> = ({purposeValue}) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [purpose, setPurpose] = useState('rent');
-
-    const handleChipClick = (e: React.MouseEvent<HTMLButtonElement>, index: number, purpose: string) => {
-        e.preventDefault();
-        setActiveIndex(index);
-        setPurpose(purpose);
-        purposeValue(purpose);
-    }
-
-    useEffect(() => {
-        purposeValue(purpose);
-    },[]);
-
-    return(
-        <div className="choice-chips">
-            <div className="choice-chip__bg" style={{left: `${activeIndex * 50}%`}}></div>
-            <button className={`choice-chip ${activeIndex === 0 ? 'active' : ''}`} onClick={(e) => handleChipClick(e, 0, 'rent')}>Rent</button>
-            <button className={`choice-chip ${activeIndex === 1 ? 'active' : ''}`} onClick={(e) => handleChipClick(e, 1, 'sale')}>Buy</button>
-            <input className="choice-chip__value" type="hidden" value={purpose} />
-        </div>
+    value: string;
+    onChange: (value: string) => void;
+  }
+  
+  const ChoiceChips: React.FC<ChoiceChipsProps> = ({ value, onChange }) => {
+    const handleChipClick = (e: React.MouseEvent<HTMLButtonElement>, index: number, newPurpose: string) => {
+      e.preventDefault();
+      if (newPurpose !== value) {
+        onChange(newPurpose);
+      }
+    };
+  
+    const activeIndex = value === "rent" ? 0 : 1;
+  
+    return (
+      <div className="choice-chips">
+        <div className="choice-chip__bg" style={{ left: `${activeIndex * 50}%` }}></div>
+        <button
+          className={`choice-chip ${activeIndex === 0 ? "active" : ""}`}
+          onClick={(e) => handleChipClick(e, 0, "rent")}
+        >
+          Rent
+        </button>
+        <button
+          className={`choice-chip ${activeIndex === 1 ? "active" : ""}`}
+          onClick={(e) => handleChipClick(e, 1, "sale")}
+        >
+          Buy
+        </button>
+        <input className="choice-chip__value" type="hidden" value={value} />
+      </div>
     );
-}
-
-export default ChoiceChips;
+  };
+  
+  export default ChoiceChips;
+  

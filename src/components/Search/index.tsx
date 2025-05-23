@@ -19,16 +19,24 @@ const Search = () => {
     const navigate = useNavigate();
 
     const { searchParams: {
-        query, purpose, homeType, price, beds, baths, sqft
+        query, purpose, type, price, beds, baths, sqft
     }, setSearchParams } = useSearch();
 
-    const [minPrice, setMinPrice] = useState(purpose === "sale" ? 50000 : 1000);
-    const [maxPrice, setMaxPrice] = useState(purpose === "sale" ? 1000000 : 10000);
     const [places, setPlaces] = useState([]);
     const [openFilter, setOpenFilter] = useState(false);
     const [isSearching, setIsSearching] = useState<boolean>(false);
+    const [isInitialized, setIsInitialized] = useState(false);
+    
     const options = ["Apartment", "House"].map(opt => opt.toLowerCase());
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
+    const getPriceRange = (currentPurpose) => {
+        return currentPurpose === "sale" 
+            ? { min: 50000, max: 1000000 }
+            : { min: 500, max: 5000 };
+    };
+
+    const { min: minPrice, max: maxPrice } = getPriceRange(purpose);
 
     const setQuery = (newQuery: string) => {
         setSearchParams(prev => ({
@@ -38,16 +46,18 @@ const Search = () => {
     };
 
     const setPurpose = (newPurpose: string) => {
+        const newRange = getPriceRange(newPurpose);
         setSearchParams(prev => ({
             ...prev,
-            purpose: newPurpose
+            purpose: newPurpose,
+            price: [newRange.min, newRange.max]
         }));
     };
 
-    const setHomeType = (newHomeType: string) => {
+    const setType = (newType: string) => {
         setSearchParams(prev => ({
             ...prev,
-            homeType: newHomeType
+            type: newType
         }));
     };
 
@@ -92,15 +102,6 @@ const Search = () => {
 
     const handlePurposeValue = (data: string) => {
         setPurpose(data);
-        if (data === "sale") {
-          setMinPrice(50000);
-          setMaxPrice(1000000);
-          setPrice([50000, 1000000]);
-        } else {
-          setMinPrice(1000);
-          setMaxPrice(10000);
-          setPrice([1000, 10000]);
-        }
     };
 
     const handlePriceChange = (event: Event, newValue: number | number[]) => {
@@ -111,7 +112,7 @@ const Search = () => {
         const params = new URLSearchParams();
         if (query) params.append('query', query);
         if (purpose) params.append('purpose', purpose);
-        if (homeType) params.append('homeType', homeType);
+        if (type) params.append('type', type);
         if (price[0] !== minPrice) params.append('priceMin', String(price[0]));
         if (price[1] !== maxPrice) params.append('priceMax', String(price[1]));
         if (beds) params.append('beds', String(beds));
@@ -137,20 +138,20 @@ const Search = () => {
             isCalled = true;
 
             const placesData = await SearchService.fetchPlaces();
-            const states = placesData.map((state) => ({
-                name: state.name,
+            const states = placesData.map((place) => ({
+                name: place.state,
                 type: "state"
             }));
 
-            const cities = placesData.flatMap(state =>
-                state.cities ? state.cities.map(city => ({ name: city, type: "city" })) : []
+            const cities = placesData.flatMap(place =>
+                place.cities ? place.cities.map(city => ({ name: city, type: "city" })) : []
             );
 
             setPlaces([...states, ...cities]);
         };
 
         loadPlaces();
-    },[])
+    }, []);
 
     useEffect(() => {
         const hasQueryParams = Array.from(urlSearchParams.keys()).length > 0;
@@ -158,11 +159,11 @@ const Search = () => {
         if (hasQueryParams) {
             const queryParam = urlSearchParams.get("query") || '';
             const purposeParam = urlSearchParams.get("purpose") || searchDefaultValues.purpose;
-            const homeTypeParam = urlSearchParams.get("homeType") || searchDefaultValues.homeType;
+            const typeParam = urlSearchParams.get("type") || searchDefaultValues.type;
             
             const isPurposeSale = purposeParam === 'sale';
-            const defaultMinPrice = isPurposeSale ? 50000 : 1000;
-            const defaultMaxPrice = isPurposeSale ? 1000000 : 10000;
+            const defaultMinPrice = isPurposeSale ? 50000 : 500;
+            const defaultMaxPrice = isPurposeSale ? 1000000 : 5000;
             
             const priceMin = Number(urlSearchParams.get("priceMin")) || defaultMinPrice;
             const priceMax = Number(urlSearchParams.get("priceMax")) || defaultMaxPrice;
@@ -170,29 +171,49 @@ const Search = () => {
             const bathsParam = Number(urlSearchParams.get("baths")) || "";
             const sqftParam = Number(urlSearchParams.get("sqft")) || "";
             
-            setMinPrice(isPurposeSale ? 50000 : 1000);
-            setMaxPrice(isPurposeSale ? 1000000 : 10000);
-            
             setSearchParams({
                 query: queryParam,
                 purpose: purposeParam,
-                homeType: homeTypeParam,
+                type: typeParam,
                 price: [priceMin, priceMax],
                 beds: bedsParam,
                 baths: bathsParam,
                 sqft: sqftParam,
             });
+        } else {
+            const defaultPurpose = searchDefaultValues.purpose;
+            const defaultRange = getPriceRange(defaultPurpose);
+            
+            setSearchParams({
+                query: '',
+                purpose: defaultPurpose,
+                type: searchDefaultValues.type,
+                price: [defaultRange.min, defaultRange.max],
+                beds: 0,
+                baths: 0,
+                sqft: 0,
+            });
         }
-    }, [urlSearchParams]);
+        
+        setIsInitialized(true);
+    }, []);
+
+    if (!isInitialized) {
+        return <div>Loading...</div>;
+    }
+
+    const safePrice = price && Array.isArray(price) && price.length === 2 
+        ? price 
+        : [minPrice, maxPrice];
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="search-options">
                 <div className="search-options__tab" onClick={() => setOpenFilter(!openFilter)}>
                     {openFilter ? "Hide filters": "More filters" }
-                    open{/* <img src={IconCaretDown} alt="Toggle filters" className={(openFilter ? "rotate" : "")}/> */}
+                    {/* <img src={IconCaretDown} alt="Toggle filters" className={(openFilter ? "rotate" : "")}/> */}
                 </div>
-                <div className={(openFilter ? "open" : "") + "search-fields"}>
+                <div className={(openFilter ? "open" : "") + " search-fields"}>
                     <div>
                         <label>
                             <span>Where do you want to live?</span>
@@ -246,11 +267,11 @@ const Search = () => {
                             <span>Property Type</span>
                             <Autocomplete
                                 options={options}
-                                value={homeType}
+                                value={type}
                                 disableClearable
                                 className="custom-input"
                                 onChange={(event, newValue) => {
-                                    setHomeType(newValue);
+                                    setType(newValue);
                                 }}
                                 getOptionLabel={(option) => capitalize(option)}
                                 renderInput={(params) => (
@@ -259,7 +280,7 @@ const Search = () => {
                                         inputProps={{
                                             ...params.inputProps,
                                             readOnly: true,
-                                            value: capitalize(homeType),
+                                            value: capitalize(type),
                                         }}
                                         InputProps={{
                                             ...params.InputProps,
@@ -277,25 +298,34 @@ const Search = () => {
                     <div>
                         <label>
                             <span>Transaction Type</span>
-                            <ChoiceChips purposeValue={handlePurposeValue} />
+                            <ChoiceChips value={purpose} onChange={handlePurposeValue} />
                         </label>
                         <label>
                             <span>Price limit</span>
                             <div className="search-options__range">
                                 <Slider
                                     className="custom-slider"
-                                    value={price}
+                                    value={safePrice}
                                     onChange={handlePriceChange}
                                     valueLabelDisplay="off"
                                     min={minPrice}
                                     max={maxPrice}
                                     step={100}
+                                    sx={{
+                                        '& .MuiSlider-track': {
+                                          border: 'none',
+                                          boxShadow: 'none',
+                                        },
+                                        '& .MuiSlider-thumb': {
+                                          boxShadow: 'none',
+                                        }
+                                    }}
                                 />
                                 <p>
                                     from&nbsp;
-                                    <strong>${price && price[0] ? price[0].toLocaleString('en-US') : minPrice.toLocaleString('en-US')}</strong>&nbsp;
+                                    <strong>${safePrice[0] ? safePrice[0].toLocaleString('en-US') : minPrice.toLocaleString('en-US')}</strong>&nbsp;
                                     to&nbsp;
-                                    <strong>${price && price[1] ? price[1].toLocaleString('en-US') : maxPrice.toLocaleString('en-US')}</strong>
+                                    <strong>${safePrice[1] ? safePrice[1].toLocaleString('en-US') : maxPrice.toLocaleString('en-US')}</strong>
                                 </p>
                             </div>
                         </label>

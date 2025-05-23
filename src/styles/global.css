@@ -24,6 +24,8 @@ html, body {
     align-items: center;
     justify-content: space-between;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,40%);
+    position: relative;
+    z-index: 1;
   }
   
   .nav .logo {
@@ -173,6 +175,11 @@ html, body {
   .properties-page__list {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .properties-page, 
+  .properties-page .properties-page__grid{
+    min-height: calc(100vh - 148px);
   }
   
   .property-page {
@@ -679,8 +686,10 @@ html, body {
     height: 400px;
     object-fit: cover;
   }
+
   .search-properties {
-    padding: 0 10px 0 0;
+    padding: 0 25px 0 25px;
+    background-color: #f0f0f0;
   }
   
   .search-properties .choice-chips {
@@ -887,4 +896,14 @@ html, body {
   .home-about__topics p {
     margin-top: 10px;
     padding: 0 20px;
+  }
+
+  .not-found {
+    padding: 0 25px;
+    font-weight: bold;
+  }
+
+  .not-found img {
+    margin-top: 10px;
+    width: 200px;
   }
