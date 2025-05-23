@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 interface SearchParams {
   query: string;
   purpose: string;
-  homeType: string;
+  type: string;
   price: [number, number];
   beds: number;
   baths: number;
@@ -17,9 +17,9 @@ interface SearchContextType {
 
 const defaultValues: SearchParams = {
   query: '',
-  purpose: 'sale',
-  homeType: 'apartment',
-  price: [1000, 50000],
+  purpose: 'rent',
+  type: 'apartment',
+  price: [500, 5000],
   beds: 0,
   baths: 0,
   sqft: 0,

@@ -21,7 +21,7 @@ const PropertyItem = ({ property }: PropertyItemProps) => {
             <h3>{property.title}</h3>
             <p className="property-features">
                 <span>
-                    {property.location}
+                    {property.city}
                 </span>
                 <span>
                     <img src={IconSqft} className="property-icon sqft" alt="Square feet"/>
