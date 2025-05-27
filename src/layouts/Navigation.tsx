@@ -19,8 +19,8 @@ const Navigation = () => {
                     </NavLink>
                 </div>              
                 <div className="nav-right" onClick={() => setNavOpen(false)}>
-                    <NavLink to="/agents">About Us</NavLink>
-                    <NavLink to="/agents">Realtors</NavLink>
+                    <NavLink to="/about-us">About Us</NavLink>
+                    <NavLink to="/realtors">Realtors</NavLink>
                     <NavLink to="/calculator" style={{paddingRight: 0}}>Calculator</NavLink>
                 </div>
             </div>

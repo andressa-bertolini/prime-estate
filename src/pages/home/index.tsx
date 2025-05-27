@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { IProperty } from "../properties.types"
 import { PropertiesService } from "@services/properties/PropertiesService";
+import { NavLink } from "react-router-dom";
 
 /* Components */
 import Search from "@components/Search";
@@ -37,7 +38,7 @@ const Home = () => {
                 <div className="search">
                     <div className="home-search__wrapper">
                         <h1>Find your dream home</h1>
-                        <Search />
+                        <Search fullfilters={false}/>
                     </div>
                 </div>
             </div>
@@ -49,12 +50,7 @@ const Home = () => {
             />
             <div className="properties-list">
                 {isPendingRent && 
-                    <>
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                    </>
+                    [...Array(4)].map((_, i) => <Skeleton key={i} grid={4} />)
                 }
                 {!isPendingRent && Array.isArray(propertiesRent) && propertiesRent.map((property: IProperty) => (
                     <PropertyItem property={property} key={property.id} />
@@ -75,12 +71,7 @@ const Home = () => {
             />
             <div className="properties-list">
                 {isPendingSale && 
-                    <>
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                    </>
+                    [...Array(4)].map((_, i) => <Skeleton key={i} grid={4} />)
                 }
                 {!isPendingSale && Array.isArray(propertiesSale) && propertiesSale.map((property: IProperty) => (
                     <PropertyItem property={property} key={property.id} />
@@ -113,7 +104,7 @@ const Home = () => {
                         <p>With cutting-edge technology and market insights, we make property searching and transactions smooth, efficient, and stress-free.</p>
                     </div>
                 </div>
-                {/* About Us */}
+                <NavLink to="/about-us">Learn More</NavLink>
             </div>
         </>
     );

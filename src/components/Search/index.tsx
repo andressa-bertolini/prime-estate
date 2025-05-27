@@ -13,13 +13,19 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import { Option } from "./search.types";
 import { searchDefaultValues } from "@context/SearchContext";
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 
-const Search = () => {
+type SearchProps = {
+    fullfilters: boolean;
+};
+
+const Search = ({ fullfilters }: SearchProps) => {
     const [urlSearchParams] = useSearchParams();
     const navigate = useNavigate();
 
     const { searchParams: {
-        query, purpose, type, price, beds, baths, sqft
+        query, purpose, type, price, bedrooms, bathrooms
     }, setSearchParams } = useSearch();
 
     const [places, setPlaces] = useState([]);
@@ -69,23 +75,18 @@ const Search = () => {
     };
 
     const setBeds = (newBeds: number) => {
+        console.log('setBeds called with:', newBeds);
         setSearchParams(prev => ({
             ...prev,
-            beds: newBeds
+            bedrooms: newBeds
         }));
     };
 
     const setBaths = (newBaths: number) => {
+        console.log('setBaths called with:', newBaths);
         setSearchParams(prev => ({
             ...prev,
-            baths: newBaths
-        }));
-    };
-
-    const setSqft = (newSqft: number) => {
-        setSearchParams(prev => ({
-            ...prev,
-            sqft: newSqft
+            bathrooms: newBaths
         }));
     };
 
@@ -115,9 +116,8 @@ const Search = () => {
         if (type) params.append('type', type);
         if (price[0] !== minPrice) params.append('priceMin', String(price[0]));
         if (price[1] !== maxPrice) params.append('priceMax', String(price[1]));
-        if (beds) params.append('beds', String(beds));
-        if (baths) params.append('baths', String(baths));
-        if (sqft) params.append('sqft', String(sqft));
+        if (bedrooms) params.append('bedrooms', String(bedrooms));
+        if (bathrooms) params.append('bathrooms', String(bathrooms));
 
         e.preventDefault();
         setOpenFilter(false);
@@ -127,6 +127,23 @@ const Search = () => {
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             handleSubmit(event);
+        }
+    };
+
+    const handleChipClick = (type: 'bedrooms' | 'bathrooms', value: number, event: React.MouseEvent) => {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        console.log(`Clicked ${type} ${value}, current value:`, type === 'bedrooms' ? bedrooms : bathrooms);
+        
+        if (type === 'bedrooms') {
+            const newValue = bedrooms === value ? 0 : value;
+            console.log('Setting bedrooms to:', newValue);
+            setBeds(newValue);
+        } else {
+            const newValue = bathrooms === value ? 0 : value;
+            console.log('Setting bathrooms to:', newValue);
+            setBaths(newValue);
         }
     };
 
@@ -167,18 +184,16 @@ const Search = () => {
             
             const priceMin = Number(urlSearchParams.get("priceMin")) || defaultMinPrice;
             const priceMax = Number(urlSearchParams.get("priceMax")) || defaultMaxPrice;
-            const bedsParam = Number(urlSearchParams.get("beds")) || "";
-            const bathsParam = Number(urlSearchParams.get("baths")) || "";
-            const sqftParam = Number(urlSearchParams.get("sqft")) || "";
+            const bedsParam = Number(urlSearchParams.get("bedrooms")) || 0;
+            const bathsParam = Number(urlSearchParams.get("bathrooms")) || 0;
             
             setSearchParams({
                 query: queryParam,
                 purpose: purposeParam,
                 type: typeParam,
                 price: [priceMin, priceMax],
-                beds: bedsParam,
-                baths: bathsParam,
-                sqft: sqftParam,
+                bedrooms: bedsParam,
+                bathrooms: bathsParam,
             });
         } else {
             const defaultPurpose = searchDefaultValues.purpose;
@@ -189,9 +204,8 @@ const Search = () => {
                 purpose: defaultPurpose,
                 type: searchDefaultValues.type,
                 price: [defaultRange.min, defaultRange.max],
-                beds: 0,
-                baths: 0,
-                sqft: 0,
+                bedrooms: 0,
+                bathrooms: 0,
             });
         }
         
@@ -206,13 +220,18 @@ const Search = () => {
         ? price 
         : [minPrice, maxPrice];
 
+    const safeBeds = typeof bedrooms === 'number' ? bedrooms : Number(bedrooms) || 0;
+    const safeBaths = typeof bathrooms === 'number' ? bathrooms : Number(bathrooms) || 0;
+
     return (
         <form onSubmit={handleSubmit}>
             <div className="search-options">
-                <div className="search-options__tab" onClick={() => setOpenFilter(!openFilter)}>
+                {/* <div className="search-options__tab" onClick={() => setOpenFilter(!openFilter)}>
                     {openFilter ? "Hide filters": "More filters" }
-                    {/* <img src={IconCaretDown} alt="Toggle filters" className={(openFilter ? "rotate" : "")}/> */}
-                </div>
+                    <span className="search-options-icon">
+                        {(openFilter ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />)}
+                    </span>
+                </div> */}
                 <div className={(openFilter ? "open" : "") + " search-fields"}>
                     <div>
                         <label>
@@ -330,6 +349,57 @@ const Search = () => {
                             </div>
                         </label>
                     </div>
+                    {fullfilters ? (
+                        <div>
+                            <label>
+                                <span>Bedrooms</span>
+                                <Stack direction="row" spacing={1}>
+                                    {[1, 2, 3, 4].map((num) => (
+                                        <Chip 
+                                            key={num}
+                                            label={num === 4 ? "4+" : num.toString()}
+                                            clickable
+                                            color={safeBeds === num ? "primary" : "default"}
+                                            variant={safeBeds === num ? "filled" : ""}
+                                            onClick={(e) => handleChipClick('bedrooms', num, e)}
+                                            sx={{
+                                                backgroundColor: safeBeds === num ? '#1296a9' : 'white',
+                                                color: safeBeds === num ? 'white' : 'black',
+                                                '&:hover': {
+                                                  backgroundColor: safeBeds === num
+                                                    ? '#1296a9'
+                                                    : '#dedede',
+                                                },
+                                            }}
+                                        />
+                                    ))}
+                                </Stack>
+                            </label>
+                            <label>
+                                <span>Bathrooms</span>
+                                <Stack direction="row" spacing={1}>
+                                    {[1, 2, 3, 4].map((num) => (
+                                        <Chip 
+                                            key={num}
+                                            label={num === 4 ? "4+" : num.toString()}
+                                            clickable
+                                            variant={safeBaths === num ? "filled" : ""}
+                                            onClick={(e) => handleChipClick('bathrooms', num, e)}
+                                            sx={{
+                                                backgroundColor: safeBaths === num ? '#1296a9' : 'white',
+                                                color: safeBaths === num ? 'white' : 'black',
+                                                '&:hover': {
+                                                  backgroundColor: safeBaths === num
+                                                    ? '#1296a9'
+                                                    : '#dedede',
+                                                },
+                                            }}
+                                        />
+                                    ))}
+                                </Stack>
+                            </label>
+                        </div>
+                    ):""}
                 </div>
             </div>
             <button type="submit" className="search-bar__submit">Search</button>

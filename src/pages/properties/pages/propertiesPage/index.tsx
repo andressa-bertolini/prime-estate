@@ -85,15 +85,14 @@ const Properties = () => {
         <div className="properties-page">
             <div className="properties-page__grid">
                 <div className="search-properties">
-                    <h1 className="properties-page__title">Properties</h1>
-                    <Search />
+                    <Search fullfilters={true} />
                 </div>
                 <div>
                     {purpose === "rent" ? <h1 className="properties-page__title" style={{paddingLeft: "25px"}}>For Rent</h1> : ""}
                     {purpose === "sale" ? <h1 className="properties-page__title" style={{paddingLeft: "25px"}}>For Sale</h1> : ""}
                     <div className="properties-page__list">
                         {isPending &&
-                            [...Array(9)].map((_, i) => <Skeleton key={i} />)
+                            [...Array(9)].map((_, i) => <Skeleton key={i} grid={3} />)
                         }
                         {!isPending &&
                             filteredProperties && filteredProperties.length > 0 ? (

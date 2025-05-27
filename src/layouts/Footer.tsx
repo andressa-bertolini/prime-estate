@@ -5,15 +5,14 @@ const Footer = () => {
     return(
         <div className="footer container">
             <img src={LogoWhite} className="logo" alt="Logo"/>
-            <span>Prime Estate 2025</span>
             <nav>
                 <NavLink to="/properties?purpose=rent">Rent</NavLink>
                 <NavLink to="/properties?purpose=sale">Buy</NavLink>
                 <NavLink to="/properties?purpose=rent">Search</NavLink>
             </nav>
             <nav>
-                <NavLink to="/agents">About Us</NavLink>
-                <NavLink to="/agents">Realtors</NavLink>
+                <NavLink to="/about-us">About Us</NavLink>
+                <NavLink to="/realtors">Realtors</NavLink>
                 <NavLink to="/calculator">Calculator</NavLink>
             </nav>
         </div>

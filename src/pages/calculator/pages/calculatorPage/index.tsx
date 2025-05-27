@@ -47,10 +47,12 @@ const Calculator = () => {
     };
 
     return (
-        <div className="container">
-            <h1>Calculator</h1>
-            <div className="calculator__grid">
-                <div>
+        <>
+            <div className="container">
+                <h1>Calculator</h1>
+            </div>
+            <div className="calculator-container">
+                <div className="calculator">
                     <h2>Purchasing Power</h2>
                     <label>
                         <span>Income</span>
@@ -84,7 +86,7 @@ const Calculator = () => {
                     </label> */}
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

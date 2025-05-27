@@ -2,6 +2,7 @@ import "./propertyItem.css";
 import { PropertyItemProps } from "./propertyItem.types";
 
 import { NavLink } from "react-router-dom";
+import IconLocation from "@assets/icons/icon-location.svg";
 import IconSqft from "@assets/icons/icon-sqft.svg";
 import IconBed from "@assets/icons/icon-bed.svg";
 import IconBath from "@assets/icons/icon-bath.svg";
@@ -20,7 +21,8 @@ const PropertyItem = ({ property }: PropertyItemProps) => {
             </span>
             <h3>{property.title}</h3>
             <p className="property-features">
-                <span>
+                <span className="highlighted-feature">
+                    <img src={IconLocation} className="property-icon sqft" alt="Location"/>
                     {property.city}
                 </span>
                 <span>
