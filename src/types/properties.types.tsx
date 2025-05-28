@@ -4,17 +4,16 @@ export interface Property {
   purpose: "rent" | "sale";
   price: number;
   area: number;
-  bedrooms: number;
-  bathrooms: number;
+  beds: number;
+  baths: number;
   location: string;
   image: string;
 }
 
 export type FetchParams = {
   purpose?: "rent" | "sale";
-  bedrooms?: number;
-  bathrooms?: number;
-  priceLimit?: number;
+  beds?: number;
+  baths?: number;
   limit?: number;
   offset?: number;
 }

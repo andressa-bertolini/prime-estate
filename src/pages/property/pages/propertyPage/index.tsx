@@ -74,7 +74,7 @@ const Property = () => {
                 </span>
                 <span>
                     <img src={IconBath2} className="property-icon bath" alt="Bath" />
-                    {property.bathrooms} <strong>bath</strong>
+                    {property.baths} <strong>bath</strong>
                 </span>
             </p>
 

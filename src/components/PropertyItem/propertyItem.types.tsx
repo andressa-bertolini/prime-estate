@@ -5,8 +5,8 @@ export interface PropertyItemProps {
       purpose: "rent" | "sale";
       price: number;
       area?: number;
-      bedrooms: number;
-      bathrooms: number;
+      beds: number;
+      baths: number;
       location: string,
       featuredImage: string,
       images: { url: string };

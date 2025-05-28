@@ -13,7 +13,6 @@ const Properties = () => {
     const queryString = searchParams.get("query")?.toLowerCase() || '';
     const purpose = searchParams.get("purpose") || "rent";
     const type = searchParams.get("type");
-    const priceLimit = searchParams.get("priceLimit");
     const priceMin = searchParams.get("priceMin");
     const priceMax = searchParams.get("priceMax");
     const beds = searchParams.get("beds");
@@ -26,9 +25,6 @@ const Properties = () => {
         lang: "en",
         rentFrequency: "monthly",
         categoryExternalID: "4",
-        priceMax: priceLimit || "",
-        roomsMin: beds || "",
-        bathsMin: baths || ""
     }).toString();
 
     const {
@@ -36,14 +32,11 @@ const Properties = () => {
         isError,
         isPending
       } = useQuery({
-        queryKey: ["properties", purpose, type, priceLimit, beds, baths],
+        queryKey: ["properties", purpose, type],
         queryFn: async () => {
           return await PropertiesService.fetchProperties({
             purpose,
             type: type || "",
-            priceLimit: priceLimit || "",
-            beds: beds || "",
-            baths: baths || "",
           });
         },
         staleTime: 1000 * 60 * 30,
@@ -53,33 +46,45 @@ const Properties = () => {
         if (!properties) return [];
       
         let filtered = properties;
-
+      
         if (queryString) {
-            filtered = filtered.filter((property) => {
-                const title = property.title?.toLowerCase() || '';
-                const city = property.city?.toLowerCase() || '';
-                const state = property.state?.toLowerCase() || '';
-        
-                return (
-                    title.includes(queryString) ||
-                    city.includes(queryString) ||
-                    state.includes(queryString)
-                );
-            });
+          filtered = filtered.filter((property) => {
+            const title = property.title?.toLowerCase() || '';
+            const city = property.city?.toLowerCase() || '';
+            const state = property.state?.toLowerCase() || '';
+            return (
+              title.includes(queryString) ||
+              city.includes(queryString) ||
+              state.includes(queryString)
+            );
+          });
         }
-
+      
         if (priceMin || priceMax) {
-            filtered = filtered.filter((property) => {
-                const price = property.price || 0;
-                const minPrice = priceMin ? parseFloat(priceMin) : 0;
-                const maxPrice = priceMax ? parseFloat(priceMax) : Infinity;
-                
-                return price >= minPrice && price <= maxPrice;
-            });
+          filtered = filtered.filter((property) => {
+            const price = property.price || 0;
+            const minPrice = priceMin ? parseFloat(priceMin) : 0;
+            const maxPrice = priceMax ? parseFloat(priceMax) : Infinity;
+            return price >= minPrice && price <= maxPrice;
+          });
         }
-
+      
+        if (beds) {
+          filtered = filtered.filter((property) => {
+            const propertyBeds = property.bedrooms || 0;
+            return propertyBeds >= parseInt(beds, 10);
+          });
+        }
+      
+        if (baths) {
+          filtered = filtered.filter((property) => {
+            const propertyBaths = property.bathrooms || 0;
+            return propertyBaths >= parseInt(baths, 10);
+          });
+        }
+      
         return filtered;
-    }, [properties, queryString, priceMin, priceMax]);
+    }, [properties, queryString, priceMin, priceMax, beds, baths]);
 
     return (
         <div className="properties-page">

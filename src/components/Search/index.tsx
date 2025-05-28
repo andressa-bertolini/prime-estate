@@ -25,7 +25,7 @@ const Search = ({ fullfilters }: SearchProps) => {
     const navigate = useNavigate();
 
     const { searchParams: {
-        query, purpose, type, price, bedrooms, bathrooms
+        query, purpose, type, price, beds, baths
     }, setSearchParams } = useSearch();
 
     const [places, setPlaces] = useState([]);
@@ -75,18 +75,16 @@ const Search = ({ fullfilters }: SearchProps) => {
     };
 
     const setBeds = (newBeds: number) => {
-        console.log('setBeds called with:', newBeds);
         setSearchParams(prev => ({
             ...prev,
-            bedrooms: newBeds
+            beds: newBeds
         }));
     };
 
     const setBaths = (newBaths: number) => {
-        console.log('setBaths called with:', newBaths);
         setSearchParams(prev => ({
             ...prev,
-            bathrooms: newBaths
+            baths: newBaths
         }));
     };
 
@@ -116,8 +114,8 @@ const Search = ({ fullfilters }: SearchProps) => {
         if (type) params.append('type', type);
         if (price[0] !== minPrice) params.append('priceMin', String(price[0]));
         if (price[1] !== maxPrice) params.append('priceMax', String(price[1]));
-        if (bedrooms) params.append('bedrooms', String(bedrooms));
-        if (bathrooms) params.append('bathrooms', String(bathrooms));
+        if (beds) params.append('beds', String(beds));
+        if (baths) params.append('baths', String(baths));
 
         e.preventDefault();
         setOpenFilter(false);
@@ -130,19 +128,15 @@ const Search = ({ fullfilters }: SearchProps) => {
         }
     };
 
-    const handleChipClick = (type: 'bedrooms' | 'bathrooms', value: number, event: React.MouseEvent) => {
+    const handleChipClick = (type: 'beds' | 'baths', value: number, event: React.MouseEvent) => {
         event.preventDefault();
         event.stopPropagation();
-        
-        console.log(`Clicked ${type} ${value}, current value:`, type === 'bedrooms' ? bedrooms : bathrooms);
-        
-        if (type === 'bedrooms') {
-            const newValue = bedrooms === value ? 0 : value;
-            console.log('Setting bedrooms to:', newValue);
+                
+        if (type === 'beds') {
+            const newValue = beds === value ? 0 : value;
             setBeds(newValue);
         } else {
-            const newValue = bathrooms === value ? 0 : value;
-            console.log('Setting bathrooms to:', newValue);
+            const newValue = baths === value ? 0 : value;
             setBaths(newValue);
         }
     };
@@ -184,16 +178,16 @@ const Search = ({ fullfilters }: SearchProps) => {
             
             const priceMin = Number(urlSearchParams.get("priceMin")) || defaultMinPrice;
             const priceMax = Number(urlSearchParams.get("priceMax")) || defaultMaxPrice;
-            const bedsParam = Number(urlSearchParams.get("bedrooms")) || 0;
-            const bathsParam = Number(urlSearchParams.get("bathrooms")) || 0;
+            const bedsParam = Number(urlSearchParams.get("beds")) || 0;
+            const bathsParam = Number(urlSearchParams.get("baths")) || 0;
             
             setSearchParams({
                 query: queryParam,
                 purpose: purposeParam,
                 type: typeParam,
                 price: [priceMin, priceMax],
-                bedrooms: bedsParam,
-                bathrooms: bathsParam,
+                beds: bedsParam,
+                baths: bathsParam,
             });
         } else {
             const defaultPurpose = searchDefaultValues.purpose;
@@ -204,8 +198,8 @@ const Search = ({ fullfilters }: SearchProps) => {
                 purpose: defaultPurpose,
                 type: searchDefaultValues.type,
                 price: [defaultRange.min, defaultRange.max],
-                bedrooms: 0,
-                bathrooms: 0,
+                beds: 0,
+                baths: 0,
             });
         }
         
@@ -220,8 +214,8 @@ const Search = ({ fullfilters }: SearchProps) => {
         ? price 
         : [minPrice, maxPrice];
 
-    const safeBeds = typeof bedrooms === 'number' ? bedrooms : Number(bedrooms) || 0;
-    const safeBaths = typeof bathrooms === 'number' ? bathrooms : Number(bathrooms) || 0;
+    const safeBeds = typeof beds === 'number' ? beds : Number(beds) || 0;
+    const safeBaths = typeof baths === 'number' ? baths : Number(baths) || 0;
 
     return (
         <form onSubmit={handleSubmit}>
@@ -361,7 +355,7 @@ const Search = ({ fullfilters }: SearchProps) => {
                                             clickable
                                             color={safeBeds === num ? "primary" : "default"}
                                             variant={safeBeds === num ? "filled" : ""}
-                                            onClick={(e) => handleChipClick('bedrooms', num, e)}
+                                            onClick={(e) => handleChipClick('beds', num, e)}
                                             sx={{
                                                 backgroundColor: safeBeds === num ? '#1296a9' : 'white',
                                                 color: safeBeds === num ? 'white' : 'black',
@@ -384,7 +378,7 @@ const Search = ({ fullfilters }: SearchProps) => {
                                             label={num === 4 ? "4+" : num.toString()}
                                             clickable
                                             variant={safeBaths === num ? "filled" : ""}
-                                            onClick={(e) => handleChipClick('bathrooms', num, e)}
+                                            onClick={(e) => handleChipClick('baths', num, e)}
                                             sx={{
                                                 backgroundColor: safeBaths === num ? '#1296a9' : 'white',
                                                 color: safeBaths === num ? 'white' : 'black',
