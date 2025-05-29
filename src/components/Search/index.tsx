@@ -344,7 +344,7 @@ const Search = ({ fullfilters }: SearchProps) => {
                         </label>
                     </div>
                     {fullfilters ? (
-                        <div>
+                        <div className="extra-filters">
                             <label>
                                 <span>Bedrooms</span>
                                 <Stack direction="row" spacing={1}>

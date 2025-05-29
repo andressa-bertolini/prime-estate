@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Logo from "@assets/images/logo-text.png";
 import IconBurgerMenu from "@assets/icons/icon-burger-menu.svg";
 import SearchIcon from '@mui/icons-material/Search';
+import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 
 const Navigation = () => {
     const [navOpen, setNavOpen] = useState(false);
@@ -19,9 +20,12 @@ const Navigation = () => {
                     </NavLink>
                 </div>              
                 <div className="nav-right" onClick={() => setNavOpen(false)}>
-                    <NavLink to="/about-us">About Us</NavLink>
+                    <NavLink to="/calculator">
+                        Calculator
+                        <CalculateOutlinedIcon className="search-icon"/>
+                    </NavLink>
                     <NavLink to="/realtors">Realtors</NavLink>
-                    <NavLink to="/calculator" style={{paddingRight: 0}}>Calculator</NavLink>
+                    <NavLink to="/about-us" style={{paddingRight: 0}}>About Us</NavLink>
                 </div>
             </div>
             <img src={IconBurgerMenu} className="burger-icon" onClick={() => setNavOpen(!navOpen)} alt="Toggle Menu"/>

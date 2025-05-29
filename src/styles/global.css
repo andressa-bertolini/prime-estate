@@ -368,6 +368,7 @@ html, body {
 
   .calculator-container {
     background-image: url('@assets/images/savings.jpg');
+    height: calc(100vh - 248px)
   }
   
   .search-container:after, .calculator-container:after {
@@ -499,6 +500,31 @@ html, body {
 
   .search-bar__submit{
     margin-top: 0;
+  }
+
+  .extra-filters {
+    margin-bottom: 25px;
+  }
+
+  .about-us-grid .office-img {
+    width: 100%;
+  }
+
+  @media(max-width: 768px){  
+      .about-us-grid {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .about-us-grid img {order: 1}
+      .about-us-grid div {order: 2}
+  }
+
+  @media(min-width: 769px){
+    .about-us-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+    }
   }
   
   .choice-chips {

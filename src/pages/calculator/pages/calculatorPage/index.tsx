@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChangeEvent } from "react";
+import { TextField } from '@mui/material';
 
 const Calculator = () => {
     const [income, setIncome] = useState("");
@@ -48,30 +49,31 @@ const Calculator = () => {
 
     return (
         <>
-            <div className="container">
+            {/* <div className="container">
                 <h1>Calculator</h1>
-            </div>
+            </div> */}
             <div className="calculator-container">
                 <div className="calculator">
-                    <h2>Purchasing Power</h2>
-                    <label>
-                        <span>Income</span>
-                        <input 
-                            type="text" 
-                            className="input" 
-                            onChange={handleIncome}
-                            value={income}
-                        />
-                    </label>
-                    <label>
-                        <span>Entry</span>
-                        <input 
-                            type="text" 
-                            className="input" 
-                            onChange={handleEntry}
-                            value={entry}
-                        />
-                    </label>
+                    <h1>Purchasing Power</h1>
+                    <TextField
+                        label="Income"
+                        variant="outlined"
+                        fullWidth
+                        margin="normal"
+                        type="text"
+                        onChange={handleIncome}
+                        value={income}
+                    />
+
+                    <TextField
+                        label="Entry"
+                        variant="outlined"
+                        fullWidth
+                        margin="normal"
+                        type="text"
+                        onChange={handleEntry}
+                        value={entry}
+                    />
                     <button onClick={calculatePurchasingPower} className="button">
                         Calculate
                     </button>
