@@ -1,8 +1,12 @@
 ## 🏡 Prime Estate
 
-[Live Demo](https://andressabertolini.com/project/prime-estate/)
+<img src="https://andressabertolini.com/static/media/project-prime-estate.f0c80776d9e4db37cc27.jpg" alt="Prime Estate Thumbnail" width="300" />
 
 **PrimeEstate** is a fictional project of a real estate platform for searching and filtering properties. The goal is to simulate a real real estate application environment, serving as a portfolio project.
+
+<a href="https://andressabertolini.com/project/prime-estate/" target="_blank">
+  <img src="https://img.shields.io/badge/Live%20Demo-1296a9?style=for-the-badge" alt="Ver projeto">
+</a>
 
 ---
 
@@ -63,4 +67,7 @@ The app will run at http://localhost:5173
 
 ## 🔄 Future improvements
 
+- Related properties section
+- Bookmarked properties
 - Show property results on a map
+- Create my own API

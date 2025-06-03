@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Modern Downtown Condo with Skyline Views",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "rent",
     "type": "apartment",
     "price": 3200,
@@ -24,6 +25,7 @@
   {
     "id": 2,
     "title": "Spacious Family Home with Large Backyard",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "sale",
     "type": "house",
     "price": 480000,
@@ -49,6 +51,7 @@
   {
     "id": 3,
     "title": "Elegant Suburban Retreat",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "sale",
     "type": "house",
     "price": 520000,
@@ -73,6 +76,7 @@
   {
     "id": 4,
     "title": "Charming Bungalow Minutes from Downtown",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "sale",
     "type": "house",
     "price": 345000,
@@ -98,6 +102,7 @@
   {
     "id": 5,
     "title": "Modern Loft with Open Concept Design",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "rent",
     "type": "apartment",  
     "price": 2100,
@@ -120,6 +125,7 @@
   {
     "id": 6,
     "title": "Impeccable Townhouse with Finished Basement",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "sale",
     "type": "house",
     "price": 460000,
@@ -143,6 +149,7 @@
   {
     "id": 7,
     "title": "Luxury Apartment with Pool and Gym",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "rent",
     "type": "apartment",
     "price": 5200,
@@ -167,6 +174,7 @@
   {
     "id": 8,
     "title": "Cozy Studio Close to Tech Hubs",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "rent",
     "type": "apartment",
     "price": 1500,
@@ -189,6 +197,7 @@
   {
     "id": 9,
     "title": "Downtown Condo with River Views",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "sale",
     "type": "apartment",
     "price": 2500,
@@ -212,6 +221,7 @@
   {
     "id": 10,
     "title": "Spacious Ranch Style Home",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "sale",
     "type": "house",
     "price": 395000,
@@ -238,6 +248,7 @@
   {
     "id": 11,
     "title": "Sunny Apartment with Modern Finishes",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "rent",
     "type": "apartment",
     "price": 1800,
@@ -259,6 +270,7 @@
   {
     "id": 12,
     "title": "Historic Home with Timeless Charm",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "sale",
     "type": "house",
     "price": 370000,
@@ -284,6 +296,7 @@
   {
     "id": 13,
     "title": "Sleek Apartment with City Views",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "rent",
     "type": "apartment",
     "price": 2700,
@@ -306,6 +319,7 @@
   {
     "id": 14,
     "title": "Family Home with Backyard Oasis",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "sale",
     "type": "house",
     "price": 510000,
@@ -332,6 +346,7 @@
   {
     "id": 15,
     "title": "Modern Living Near Business District",
+    "description": "Lorem Ipsum Dolor Sit Amet",
     "purpose": "rent",
     "type": "apartment",
     "price": 2300,
@@ -347,6 +362,47 @@
       "https://andressabertolini.com/project/prime-estate/mock/images/property-15-3.png",
       "https://andressabertolini.com/project/prime-estate/mock/images/property-15-4.png"
     ],
+    "amenities": [
+      "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Charming Apartment Near Downtown",
+    "description": "Lorem Ipsum Dolor Sit Amet",
+    "purpose": "rent",
+    "type": "apartment",
+    "price": 1700,
+    "area": 650,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "city": "Birmingham",
+    "state": "Alabama",
+    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png",
+    "images": [
+      "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png",
+      "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png"
+    ],
+    "amenities": [
+      "Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Charming Apartment Near Downtown",
+    "description": "Lorem Ipsum Dolor Sit Amet",
+    "purpose": "rent",
+    "type": "apartment",
+    "price": 1300,
+    "area": 650,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "city": "Denver",
+    "state": "Colorado",
+    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png",
+    "images": [
+      "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png",
+      "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png"    ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
     ]

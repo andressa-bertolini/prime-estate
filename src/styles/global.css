@@ -350,7 +350,7 @@ html, body {
   }
   
   .search-container, .calculator-container {
-    padding: 50px 0;
+    padding: 80px 0;
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -571,7 +571,7 @@ html, body {
   
   @media(min-width: 1001px){
     .home-search .search-options {
-      margin: 20px 0;
+      margin-bottom: 20px;
     }
   
     .home-search .search-options .search-fields {
@@ -649,7 +649,7 @@ html, body {
 
   .home-search__wrapper {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
   }
   
   input[type="range"] {

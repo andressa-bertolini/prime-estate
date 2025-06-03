@@ -80,21 +80,33 @@ const Property = () => {
 
             <div className="property-page__columns">
                 <div>
-                    <h3>Contact</h3>
-                    <p>Interested? Send your information and we will contact you shortly.</p>
-                    <label>
-                        <span>Name</span>
-                        <input type="text" className="input" />
-                    </label>
-                    <label>
-                        <span>Email</span>
-                        <input type="text" className="input" />
-                    </label>
-                    <label>
-                        <span>Phone</span>
-                        <input type="text" className="input" />
-                    </label>
-                    <button className="button">Send</button>
+                    <h3>Amenities</h3>
+                    <ul className="property-page__amenities">
+                        {property.amenities?.map((amenity, index) => (
+                            <li key={index}>{amenity}</li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="property-page__contact">
+                    <div className="property-page__contact-wrapper">
+                        {property.agency?.logo?.url && (
+                            <img src={property.agency.logo.url} alt="Agency Logo" />
+                        )}
+                        <h3>Interested? Send your information and we will contact you shortly</h3>
+                        <label>
+                            <span>Name</span>
+                            <input type="text" className="input" />
+                        </label>
+                        <label>
+                            <span>Email</span>
+                            <input type="text" className="input" />
+                        </label>
+                        <label>
+                            <span>Phone</span>
+                            <input type="text" className="input" />
+                        </label>
+                        <button className="button">Send</button>
+                    </div>
                 </div>
             </div>
 
