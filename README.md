@@ -1,6 +1,6 @@
 ## 🏡 Prime Estate
 
-<img src="https://andressabertolini.com/static/media/project-prime-estate.f0c80776d9e4db37cc27.jpg" alt="Prime Estate Thumbnail" width="300" />
+<img src="https://andressabertolini.com/static/media/project-prime-estate.25ba672b7378bf5b185a.jpg" alt="Prime Estate Thumbnail" width="300" />
 
 **PrimeEstate** is a real estate platform for searching and filtering properties. It's a fictional project and the goal is to simulate a real estate application environment, serving as a portfolio project.
 
