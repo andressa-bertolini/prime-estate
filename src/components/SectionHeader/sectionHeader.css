@@ -1,21 +1,20 @@
-.section-header {
+/* .section-header {
   background-color: #1296a9;
-}
+} */
 
 .section-header-content {
-  padding: 15px 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #fff;
+  padding: 30px 25px 0;
+  color: #1296a9;
 }
 
 .section-header h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Lexend", sans-serif;
   text-transform: uppercase;
   font-weight: normal;
+  border-bottom: 2px solid;
+  padding-bottom: 10px;
 }
 
 @media(max-width: 767px){

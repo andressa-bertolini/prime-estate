@@ -7,13 +7,7 @@ const SectionHeader = ({ heading, title, buttonText, linkUrl }: SectionHeaderPro
     return(
         <div className="section-header">
             <div className="section-header-content container">
-                <div>
-                    <h4>{ heading }</h4>
-                    <h2>{ title }</h2>
-                </div>
-                <div>
-                    <NavLink to={ linkUrl }>{ buttonText }</NavLink>
-                </div>
+                <h2>{ title }</h2>
             </div>
         </div>
     )
