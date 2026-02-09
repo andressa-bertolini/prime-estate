@@ -11,12 +11,12 @@
     "bathrooms": 2,
     "city": "New York City",
     "state": "New York",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-1-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-01-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-1-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-1-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-1-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-1-4.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-01-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-01-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-01-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-01-4.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -34,15 +34,15 @@
     "bathrooms": 3,
     "city": "Dallas",
     "state": "Texas",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-2-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-02-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-2-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-2-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-2-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-2-4.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-2-5.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-2-6.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-2-7.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-02-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-02-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-02-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-02-4.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-02-5.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-02-6.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-02-7.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -59,15 +59,15 @@
     "bedrooms": 3,
     "bathrooms": 2,
     "city": "Phoenix",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-3-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-03-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-3-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-3-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-3-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-3-4.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-3-5.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-3-6.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-3-7.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-03-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-03-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-03-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-03-4.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-03-5.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-03-6.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-03-7.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -85,15 +85,15 @@
     "bathrooms": 1,
     "city": "Nashville",
     "state": "Tennessee",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-4-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-04-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-4-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-4-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-4-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-4-4.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-4-5.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-4-6.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-4-7.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-04-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-04-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-04-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-04-4.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-04-5.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-04-6.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-04-7.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -111,12 +111,12 @@
     "bathrooms": 2,
     "city": "Chicago",
     "state": "Illinois",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-5-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-05-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-5-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-5-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-5-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-5-4.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-05-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-05-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-05-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-05-4.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -134,13 +134,13 @@
     "bathrooms": 3,
     "city": "Atlanta",
     "state": "Georgia",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-6-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-06-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-6-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-6-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-6-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-6-4.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-6-5.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-06-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-06-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-06-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-06-4.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-06-5.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -158,14 +158,14 @@
     "bathrooms": 2,
     "city": "Miami",
     "state": "Florida",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-7-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-07-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-7-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-7-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-7-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-7-4.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-7-5.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-7-6.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-07-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-07-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-07-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-07-4.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-07-5.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-07-6.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -183,12 +183,12 @@
     "bathrooms": 1,
     "city": "San Francisco",
     "state": "California",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-8-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-08-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-8-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-8-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-8-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-8-4.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-08-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-08-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-08-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-08-4.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -206,13 +206,13 @@
     "bathrooms": 2,
     "city": "Portland",
     "state": "Oregon",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-9-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-09-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-9-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-9-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-9-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-9-4.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-9-5.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-09-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-09-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-09-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-09-4.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-09-5.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -229,17 +229,17 @@
     "bedrooms": 3,
     "bathrooms": 2,
     "city": "Denver",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-10-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-10-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-10-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-10-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-10-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-10-4.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-10-5.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-10-6.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-10-7.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-10-8.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-10-9.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-10-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-10-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-10-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-10-4.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-10-5.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-10-6.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-10-7.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-10-8.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-10-9.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -257,11 +257,11 @@
     "bathrooms": 1,
     "city": "Seattle",
     "state": "Washington",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-11-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-11-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-11-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-11-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-11-3.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-11-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-11-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-11-3.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -279,15 +279,15 @@
     "bathrooms": 2,
     "city": "Charleston",
     "state": "South Carolina",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-12-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-12-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-12-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-12-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-12-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-12-4.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-12-5.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-12-6.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-12-7.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-12-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-12-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-12-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-12-4.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-12-5.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-12-6.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-12-7.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -305,12 +305,12 @@
     "bathrooms": 2,
     "city": "Boston",
     "state": "Massachusetts",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-13-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-13-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-13-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-13-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-13-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-13-4.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-13-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-13-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-13-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-13-4.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -328,16 +328,16 @@
     "bathrooms": 3,
     "city": "Tampa",
     "state": "Florida",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-14-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-14-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-14-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-14-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-14-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-14-4.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-14-5.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-14-6.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-14-7.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-14-8.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-14-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-14-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-14-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-14-4.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-14-5.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-14-6.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-14-7.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-14-8.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -355,12 +355,12 @@
     "bathrooms": 2,
     "city": "Houston",
     "state": "Texas",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-15-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-15-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-15-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-15-2.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-15-3.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-15-4.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-15-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-15-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-15-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-15-4.png"
     ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
@@ -369,22 +369,22 @@
   {
     "id": 16,
     "title": "Charming Apartment Near Downtown",
-    "description": "Lorem Ipsum Dolor Sit Amet",
+    "description": "Experience the perfect blend of comfort and convenience in this charming one-bedroom apartment located just minutes from downtown Birmingham. With 650 sq ft of thoughtfully designed space, this home features a bright open-plan living area, a modern kitchen, and a spacious bathroom. Ideal for young professionals or couples, the apartment is part of a well-maintained building with central air conditioning, elevators, and access to a fully equipped business center. Enjoy city living with restaurants, parks, and public transport just around the corner.",
     "purpose": "rent",
     "type": "apartment",
     "price": 1700,
     "area": 650,
     "bedrooms": 1,
     "bathrooms": 1,
-    "city": "Birmingham",
-    "state": "Alabama",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png",
+    "city": "Seattle",
+    "state": "Washington",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-16-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png"
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-16-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-16-2.png"
     ],
     "amenities": [
-      "Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
+      "Centrally Air-Conditioned","Elevators in Building", "Business Center"
     ]
   },
   {
@@ -399,12 +399,176 @@
     "bathrooms": 1,
     "city": "Denver",
     "state": "Colorado",
-    "featuredImage": "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-16-1.png",
     "images": [
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png",
-      "https://andressabertolini.com/project/prime-estate/mock/images/property-16-1.png"    ],
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-16-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-16-1.png"    ],
     "amenities": [
       "Furnished","Parking Spaces","Centrally Air-Conditioned","Gym or Health Club", "Swimming Pool", "Laundry Facility", "View", "Elevators in Building", "Business Center"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Cozy One-Bedroom Apartment",
+    "description": "This cozy one-bedroom apartment offers a perfect combination of comfort and practicality. With a functional layout, it features a bright living area, a fully equipped kitchen, and a modern bathroom. Ideal for individuals or couples, the unit is located in a well-maintained building with essential amenities like central air conditioning, elevator access, and a secure entry system. Shops, restaurants, and public transportation are all within easy reach.",
+    "purpose": "rent",
+    "type": "apartment",
+    "price": 1600,
+    "area": 600,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "city": "Seattle",
+    "state": "Washington",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-18-1.png",
+    "images": [
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-18-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-18-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-18-3.png"
+    ],
+    "amenities": [
+      "Centrally Air-Conditioned", "Elevators in Building", "Secured Entry"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Cozy One-Bedroom Apartment",
+    "description": "This cozy one-bedroom apartment offers a perfect combination of comfort and practicality. With a functional layout, it features a bright living area, a fully equipped kitchen, and a modern bathroom. Ideal for individuals or couples, the unit is located in a well-maintained building with essential amenities like central air conditioning, elevator access, and a secure entry system. Shops, restaurants, and public transportation are all within easy reach.",
+    "purpose": "rent",
+    "type": "apartment",
+    "price": 1600,
+    "area": 600,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "city": "Dallas",
+    "state": "Texas",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-19-1.png",
+    "images": [
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-19-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-18-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-18-3.png"
+    ],
+    "amenities": [
+      "Central heating", "Elevators in Building", "Secured Entry"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Comfortable One-Bedroom Apartment in Phoenix",
+    "description": "Enjoy sunny days and desert views in this comfortable one-bedroom apartment located in a quiet residential area of Phoenix. With 600 sq ft of well-designed space, the unit features a bright living room, a modern kitchen, and a spacious bedroom. Ideal for individuals or couples, the building offers central air conditioning, elevator access, and secured entry. Local shops, restaurants, and transit are just a short drive away, making this a great spot for convenient living in the Valley of the Sun.",
+    "purpose": "rent",
+    "type": "apartment",
+    "price": 1600,
+    "area": 600,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "city": "Phoenix",
+    "state": "Arizona",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-20-1.png",
+    "images": [
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-20-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-18-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-18-3.png"
+    ],
+    "amenities": [
+      "Centrally Air-Conditioned", "Elevators in Building", "Secured Entry"
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Cozy One-Bedroom Apartment",
+    "description": "This cozy one-bedroom apartment offers a perfect combination of comfort and practicality. With a functional layout, it features a bright living area, a fully equipped kitchen, and a modern bathroom. Ideal for individuals or couples, the unit is located in a well-maintained building with essential amenities like central air conditioning, elevator access, and a secure entry system. Shops, restaurants, and public transportation are all within easy reach.",
+    "purpose": "rent",
+    "type": "apartment",
+    "price": 1600,
+    "area": 600,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "city": "Los Angeles",
+    "state": "California",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-19-1.png",
+    "images": [
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-19-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-18-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-18-3.png"
+    ],
+    "amenities": [
+      "Central heating", "Elevators in Building", "Secured Entry"
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Bright One-Bedroom Near University District",
+    "description": "Located just minutes from the University of Arizona, this bright and airy one-bedroom apartment offers a perfect balance of convenience and comfort. With 620 sq ft of living space, the unit features a spacious living room, modern kitchen with updated appliances, and a cozy bedroom with ample storage. Enjoy warm desert evenings on the private balcony or explore nearby cafes, shops, and bike-friendly streets. Ideal for students or young professionals.",
+    "purpose": "rent",
+    "type": "apartment",
+    "price": 1450,
+    "area": 620,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "city": "Tucson",
+    "state": "Arizona",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-22-1.png",
+    "images": [
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-22-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-22-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-22-3.png"
+    ],
+    "amenities": [
+      "Centrally Air-Conditioned",
+      "Balcony",
+      "Bike Storage"
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Modern Downtown Apartment with City Views",
+    "description": "Live in the heart of Miami with this sleek and modern one-bedroom apartment located downtown. Featuring floor-to-ceiling windows, stainless steel appliances, and designer finishes, this unit is ideal for professionals seeking style and convenience. The building offers premium amenities including a rooftop pool, gym, and co-working lounge. Walking distance to restaurants, nightlife, and public transit.",
+    "purpose": "rent",
+    "type": "apartment",
+    "price": 2100,
+    "area": 700,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "city": "Miami",
+    "state": "Florida",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-23-1.png",
+    "images": [
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-23-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-23-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-23-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-23-4.png"
+    ],
+    "amenities": [
+      "Rooftop Pool",
+      "Gym",
+      "Co-working Lounge",
+      "Centrally Air-Conditioned"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Cozy Apartment in Quiet Residential Area",
+    "description": "This charming one-bedroom apartment in Orlando offers a peaceful living experience just minutes from local parks, grocery stores, and schools. With 640 sq ft, it features a spacious living room, updated kitchen, and a private patio. Ideal for small families or retirees, the property is located in a quiet neighborhood with community amenities like on-site laundry, secure parking, and pet-friendly spaces.",
+    "purpose": "rent",
+    "type": "apartment",
+    "price": 1550,
+    "area": 640,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "city": "Orlando",
+    "state": "Florida",
+    "featuredImage": "https://projects.andressabertolini.com/prime-estate/mock/images/property-24-1.png",
+    "images": [
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-24-1.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-24-2.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-24-3.png",
+      "https://projects.andressabertolini.com/prime-estate/mock/images/property-24-4.png"
+    ],
+    "amenities": [
+      "Pet-Friendly",
+      "On-site Laundry",
+      "Private Patio",
+      "Secure Parking"
     ]
   }
 ]

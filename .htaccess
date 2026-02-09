@@ -1,9 +1,8 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /project/prime-estate/
+  RewriteBase /prime-estate/
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /project/prime-estate/index.html [L]
+  RewriteRule . /prime-estate/index.html [L]
 </IfModule>

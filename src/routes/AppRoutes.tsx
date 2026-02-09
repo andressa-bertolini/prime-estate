@@ -14,7 +14,7 @@ import CalculatorRoutes from "@pages/calculator/calculatorRoutes";
 
 const AppRoutes = () => {
   return (
-    <Router basename="/project/prime-estate">
+    <Router basename="/prime-estate">
       <div className="App">
           <Navigation />
           <main>
