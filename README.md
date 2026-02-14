@@ -1,10 +1,12 @@
 ## 🏡 Prime Estate
 
-<img src="https://andressabertolini.com/static/media/project-prime-estate.25ba672b7378bf5b185a.jpg" alt="Prime Estate Thumbnail" width="300" />
+<a href="https://projects.andressabertolini.com/prime-estate/" target="_blank">
+  <img src="https://andressabertolini.com/static/media/project-prime-estate.25ba672b7378bf5b185a.jpg" alt="Prime Estate Thumbnail" width="300" />
+</a>
 
 **PrimeEstate** is a real estate platform for searching and filtering properties. It's a fictional project and the goal is to simulate a real estate application environment, serving as a portfolio project.
 
-<a href="https://andressabertolini.com/project/prime-estate/" target="_blank">
+<a href="https://projects.andressabertolini.com/prime-estate/" target="_blank">
   <img src="https://img.shields.io/badge/Live%20Demo-1296a9?style=for-the-badge" alt="Ver projeto">
 </a>
 
@@ -62,12 +64,3 @@ npm run dev
 ```
 
 The app will run at http://localhost:5173
-
-<br>
-
-## 🔄 Future improvements
-
-- Related properties section
-- Bookmarked properties
-- Show property results on a map
-- Create my own API

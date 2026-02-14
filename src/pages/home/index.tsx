@@ -42,12 +42,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <SectionHeader 
-                heading="Featured properties"
-                title="Rent a Home"
-                buttonText="Explore Renting"
-                linkUrl="/properties?purpose=rent"
-            />
             <div className="properties-list">
                 {isPendingRent && 
                     [...Array(4)].map((_, i) => <Skeleton key={i} grid={4} />)
@@ -62,12 +56,6 @@ const Home = () => {
                 text="Smart Home Buying Starts Here: Calculate Your Down Payment"
                 buttonText="Calculate"
                 link="calculator"
-            />
-            <SectionHeader 
-                heading="Featured properties"
-                title="Buy a Home"
-                buttonText="Explore Buying"
-                linkUrl="/properties?purpose=sale"
             />
             <div className="properties-list">
                 {isPendingSale && 
