@@ -1,10 +1,8 @@
 import axios from "axios";
 import { Place, FetchParams } from "../../types/search.types"
 
-const apiHost = import.meta.env.VITE_MOCKAPI_HOST;
-
 const SearchAPI = axios.create({
-  baseURL: `https://${apiHost}`
+  baseURL: 'api/'
 });
 
 const fetchPlaces = async (params: FetchParams):Promise<Place[]> => {

@@ -1,4 +1,4 @@
-[
+export const places = [
   { "state": "Arizona", "cities": ["Phoenix", "Tucson", "Mesa"] },
   { "state": "California", "cities": ["Los Angeles", "San Francisco", "San Diego"] },
   { "state": "Colorado", "cities": ["Denver", "Colorado Springs", "Aurora"] },

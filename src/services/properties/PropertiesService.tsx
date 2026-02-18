@@ -1,10 +1,8 @@
 import axios from "axios";
 import { Property, FetchParams } from "../../types/properties.types"
 
-const apiHost = import.meta.env.VITE_MOCKAPI_HOST;
-
 const PropertiesApi = axios.create({
-  baseURL: `https://${apiHost}`
+  baseURL: 'api/'
 });
 
 const fetchProperties = async (params: FetchParams): Promise<Property[]> => {

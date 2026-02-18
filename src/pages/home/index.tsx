@@ -37,7 +37,6 @@ const Home = () => {
             <div className="home-search search-container">
                 <div className="search">
                     <div className="home-search__wrapper">
-                        {/* <h1>Find your dream home</h1> */}
                         <Search fullfilters={false}/>
                     </div>
                 </div>
