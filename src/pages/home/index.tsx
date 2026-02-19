@@ -69,7 +69,7 @@ const Home = () => {
                 imageAlignment="center bottom"
                 text="Your Perfect Home Awaits: Meet the Realtors Who Can Help"
                 buttonText="Learn More"
-                link="agents"
+                link="realtors"
             />
             <div className="home-about">
                 <h2>Prime Estate: Your Trusted Partner in Real Estate</h2>
