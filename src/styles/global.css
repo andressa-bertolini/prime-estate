@@ -23,7 +23,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0px 0px 8px 0px rgba(0,0,0,40%);
+    /* box-shadow: 0px 0px 8px 0px rgba(0,0,0,40%); */
     position: relative;
     z-index: 2  ;
   }
@@ -52,7 +52,7 @@ html, body {
     .nav .nav-right a {
       width: 100%;
       display: block;
-      padding: 10px 25px !important;
+      padding: 10px 24px !important;
     }
   }
   
@@ -70,10 +70,10 @@ html, body {
   }
   
   .nav .burger-icon {
-    width: 25px;
+    width: 24px;
     position: absolute;
     top: 26px;
-    right: 25px;
+    right: 24px;
   }
   
   @media (min-width: 768px) {
@@ -90,13 +90,16 @@ html, body {
   
   .properties-list {
     /* background-color: #1296a9; */
-    padding-top: 25px;
+    padding-top: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
     display: flex;
     flex-wrap: wrap;
   }
 
   .properties-list .property-item {
     padding-bottom: 0;
+    padding: 0 12px 24px 12px;
   }
   
   @media(min-width: 1000px){
@@ -261,7 +264,7 @@ html, body {
     width: 100%;
     height: 200px;
     background-color: #bbb;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
     background: linear-gradient(
       90deg,
       #e0e0e0 25%,
@@ -351,6 +354,7 @@ html, body {
   
   .search-container, .calculator-container {
     padding: 80px 0;
+    margin: 0 24px;
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -358,7 +362,7 @@ html, body {
 
   @media(max-width: 768px){
     .search-container, .calculator-container {
-      padding: 25px 0;
+      padding: 24px 0;
     }
   }
 
@@ -388,7 +392,7 @@ html, body {
     max-width: 900px;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 25px;
+    padding: 24px;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,40%);
     position: relative;
     z-index: 1;
@@ -503,7 +507,7 @@ html, body {
   }
 
   .extra-filters {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
   }
 
   .about-us-grid .office-img {
@@ -752,7 +756,7 @@ html, body {
   }
 
   .search-properties {
-    padding: 25px;
+    padding: 24px;
     background-color: #f0f0f0;
   }
   
@@ -811,8 +815,8 @@ html, body {
   }
   
   .container {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
   
   .agent {
@@ -911,7 +915,7 @@ html, body {
     /* max-width: 1200px; */
     background-size: cover;
     /* background-position: center; */
-    margin: 25px;
+    margin: 24px;
     padding: 100px 0;
     color: #fff;
     display: flex;
@@ -959,7 +963,7 @@ html, body {
 
   .home-about {
     text-align: center;
-    padding: 60px 25px 85px;
+    padding: 60px 24px 85px;
   }
 
   .home-about h2 {
@@ -1000,7 +1004,7 @@ html, body {
     text-decoration: none;
     padding: 10px 20px;
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 24px;
     transition: background-color ease-in-out 0.3s;
   }
 
@@ -1016,7 +1020,7 @@ html, body {
   }
 
   .not-found {
-    padding: 0 25px;
+    padding: 0 24px;
     font-weight: bold;
   }
 

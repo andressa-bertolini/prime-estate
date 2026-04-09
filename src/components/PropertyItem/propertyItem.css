@@ -1,6 +1,6 @@
 .property-item {
   background-color: #fff;
-  padding: 0 25px 50px 25px;
+  padding: 0 24px 50px 24px;
   box-sizing: border-box;
   width: 100%;
   text-decoration: none;
@@ -29,6 +29,6 @@
 .property-item .property-badge{
   position: absolute;
   top: 0;
-  right: 25px;
+  right: 24px;
   margin: 0;
 }

@@ -30,7 +30,7 @@ const fetchProperties = async (params: FetchParams): Promise<Property[]> => {
 };
 
 const fetchPropertyById = async (id: number): Promise<Property | undefined> => {
-  const allProperties = await fetchProperties({limit: 20});
+  const allProperties = await fetchProperties({limit: 100});
   return allProperties.find((property) => property.id === id);
 };
 
