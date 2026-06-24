@@ -2,6 +2,7 @@
 body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
+    padding-top: 70px;
 }
   
 html, body {
@@ -23,9 +24,19 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* box-shadow: 0px 0px 8px 0px rgba(0,0,0,40%); */
-    position: relative;
-    z-index: 2  ;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,30%);
+    z-index: 2;
+    height: 50px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .nav-home-top {
+    box-shadow: none;
   }
   
   .nav .logo {
@@ -755,9 +766,15 @@ html, body {
     object-fit: cover;
   }
 
+  .search-properties__wrapper {
+    background-color: #f0f0f0;
+  }
+
   .search-properties {
     padding: 24px;
-    background-color: #f0f0f0;
+    position: sticky;
+    top: 70px;
+    align-self: start;
   }
   
   .search-properties .choice-chips {

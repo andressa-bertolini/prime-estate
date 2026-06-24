@@ -89,8 +89,10 @@ const Properties = () => {
     return (
         <div className="properties-page">
             <div className="properties-page__grid">
-                <div className="search-properties">
+              <div className="search-properties__wrapper">
+                  <div className="search-properties">
                     <Search fullfilters={true} />
+                  </div>
                 </div>
                 <div>
                     {purpose === "rent" ? <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Rent</h1> : ""}

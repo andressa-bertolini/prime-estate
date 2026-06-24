@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import Logo from "@assets/images/logo-text.png";
 import IconBurgerMenu from "@assets/icons/icon-burger-menu.svg";
 import SearchIcon from '@mui/icons-material/Search';
@@ -7,8 +7,24 @@ import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 
 const Navigation = () => {
     const [navOpen, setNavOpen] = useState(false);
+    const [isTop, setIsTop] = useState(true);
+
+    const location = useLocation();
+
+    useEffect(() => {
+        const handleScroll = () => {
+          setIsTop(window.scrollY === 0);
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+    
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const isHomeTop = location.pathname === "/" && isTop;
+
     return(
-        <nav className="nav container">
+        <nav className={`nav container ${isHomeTop ? "nav-home-top" : ""}`}>
             <NavLink to="/" style={{padding: 0}}><img src={Logo} className="logo" alt="Logo"/></NavLink>
             <div className={(navOpen == true ? "open":"") + " mobile-nav"}>
                 <div className="nav-left" onClick={() => setNavOpen(false)}>
