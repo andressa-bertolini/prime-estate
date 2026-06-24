@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { IProperty, PropertiesService } from "@services/properties/PropertiesService";
@@ -7,9 +7,14 @@ import SadHouse from "@assets/images/sad-house.png";
 import PropertyItem from "@components/PropertyItem";
 import Search from "@components/Search";
 import Skeleton from "@components/Skeleton";
+import Pagination from "@components/Pagination";
+
+const ITEMS_PER_PAGE = 9;
 
 const Properties = () => {
     const [searchParams] = useSearchParams();
+    const [currentPage, setCurrentPage] = useState(1);
+    
     const queryString = searchParams.get("query")?.toLowerCase() || '';
     const purpose = searchParams.get("purpose") || "rent";
     const type = searchParams.get("type");
@@ -18,14 +23,6 @@ const Properties = () => {
     const beds = searchParams.get("beds");
     const baths = searchParams.get("baths");
     const sqft = searchParams.get("sqft");
-
-    const query = new URLSearchParams({
-        locationExternalIDs: "5002,6020",
-        purpose,
-        lang: "en",
-        rentFrequency: "monthly",
-        categoryExternalID: "4",
-    }).toString();
 
     const {
         data: properties,
@@ -86,6 +83,26 @@ const Properties = () => {
         return filtered;
     }, [properties, queryString, priceMin, priceMax, beds, baths]);
 
+    useMemo(() => {
+        setCurrentPage(1);
+    }, [queryString, purpose, priceMin, priceMax, beds, baths]);
+
+    const totalPages = Math.ceil(filteredProperties.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const paginatedProperties = filteredProperties.slice(startIndex, endIndex);
+
+    const handlePageChange = (page: number) => {
+      setCurrentPage(page);
+    };
+
+    useEffect(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, [currentPage]);
+
     return (
         <div className="properties-page">
             <div className="properties-page__grid">
@@ -95,15 +112,16 @@ const Properties = () => {
                   </div>
                 </div>
                 <div>
-                    {purpose === "rent" ? <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Rent</h1> : ""}
-                    {purpose === "sale" ? <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Sale</h1> : ""}
+                    {purpose === "rent" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Rent</h1>}
+                    {purpose === "sale" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Sale</h1>}
+                    
                     <div className="properties-page__list">
                         {isPending &&
                             [...Array(9)].map((_, i) => <Skeleton key={i} grid={3} />)
                         }
                         {!isPending &&
                             filteredProperties && filteredProperties.length > 0 ? (
-                                filteredProperties.map((property: IProperty) => (
+                                paginatedProperties.map((property: IProperty) => (
                                     <PropertyItem property={property} key={property.id} />
                                 ))
                             ) : (
@@ -114,6 +132,16 @@ const Properties = () => {
                             )
                         }
                     </div>
+                    
+                    {!isPending && filteredProperties.length > 0 && (
+                        <Pagination 
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            onPageChange={handlePageChange}
+                            itemsCount={filteredProperties.length}
+                            itemsPerPage={ITEMS_PER_PAGE}
+                        />
+                    )}
                 </div>
             </div>
         </div>
