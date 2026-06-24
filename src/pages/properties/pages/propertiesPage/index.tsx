@@ -133,7 +133,7 @@ const Properties = () => {
                         }
                     </div>
                     
-                    {!isPending && filteredProperties.length > 0 && (
+                    {!isPending && filteredProperties.length > 0 && totalPages > 1 && (
                         <Pagination 
                             currentPage={currentPage}
                             totalPages={totalPages}

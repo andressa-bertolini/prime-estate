@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { PropertiesService } from "@services/properties/PropertiesService";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 import RelatedProperties from "@components/RelatedProperties";
 
@@ -12,6 +13,8 @@ import IconBath2 from "@assets/icons/icon-bath.svg";
 
 const Property = () => {
     const { id } = useParams<{ id: string }>();
+    const [modalOpen, setModalOpen] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const { data: property, isLoading, isError } = useQuery({
         queryKey: ["property", id],
@@ -20,6 +23,31 @@ const Property = () => {
     });
 
     const slidesPerView = window.innerWidth < 768 ? 1 : 1.5;
+
+    const openModal = (index: number) => {
+        setCurrentImageIndex(index);
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
+    const goToNextImage = () => {
+        if (property?.images) {
+            setCurrentImageIndex((prev) =>
+                prev === property.images.length - 1 ? 0 : prev + 1
+            );
+        }
+    };
+
+    const goToPreviousImage = () => {
+        if (property?.images) {
+            setCurrentImageIndex((prev) =>
+                prev === 0 ? property.images.length - 1 : prev - 1
+            );
+        }
+    };
 
     if (isLoading) {
         return <p>Loading...</p>;
@@ -44,10 +72,68 @@ const Property = () => {
                             src={photo}
                             alt={property.title}
                             className="property-page__slide"
+                            onClick={() => openModal(index)}
+                            style={{ cursor: "pointer" }}
                         />
                     </SwiperSlide>
                 ))}
             </Swiper>
+
+            {modalOpen && property.images && (
+                <div className="modal-overlay" onClick={closeModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button
+                            className="modal-close"
+                            onClick={closeModal}
+                            aria-label="Fechar modal"
+                        >
+                            ✕
+                        </button>
+
+                        <div className="modal-image-container">
+                            <img
+                                src={property.images[currentImageIndex]}
+                                alt={`${property.title} - ${currentImageIndex + 1}`}
+                                className="modal-image"
+                            />
+                        </div>
+
+                        <div className="modal-navigation">
+                            <button
+                                className="modal-nav-btn modal-nav-prev"
+                                onClick={goToPreviousImage}
+                                aria-label="Imagem anterior"
+                            >
+                                &#10094;
+                            </button>
+                            <span className="modal-counter">
+                                {currentImageIndex + 1} / {property.images.length}
+                            </span>
+                            <button
+                                className="modal-nav-btn modal-nav-next"
+                                onClick={goToNextImage}
+                                aria-label="Próxima imagem"
+                            >
+                                &#10095;
+                            </button>
+                        </div>
+
+                        <div className="modal-thumbnails">
+                            {property.images.map((image, index) => (
+                                <img
+                                    key={index}
+                                    src={image}
+                                    alt={`Thumbnail ${index + 1}`}
+                                    className={`modal-thumbnail ${
+                                        index === currentImageIndex ? "active" : ""
+                                    }`}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <span className="property-badge">
                 {property.purpose === "rent" ? "For Rent" : ""}
