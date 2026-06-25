@@ -895,6 +895,27 @@ html, body {
   .property-page__contact img{
     width: 120px;
   }
+
+  .property-page__contact input{
+    padding-left: 20px;
+  }
+
+  .property-page__contact .error-message {
+    color: red;
+    margin-top: -15px;
+    font-size: 14px;
+  }
+
+  .property-page__contact .success-title {
+    color: green;
+    font-size: 30px;
+  }
+
+  .property-page__contact .check-icon {
+    width: 30px;
+    vertical-align: -3px;
+    margin-right: 5px;
+  }
   
   .related-properties {
     margin-top: 40px;

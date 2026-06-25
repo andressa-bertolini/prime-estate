@@ -10,6 +10,7 @@ import RelatedProperties from "@components/RelatedProperties";
 import IconSqft2 from "@assets/icons/icon-sqft.svg";
 import IconBed2 from "@assets/icons/icon-bed.svg";
 import IconBath2 from "@assets/icons/icon-bath.svg";
+import IconCheck from "@assets/icons/icon-check.svg";
 
 const Property = () => {
     const { id } = useParams<{ id: string }>();
@@ -23,6 +24,20 @@ const Property = () => {
     });
 
     const slidesPerView = window.innerWidth < 768 ? 1 : 1.5;
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+    });
+    
+    const [formErrors, setFormErrors] = useState<{
+        name?: string;
+        email?: string;
+        phone?: string;
+    }>({});
+
+    const [submitSuccess, setSubmitSuccess] = useState(false);
 
     const openModal = (index: number) => {
         setCurrentImageIndex(index);
@@ -56,6 +71,70 @@ const Property = () => {
     if (isError || !property) {
         return <p>Property not found.</p>;
     }
+
+    const validateForm = () => {
+        const errors: typeof formErrors = {};
+
+        if (!formData.name.trim()) {
+            errors.name = "Name is required";
+        }
+
+        if (!formData.email.trim()) {
+            errors.email = "Email is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            errors.email = "Please enter a valid email";
+        }
+
+        if (!formData.phone.trim()) {
+            errors.phone = "Phone is required";
+        } else if (!/^[\d\s\-\+\(\)]+$/.test(formData.phone) || formData.phone.replace(/\D/g, "").length < 10) {
+            errors.phone = "Please enter a valid phone number";
+        }
+
+        setFormErrors(errors);
+        return Object.keys(errors).length === 0;
+    };
+
+    const formatPhoneNumber = (value: string) => {
+        const cleaned = value.replace(/\D/g, "");
+        
+        if (cleaned.length <= 3) {
+            return `+1 (${cleaned}`;
+        } else if (cleaned.length <= 6) {
+            return `+1 (${cleaned.slice(0, 3)}) ${cleaned.slice(3)}`;
+        } else {
+            return `+1 (${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6, 10)}`;
+        }
+    };
+    
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        let formattedValue = value;
+
+        if (name === "phone") {
+            formattedValue = formatPhoneNumber(value);
+        }
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: formattedValue,
+        }));
+        if (formErrors[name as keyof typeof formErrors]) {
+            setFormErrors((prev) => ({
+                ...prev,
+                [name]: undefined,
+            }));
+        }
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (validateForm()) {
+            setSubmitSuccess(true);
+            setFormData({ name: "", email: "", phone: "" });
+        }
+    };
 
     return (
         <div className="property-page">
@@ -181,25 +260,68 @@ const Property = () => {
                     {property.description && <p className="property-page__description">{property.description}</p>}
                 </div>
                 <div>
-                <div className="property-page__contact">
+                    <div className="property-page__contact">
                         <div className="property-page__contact-wrapper">
                             {property.agency?.logo?.url && (
                                 <img src={property.agency.logo.url} alt="Agency Logo" />
                             )}
                             <h3>Interested? Send your information and we will contact you shortly</h3>
-                            <label>
-                                <span>Name</span>
-                                <input type="text" className="input" />
-                            </label>
-                            <label>
-                                <span>Email</span>
-                                <input type="text" className="input" />
-                            </label>
-                            <label>
-                                <span>Phone</span>
-                                <input type="text" className="input" />
-                            </label>
-                            <button className="button">Send</button>
+                            {submitSuccess ? (
+                                <div className="success-message">
+                                    <p className="success-title">
+                                        <img src={IconCheck} className="check-icon" alt="Sent" />
+                                        Thank you!
+                                    </p>
+                                    <p className="success-text">
+                                        We've received your information. A real estate agent will contact you within 24 hours.
+                                    </p>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleSubmit} className="contact-form">
+                                    <label>
+                                        <span>Name *</span>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            className={`input ${formErrors.name ? "input--error" : ""}`}
+                                            value={formData.name}
+                                            onChange={handleInputChange}
+                                        />
+                                        {formErrors.name && <span className="error-message">{formErrors.name}</span>}
+                                    </label>
+
+                                    <label>
+                                        <span>Email *</span>
+                                        <input
+                                            type="text"
+                                            name="email"
+                                            className={`input ${formErrors.email ? "input--error" : ""}`}
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                            placeholder="email@example.com"
+                                        />
+                                        {formErrors.email && <span className="error-message">{formErrors.email}</span>}
+                                    </label>
+
+                                    <label>
+                                        <span>Phone *</span>
+                                        <input
+                                            type="text"
+                                            name="phone"
+                                            className={`input ${formErrors.phone ? "input--error" : ""}`}
+                                            value={formData.phone}
+                                            onChange={handleInputChange}
+                                            placeholder="+1 (555) 123-4567"
+                                            maxLength={19}
+                                        />
+                                        {formErrors.phone && <span className="error-message">{formErrors.phone}</span>}
+                                    </label>
+
+                                    <button type="submit" className="button">
+                                        Send
+                                    </button>
+                                </form>
+                            )}
                         </div>
                     </div>
                 </div>
