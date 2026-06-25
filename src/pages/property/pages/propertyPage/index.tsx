@@ -134,74 +134,77 @@ const Property = () => {
                     </div>
                 </div>
             )}
-
-            <span className="property-badge">
-                {property.purpose === "rent" ? "For Rent" : ""}
-                {property.purpose === "sale" ? "For Sale" : ""}
-            </span>
-
-            <p className="property-page__price">
-                <strong>
-                    {property.price?.toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                    })}
-                </strong>
-            </p>
-
-            <p className="property-features">
-                <span>
-                    <img src={IconSqft2} className="property-icon sqft" alt="Square feet" />
-                    {property.area ? Math.round(property.area) : ""} <strong>sqft</strong>
-                </span>
-                <span>
-                    <img src={IconBed2} className="property-icon bed" alt="Bed" />
-                    {property.bedrooms} <strong>bed</strong>
-                </span>
-                <span>
-                    <img src={IconBath2} className="property-icon bath" alt="Bath" />
-                    {property.baths} <strong>bath</strong>
-                </span>
-            </p>
-
-            <div className="property-page__columns">
+            <div className="property-content">
                 <div>
-                    <h3>Amenities</h3>
-                    <ul className="property-page__amenities">
-                        {property.amenities?.map((amenity, index) => (
-                            <li key={index}>{amenity}</li>
-                        ))}
-                    </ul>
+                    <span className="property-badge">
+                        {property.purpose === "rent" ? "For Rent" : ""}
+                        {property.purpose === "sale" ? "For Sale" : ""}
+                    </span>
+
+                    <p className="property-page__price">
+                        <strong>
+                            {property.price?.toLocaleString("en-US", {
+                                style: "currency",
+                                currency: "USD",
+                            })}
+                        </strong>
+                    </p>
+
+                    <p className="property-features">
+                        <span>
+                            <img src={IconSqft2} className="property-icon sqft" alt="Square feet" />
+                            {property.area ? Math.round(property.area) : ""} <strong>sqft</strong>
+                        </span>
+                        <span>
+                            <img src={IconBed2} className="property-icon bed" alt="Bed" />
+                            {property.bedrooms} <strong>bed</strong>
+                        </span>
+                        <span>
+                            <img src={IconBath2} className="property-icon bath" alt="Bath" />
+                            {property.baths} <strong>bath</strong>
+                        </span>
+                    </p>
+
+                    <div className="property-page__columns">
+                        <div>
+                            <h3>Amenities</h3>
+                            <ul className="property-page__amenities">
+                                {property.amenities?.map((amenity, index) => (
+                                    <li key={index}>{amenity}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Description</h3>
+                    <h1>{property.title}</h1>
+                    {property.description && <p className="property-page__description">{property.description}</p>}
                 </div>
+                <div>
                 <div className="property-page__contact">
-                    <div className="property-page__contact-wrapper">
-                        {property.agency?.logo?.url && (
-                            <img src={property.agency.logo.url} alt="Agency Logo" />
-                        )}
-                        <h3>Interested? Send your information and we will contact you shortly</h3>
-                        <label>
-                            <span>Name</span>
-                            <input type="text" className="input" />
-                        </label>
-                        <label>
-                            <span>Email</span>
-                            <input type="text" className="input" />
-                        </label>
-                        <label>
-                            <span>Phone</span>
-                            <input type="text" className="input" />
-                        </label>
-                        <button className="button">Send</button>
+                        <div className="property-page__contact-wrapper">
+                            {property.agency?.logo?.url && (
+                                <img src={property.agency.logo.url} alt="Agency Logo" />
+                            )}
+                            <h3>Interested? Send your information and we will contact you shortly</h3>
+                            <label>
+                                <span>Name</span>
+                                <input type="text" className="input" />
+                            </label>
+                            <label>
+                                <span>Email</span>
+                                <input type="text" className="input" />
+                            </label>
+                            <label>
+                                <span>Phone</span>
+                                <input type="text" className="input" />
+                            </label>
+                            <button className="button">Send</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Descrição */}
-            <h3>Description</h3>
-            <h1>{property.title}</h1>
-            {property.description && <p>{property.description}</p>}
-
-            {/* Propriedades relacionadas */}
             <RelatedProperties />
         </div>
     );

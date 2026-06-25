@@ -136,6 +136,11 @@ html, body {
     margin-bottom: 0;
     color: #1296a9;
   }
+
+  .property-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
   
   .property-price {
     font-size: 20px;
@@ -204,6 +209,10 @@ html, body {
   .properties-page__list {
     display: flex;
     flex-wrap: wrap;
+  }  
+
+  .related-properties .properties-page__list {
+    margin: 0 -24px;
   }
 
   .properties-page, 
@@ -256,6 +265,10 @@ html, body {
     display: grid;
     grid-template-columns: 3fr 2fr;
     gap: 30px;
+  }
+
+  .property-page__description{
+    padding-right: 50px;
   }
   
   .skeleton {
@@ -868,7 +881,7 @@ html, body {
   }
   
   .property-page__contact{
-    margin-top: -100px;
+    margin-top: 20px;
     background-color: #fff;
   }
   
@@ -876,6 +889,7 @@ html, body {
     border: 1px solid #ccc;
     padding: 15px;
     padding-bottom: 30px;
+    background-color: #f0f0f0;
   }
   
   .property-page__contact img{
