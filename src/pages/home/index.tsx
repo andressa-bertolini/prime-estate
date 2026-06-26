@@ -9,13 +9,11 @@ import SectionHeader from "@components/SectionHeader";
 import PropertyItem from "@components/PropertyItem";
 import Skeleton from "@components/Skeleton";
 import FullBackgroundCTA from "@layouts/FullBackgroundCTA";
+import AboutTopics from "@components/AboutTopics";
 
 /* Images */
 import Savings from "@assets/images/savings.jpg";
 import HomeKeys from "@assets/images/home-keys.jpg";
-import IconTeam from "@assets/icons/icon-team.svg";
-import IconHandshake from "@assets/icons/icon-handshake.svg";
-import IconBulb from "@assets/icons/icon-bulb.svg";
 
 const Home = () => {
     const usePropertyQuery = (queryKey: string, queryFn: () => Promise<IProperty[]>) => {
@@ -71,26 +69,11 @@ const Home = () => {
                 buttonText="Learn More"
                 link="realtors"
             />
+
             <div className="home-about">
                 <h2>Prime Estate: Your Trusted Partner in Real Estate</h2>
                 <p>Helping You Find the Perfect Home with Ease and Confidence</p>
-                <div className="home-about__topics">
-                    <div>
-                        <img src={IconTeam} alt="Idea"/>
-                        <h4>Expert Guidance</h4>
-                        <p>Our experienced real estate professionals are here to assist you every step of the way, whether you're buying, selling, or renting.</p>
-                    </div>
-                    <div>
-                        <img src={IconHandshake} />
-                        <h4>Personalized Service</h4>
-                        <p>We understand that every client is unique, and we tailor our services to match your specific needs and preferences.</p>
-                    </div>
-                    <div>
-                        <img src={IconBulb} />
-                        <h4>Seamless Experience</h4>
-                        <p>With cutting-edge technology and market insights, we make property searching and transactions smooth, efficient, and stress-free.</p>
-                    </div>
-                </div>
+                    <AboutTopics />
                 <NavLink to="/about-us">Learn More</NavLink>
             </div>
         </>

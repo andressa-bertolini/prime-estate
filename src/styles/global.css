@@ -551,8 +551,30 @@ html, body {
     .about-us-grid {
       display: grid;
       gap: 20px;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 3fr 2fr 2fr;
     }
+  }
+
+  .about-us-grid .full-background-cta {
+    margin: 0;
+    padding: 30px;
+  }
+
+  .about-us-grid .home-about__topics {
+    display: block;
+    text-align: center;
+    background-color: #1296a9;
+    color: white;
+    margin-top: 0;
+    padding-top: 40px;
+  }
+
+  .about-us-grid .home-about__topics div{
+    margin-bottom: 50px;
+  }
+
+  .about-us-grid .home-about__topics h4{
+    margin-top: 0;
   }
   
   .choice-chips {
@@ -563,12 +585,6 @@ html, body {
     border-radius: 20px;
     margin-bottom: 20px;
   }
-  
-  /* @media(max-width: 1000px){
-    .choice-chips {
-      margin: 0 auto 20px;
-    }
-  } */
   
   .choice-chips .choice-chip__bg {
     position: absolute;
