@@ -376,7 +376,7 @@ html, body {
     display: block;
   }
   
-  .search-container, .calculator-container {
+  .search-container {
     padding: 80px 0;
     margin: 0 24px;
     background-size: cover;
@@ -385,7 +385,7 @@ html, body {
   }
 
   @media(max-width: 768px){
-    .search-container, .calculator-container {
+    .search-container {
       padding: 24px 0;
     }
   }
@@ -396,7 +396,6 @@ html, body {
 
   .calculator-container {
     background-image: url('@assets/images/savings.jpg');
-    height: calc(100vh - 248px)
   }
   
   .search-container:after, .calculator-container:after {
@@ -449,14 +448,27 @@ html, body {
   .custom-input {
     background-color: #fff;
     border-radius: 20px;
-    height: 42px;
   }
 
+  .custom-input .MuiOutlinedInput-root {
+    height: 42px;
+    border-radius: 20px;
+  }
+  
   .custom-input .MuiOutlinedInput-root {
     border-radius: 20px;
     font-size: 14px;
     height: 42px;
   }
+
+    .custom-input .MuiInputLabel-root {
+    transform: translate(14px, 9px) scale(1);
+  }
+  
+  .custom-input .MuiInputLabel-shrink {
+    transform: translate(14px, -9px) scale(0.75);
+  }
+
 
   .custom-input .MuiOutlinedInput-notchedOutline {
     border: none;
@@ -1346,4 +1358,50 @@ html, body {
     .modal-counter {
         font-size: 12px;
     }
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.calculator-container {
+  padding: 40px 0;
+  margin: 0 24px;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+@media(max-width: 768px){
+  .calculator-container {
+    padding: 24px 0;
+  }
+}
+
+.calculator-container .custom-input{
+  padding: 0;
+}
+
+.calculator-result {
+  height: 95px;
+  padding: 20px 0 10px;
+  box-sizing: border-box;
+}
+
+.calculator-result-value {
+  height: 161px;
+  padding: 20px 0 10px;
+  box-sizing: border-box;
+}
+
+.calculator-result__title {
+  text-align: center;
+  margin: 0;
+}
+
+.calculator-result__value {
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
 }

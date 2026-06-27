@@ -5,6 +5,9 @@ import { TextField } from '@mui/material';
 const Calculator = () => {
     const [income, setIncome] = useState("");
     const [entry, setEntry] = useState("");
+    const [property, setProperty] = useState("");
+    const [requiredIncome, setRequiredIncome] = useState("");
+    const [downPayment, setDownPayment] = useState("");
     const [purchasingPower, setPurchasingPower] = useState("");
 
     const calculatePurchasingPower = () => {
@@ -29,6 +32,31 @@ const Calculator = () => {
         setPurchasingPower(formatCurrency(result));
     };
 
+    const calculatePropertyConditions = () => {
+        const propertyValue = Number(property.replace(/,/g, "")) || 0;
+
+        if (propertyValue === 0) {
+            return;
+        }
+    
+        // 20% de entrada
+        const downPayment = propertyValue * 0.20;
+        
+        const loanAmount = propertyValue - downPayment;
+    
+        const interestRate = 12; // 12% ao ano
+        const months = 360; // 30 anos
+        const monthlyRate = interestRate / 100 / 12;
+    
+        const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, months)) / 
+                               (Math.pow(1 + monthlyRate, months) - 1);
+    
+        const requiredIncome = monthlyPayment / 0.30;
+    
+        setDownPayment(formatCurrency(downPayment));
+        setRequiredIncome(formatCurrency(requiredIncome));
+    };
+
     const formatCurrency = (value: number) => {
         return new Intl.NumberFormat("en-US", {
             style: "currency",
@@ -38,8 +66,8 @@ const Calculator = () => {
     };
 
     const handleIncome = (e: ChangeEvent<HTMLInputElement>) => {
-        const numericValue = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
-        setIncome(numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",")); // Adiciona as vírgulas
+        const numericValue = e.target.value.replace(/\D/g, "");
+        setIncome(numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     };
 
     const handleEntry = (e: ChangeEvent<HTMLInputElement>) => {
@@ -47,45 +75,83 @@ const Calculator = () => {
         setEntry(numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     };
 
+    const handleProperty = (e: ChangeEvent<HTMLInputElement>) => {
+        const numericValue = e.target.value.replace(/\D/g, "");
+        setProperty(numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    };
+
     return (
         <>
-            {/* <div className="container">
+            <div className="container">
                 <h1>Calculator</h1>
-            </div> */}
-            <div className="calculator-container">
-                <div className="calculator">
-                    <h1>Purchasing Power</h1>
-                    <TextField
-                        label="Income"
-                        variant="outlined"
-                        fullWidth
-                        margin="normal"
-                        type="text"
-                        onChange={handleIncome}
-                        value={income}
-                    />
+            </div>
+            <div className="calculator-grid">
+                <div className="calculator-container">
+                    <div className="calculator">
+                        <h1>Purchasing Power</h1>
+                        <p>Use our calculator to estimate your budget and start your search for the perfect home</p>
+                        <TextField
+                            className="custom-input"
+                            label="Income"
+                            variant="outlined"
+                            fullWidth
+                            margin="normal"
+                            type="text"
+                            onChange={handleIncome}
+                            value={income}
+                        />
 
-                    <TextField
-                        label="Entry"
-                        variant="outlined"
-                        fullWidth
-                        margin="normal"
-                        type="text"
-                        onChange={handleEntry}
-                        value={entry}
-                    />
-                    <button onClick={calculatePurchasingPower} className="button">
-                        Calculate
-                    </button>
-                    {purchasingPower && <p>Your purchasing power is: {purchasingPower}</p>}
+                        <TextField
+                            className="custom-input"
+                            label="Entry"
+                            variant="outlined"
+                            fullWidth
+                            margin="normal"
+                            type="text"
+                            onChange={handleEntry}
+                            value={entry}
+                        />
+                        <button onClick={calculatePurchasingPower} className="button">
+                            Calculate
+                        </button>
+                        <div className="calculator-result">
+                            {purchasingPower && (
+                            <>
+                                <p className="calculator-result__title">Your purchasing power is</p>
+                                <p className="calculator-result__value">{purchasingPower}</p>
+                            </>
+                            )}
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    {/* <h2>Property Value</h2>
-                    <label>
-                        <span>Property Value</span>
-                        <input type="text" className="input" />
-                        <button className="button">Calculate</button>
-                    </label> */}
+                <div className="calculator-container">
+                    <div className="calculator">
+                        <h1>Property Value</h1>
+                        <p>Found a home you love? Enter the property's price to calculate your estimated down payment</p>
+                        <label>
+                            <TextField
+                                className="custom-input"
+                                label="Property's Price"
+                                variant="outlined"
+                                fullWidth
+                                margin="normal"
+                                type="text"
+                                onChange={handleProperty}
+                                value={property}
+                            />
+                            <button className="button" onClick={calculatePropertyConditions}>Calculate</button>
+                            <div className="calculator-result-value">
+                                {property && (
+                                <>
+                                    <p className="calculator-result__title">Your income needs to be</p>
+                                    <p className="calculator-result__value">{requiredIncome}</p>
+                                    <p className="calculator-result__title">Your down payment needs to be</p>
+                                    <p className="calculator-result__value">{downPayment}</p>
+                                </>
+                                )}
+                            </div>
+                        </label>
+                    </div>
                 </div>
             </div>
         </>
