@@ -133,8 +133,8 @@ const Properties = () => {
                   </button>
                 </div>
 
-                  {purpose === "rent" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Rent</h1>}
-                  {purpose === "sale" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Sale</h1>}
+                  {/* {purpose === "rent" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Rent</h1>}
+                  {purpose === "sale" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Sale</h1>} */}
                   
                   {viewMode === "list" && <><div className="properties-page__list">
                       {isPending &&

@@ -11,6 +11,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "New York City",
     "state": "New York",
+    "lat": 40.7128,
+    "long": -74.0060,
     "featuredImage": "/prime-estate/mock/images/property-01-1.png",
     "images": [
       "/prime-estate/mock/images/property-01-1.png",
@@ -32,6 +34,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Dallas",
     "state": "Texas",
+    "lat": 32.7767,
+    "long": -96.7970,
     "featuredImage": "/prime-estate/mock/images/property-02-1.png",
     "images": [
       "/prime-estate/mock/images/property-02-1.png",
@@ -56,6 +60,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Phoenix",
     "state": "Arizona",
+    "lat": 33.4484,
+    "long": -112.0742,
     "featuredImage": "/prime-estate/mock/images/property-03-1.png",
     "images": [
       "/prime-estate/mock/images/property-03-1.png",
@@ -80,6 +86,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Nashville",
     "state": "Tennessee",
+    "lat": 36.1627,
+    "long": -86.7816,
     "featuredImage": "/prime-estate/mock/images/property-04-1.png",
     "images": [
       "/prime-estate/mock/images/property-04-1.png",
@@ -104,6 +112,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Chicago",
     "state": "Illinois",
+    "lat": 41.8781,
+    "long": -87.6298,
     "featuredImage": "/prime-estate/mock/images/property-05-1.png",
     "images": [
       "/prime-estate/mock/images/property-05-1.png",
@@ -125,6 +135,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Atlanta",
     "state": "Georgia",
+    "lat": 33.7490,
+    "long": -84.3880,
     "featuredImage": "/prime-estate/mock/images/property-06-1.png",
     "images": [
       "/prime-estate/mock/images/property-06-1.png",
@@ -147,6 +159,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Miami",
     "state": "Florida",
+    "lat": 25.7617,
+    "long": -80.1918,
     "featuredImage": "/prime-estate/mock/images/property-07-1.png",
     "images": [
       "/prime-estate/mock/images/property-07-1.png",
@@ -170,6 +184,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "San Francisco",
     "state": "California",
+    "lat": 37.7749,
+    "long": -122.4194,
     "featuredImage": "/prime-estate/mock/images/property-08-1.png",
     "images": [
       "/prime-estate/mock/images/property-08-1.png",
@@ -191,6 +207,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Portland",
     "state": "Oregon",
+    "lat": 45.5152,
+    "long": -122.6784,
     "featuredImage": "/prime-estate/mock/images/property-09-1.png",
     "images": [
       "/prime-estate/mock/images/property-09-1.png",
@@ -213,6 +231,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Denver",
     "state": "Colorado",
+    "lat": 39.7392,
+    "long": -104.9903,
     "featuredImage": "/prime-estate/mock/images/property-10-1.png",
     "images": [
       "/prime-estate/mock/images/property-10-1.png",
@@ -239,6 +259,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Seattle",
     "state": "Washington",
+    "lat": 47.6062,
+    "long": -122.3321,
     "featuredImage": "/prime-estate/mock/images/property-11-1.png",
     "images": [
       "/prime-estate/mock/images/property-11-1.png",
@@ -259,6 +281,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Charleston",
     "state": "South Carolina",
+    "lat": 32.7765,
+    "long": -79.9311,
     "featuredImage": "/prime-estate/mock/images/property-12-1.png",
     "images": [
       "/prime-estate/mock/images/property-12-1.png",
@@ -283,6 +307,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Boston",
     "state": "Massachusetts",
+    "lat": 42.3601,
+    "long": -71.0589,
     "featuredImage": "/prime-estate/mock/images/property-13-1.png",
     "images": [
       "/prime-estate/mock/images/property-13-1.png",
@@ -304,6 +330,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Tampa",
     "state": "Florida",
+    "lat": 27.9506,
+    "long": -82.4572,
     "featuredImage": "/prime-estate/mock/images/property-14-1.png",
     "images": [
       "/prime-estate/mock/images/property-14-1.png",
@@ -329,6 +357,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Houston",
     "state": "Texas",
+    "lat": 29.7604,
+    "long": -95.3698,
     "featuredImage": "/prime-estate/mock/images/property-15-1.png",
     "images": [
       "/prime-estate/mock/images/property-15-1.png",
@@ -350,6 +380,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Seattle",
     "state": "Washington",
+    "lat": 47.6062,
+    "long": -122.3321,
     "featuredImage": "/prime-estate/mock/images/property-16-1.png",
     "images": [
       "/prime-estate/mock/images/property-16-1.png",
@@ -369,6 +401,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Denver",
     "state": "Colorado",
+    "lat": 39.7392,
+    "long": -104.9903,
     "featuredImage": "/prime-estate/mock/images/property-16-1.png",
     "images": [
       "/prime-estate/mock/images/property-16-1.png",
@@ -388,6 +422,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Seattle",
     "state": "Washington",
+    "lat": 47.6062,
+    "long": -122.3321,
     "featuredImage": "/prime-estate/mock/images/property-18-1.png",
     "images": [
       "/prime-estate/mock/images/property-18-1.png",
@@ -408,6 +444,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Dallas",
     "state": "Texas",
+    "lat": 32.7767,
+    "long": -96.7970,
     "featuredImage": "/prime-estate/mock/images/property-19-1.png",
     "images": [
       "/prime-estate/mock/images/property-19-1.png",
@@ -428,6 +466,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Phoenix",
     "state": "Arizona",
+    "lat": 33.4484,
+    "long": -112.0742,
     "featuredImage": "/prime-estate/mock/images/property-20-1.png",
     "images": [
       "/prime-estate/mock/images/property-20-1.png",
@@ -448,6 +488,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Los Angeles",
     "state": "California",
+    "lat": 34.0522,
+    "long": -118.2437,
     "featuredImage": "/prime-estate/mock/images/property-19-1.png",
     "images": [
       "/prime-estate/mock/images/property-19-1.png",
@@ -468,6 +510,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Tucson",
     "state": "Arizona",
+    "lat": 32.2226,
+    "long": -110.9747,
     "featuredImage": "/prime-estate/mock/images/property-22-1.png",
     "images": [
       "/prime-estate/mock/images/property-22-1.png",
@@ -488,6 +532,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Miami",
     "state": "Florida",
+    "lat": 25.7617,
+    "long": -80.1918,
     "featuredImage": "/prime-estate/mock/images/property-23-1.png",
     "images": [
       "/prime-estate/mock/images/property-23-1.png",
@@ -509,6 +555,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Orlando",
     "state": "Florida",
+    "lat": 28.5421,
+    "long": -81.3723,
     "featuredImage": "/prime-estate/mock/images/property-24-1.png",
     "images": [
       "/prime-estate/mock/images/property-24-1.png",
@@ -530,6 +578,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Mesa",
     "state": "Arizona",
+    "lat": 33.4152,
+    "long": -111.8313,
     "featuredImage": "/prime-estate/mock/images/property-03-1.png",
     "images": [
       "/prime-estate/mock/images/property-03-1.png",
@@ -551,6 +601,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "San Diego",
     "state": "California",
+    "lat": 32.7157,
+    "long": -117.1611,
     "featuredImage": "/prime-estate/mock/images/property-05-1.png",
     "images": [
       "/prime-estate/mock/images/property-05-1.png",
@@ -572,6 +624,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Colorado Springs",
     "state": "Colorado",
+    "lat": 38.8339,
+    "long": -104.8202,
     "featuredImage": "/prime-estate/mock/images/property-04-1.png",
     "images": [
       "/prime-estate/mock/images/property-04-1.png",
@@ -593,6 +647,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Aurora",
     "state": "Colorado",
+    "lat": 39.7294,
+    "long": -104.8319,
     "featuredImage": "/prime-estate/mock/images/property-15-1.png",
     "images": [
       "/prime-estate/mock/images/property-15-1.png",
@@ -613,6 +669,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Savannah",
     "state": "Georgia",
+    "lat": 32.0809,
+    "long": -81.0912,
     "featuredImage": "/prime-estate/mock/images/property-12-1.png",
     "images": [
       "/prime-estate/mock/images/property-12-1.png",
@@ -634,6 +692,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Augusta",
     "state": "Georgia",
+    "lat": 33.4734,
+    "long": -82.0105,
     "featuredImage": "/prime-estate/mock/images/property-06-1.png",
     "images": [
       "/prime-estate/mock/images/property-06-1.png",
@@ -654,6 +714,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Springfield",
     "state": "Illinois",
+    "lat": 39.7817,
+    "long": -89.6501,
     "featuredImage": "/prime-estate/mock/images/property-11-1.png",
     "images": [
       "/prime-estate/mock/images/property-11-1.png",
@@ -674,6 +736,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Naperville",
     "state": "Illinois",
+    "lat": 41.7658,
+    "long": -88.1495,
     "featuredImage": "/prime-estate/mock/images/property-02-1.png",
     "images": [
       "/prime-estate/mock/images/property-02-1.png",
@@ -696,6 +760,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Wichita",
     "state": "Kansas",
+    "lat": 37.6872,
+    "long": -97.3301,
     "featuredImage": "/prime-estate/mock/images/property-10-1.png",
     "images": [
       "/prime-estate/mock/images/property-10-1.png",
@@ -717,6 +783,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Overland Park",
     "state": "Kansas",
+    "lat": 38.9196,
+    "long": -94.6552,
     "featuredImage": "/prime-estate/mock/images/property-07-1.png",
     "images": [
       "/prime-estate/mock/images/property-07-1.png",
@@ -737,6 +805,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Kansas City",
     "state": "Kansas",
+    "lat": 39.0997,
+    "long": -94.5786,
     "featuredImage": "/prime-estate/mock/images/property-13-1.png",
     "images": [
       "/prime-estate/mock/images/property-13-1.png",
@@ -757,6 +827,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Worcester",
     "state": "Massachusetts",
+    "lat": 42.2652,
+    "long": -71.8018,
     "featuredImage": "/prime-estate/mock/images/property-01-1.png",
     "images": [
       "/prime-estate/mock/images/property-01-1.png",
@@ -777,6 +849,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Springfield",
     "state": "Massachusetts",
+    "lat": 42.1015,
+    "long": -72.5898,
     "featuredImage": "/prime-estate/mock/images/property-02-1.png",
     "images": [
       "/prime-estate/mock/images/property-02-1.png",
@@ -798,6 +872,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Buffalo",
     "state": "New York",
+    "lat": 42.8864,
+    "long": -78.8784,
     "featuredImage": "/prime-estate/mock/images/property-09-1.png",
     "images": [
       "/prime-estate/mock/images/property-09-1.png",
@@ -818,6 +894,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Rochester",
     "state": "New York",
+    "lat": 43.1629,
+    "long": -77.6132,
     "featuredImage": "/prime-estate/mock/images/property-04-1.png",
     "images": [
       "/prime-estate/mock/images/property-04-1.png",
@@ -839,6 +917,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Charlotte",
     "state": "North Carolina",
+    "lat": 35.2271,
+    "long": -80.8431,
     "featuredImage": "/prime-estate/mock/images/property-01-1.png",
     "images": [
       "/prime-estate/mock/images/property-01-1.png",
@@ -860,6 +940,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Raleigh",
     "state": "North Carolina",
+    "lat": 35.7796,
+    "long": -78.6382,
     "featuredImage": "/prime-estate/mock/images/property-14-1.png",
     "images": [
       "/prime-estate/mock/images/property-14-1.png",
@@ -882,6 +964,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Greensboro",
     "state": "North Carolina",
+    "lat": 36.0726,
+    "long": -79.7920,
     "featuredImage": "/prime-estate/mock/images/property-04-1.png",
     "images": [
       "/prime-estate/mock/images/property-04-1.png",
@@ -902,6 +986,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Salem",
     "state": "Oregon",
+    "lat": 44.9429,
+    "long": -123.0351,
     "featuredImage": "/prime-estate/mock/images/property-22-1.png",
     "images": [
       "/prime-estate/mock/images/property-22-1.png",
@@ -922,6 +1008,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Eugene",
     "state": "Oregon",
+    "lat": 44.0521,
+    "long": -123.0868,
     "featuredImage": "/prime-estate/mock/images/property-12-1.png",
     "images": [
       "/prime-estate/mock/images/property-12-1.png",
@@ -943,6 +1031,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Philadelphia",
     "state": "Pennsylvania",
+    "lat": 39.9526,
+    "long": -75.1652,
     "featuredImage": "/prime-estate/mock/images/property-07-1.png",
     "images": [
       "/prime-estate/mock/images/property-07-1.png",
@@ -964,6 +1054,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Pittsburgh",
     "state": "Pennsylvania",
+    "lat": 40.4534,
+    "long": -79.9626,
     "featuredImage": "/prime-estate/mock/images/property-06-1.png",
     "images": [
       "/prime-estate/mock/images/property-06-1.png",
@@ -986,6 +1078,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Harrisburg",
     "state": "Pennsylvania",
+    "lat": 40.2732,
+    "long": -76.8867,
     "featuredImage": "/prime-estate/mock/images/property-24-1.png",
     "images": [
       "/prime-estate/mock/images/property-24-1.png",
@@ -1006,6 +1100,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Columbia",
     "state": "South Carolina",
+    "lat": 34.0007,
+    "long": -81.0348,
     "featuredImage": "/prime-estate/mock/images/property-10-1.png",
     "images": [
       "/prime-estate/mock/images/property-10-1.png",
@@ -1027,6 +1123,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "North Charleston",
     "state": "South Carolina",
+    "lat": 32.8793,
+    "long": -79.9955,
     "featuredImage": "/prime-estate/mock/images/property-23-1.png",
     "images": [
       "/prime-estate/mock/images/property-23-1.png",
@@ -1047,6 +1145,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Austin",
     "state": "Texas",
+    "lat": 30.2672,
+    "long": -97.7431,
     "featuredImage": "/prime-estate/mock/images/property-03-1.png",
     "images": [
       "/prime-estate/mock/images/property-03-1.png",
@@ -1069,6 +1169,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Spokane",
     "state": "Washington",
+    "lat": 47.6587,
+    "long": -117.4260,
     "featuredImage": "/prime-estate/mock/images/property-09-1.png",
     "images": [
       "/prime-estate/mock/images/property-09-1.png",
@@ -1090,6 +1192,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Tacoma",
     "state": "Washington",
+    "lat": 47.2529,
+    "long": -122.4443,
     "featuredImage": "/prime-estate/mock/images/property-02-1.png",
     "images": [
       "/prime-estate/mock/images/property-02-1.png",
@@ -1112,6 +1216,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Los Angeles",
     "state": "California",
+    "lat": 34.0522,
+    "long": -118.2437,
     "featuredImage": "/prime-estate/mock/images/property-05-1.png",
     "images": [
       "/prime-estate/mock/images/property-05-1.png",
@@ -1133,6 +1239,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "San Diego",
     "state": "California",
+    "lat": 32.7157,
+    "long": -117.1611,
     "featuredImage": "/prime-estate/mock/images/property-03-1.png",
     "images": [
       "/prime-estate/mock/images/property-03-1.png",
@@ -1154,6 +1262,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Savannah",
     "state": "Georgia",
+    "lat": 32.0809,
+    "long": -81.0912,
     "featuredImage": "/prime-estate/mock/images/property-16-1.png",
     "images": [
       "/prime-estate/mock/images/property-16-1.png",
@@ -1173,6 +1283,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Augusta",
     "state": "Georgia",
+    "lat": 33.4734,
+    "long": -82.0105,
     "featuredImage": "/prime-estate/mock/images/property-14-1.png",
     "images": [
       "/prime-estate/mock/images/property-14-1.png",
@@ -1194,6 +1306,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Springfield",
     "state": "Illinois",
+    "lat": 39.7817,
+    "long": -89.6501,
     "featuredImage": "/prime-estate/mock/images/property-18-1.png",
     "images": [
       "/prime-estate/mock/images/property-18-1.png",
@@ -1214,6 +1328,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Naperville",
     "state": "Illinois",
+    "lat": 41.7658,
+    "long": -88.1495,
     "featuredImage": "/prime-estate/mock/images/property-06-1.png",
     "images": [
       "/prime-estate/mock/images/property-06-1.png",
@@ -1235,6 +1351,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Wichita",
     "state": "Kansas",
+    "lat": 37.6872,
+    "long": -97.3301,
     "featuredImage": "/prime-estate/mock/images/property-04-1.png",
     "images": [
       "/prime-estate/mock/images/property-04-1.png",
@@ -1255,6 +1373,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Overland Park",
     "state": "Kansas",
+    "lat": 38.9196,
+    "long": -94.6552,
     "featuredImage": "/prime-estate/mock/images/property-13-1.png",
     "images": [
       "/prime-estate/mock/images/property-13-1.png",
@@ -1276,6 +1396,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Kansas City",
     "state": "Kansas",
+    "lat": 39.0997,
+    "long": -94.5786,
     "featuredImage": "/prime-estate/mock/images/property-02-1.png",
     "images": [
       "/prime-estate/mock/images/property-02-1.png",
@@ -1297,6 +1419,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Worcester",
     "state": "Massachusetts",
+    "lat": 42.2652,
+    "long": -71.8018,
     "featuredImage": "/prime-estate/mock/images/property-09-1.png",
     "images": [
       "/prime-estate/mock/images/property-09-1.png",
@@ -1318,6 +1442,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Springfield",
     "state": "Massachusetts",
+    "lat": 42.1015,
+    "long": -72.5898,
     "featuredImage": "/prime-estate/mock/images/property-20-1.png",
     "images": [
       "/prime-estate/mock/images/property-20-1.png",
@@ -1338,6 +1464,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Philadelphia",
     "state": "Pennsylvania",
+    "lat": 39.9526,
+    "long": -75.1652,
     "featuredImage": "/prime-estate/mock/images/property-01-1.png",
     "images": [
       "/prime-estate/mock/images/property-01-1.png",
@@ -1359,6 +1487,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Pittsburgh",
     "state": "Pennsylvania",
+    "lat": 40.4534,
+    "long": -79.9626,
     "featuredImage": "/prime-estate/mock/images/property-12-1.png",
     "images": [
       "/prime-estate/mock/images/property-12-1.png",
@@ -1379,6 +1509,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Harrisburg",
     "state": "Pennsylvania",
+    "lat": 40.2732,
+    "long": -76.8867,
     "featuredImage": "/prime-estate/mock/images/property-04-1.png",
     "images": [
       "/prime-estate/mock/images/property-04-1.png",
@@ -1399,6 +1531,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Columbia",
     "state": "South Carolina",
+    "lat": 34.0007,
+    "long": -81.0348,
     "featuredImage": "/prime-estate/mock/images/property-07-1.png",
     "images": [
       "/prime-estate/mock/images/property-07-1.png",
@@ -1419,6 +1553,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "North Charleston",
     "state": "South Carolina",
+    "lat": 32.8793,
+    "long": -79.9955,
     "featuredImage": "/prime-estate/mock/images/property-10-1.png",
     "images": [
       "/prime-estate/mock/images/property-10-1.png",
@@ -1440,6 +1576,8 @@ export const properties = [
     "bathrooms": 4,
     "city": "Raleigh",
     "state": "North Carolina",
+    "lat": 35.7796,
+    "long": -78.6382,
     "featuredImage": "/prime-estate/mock/images/property-03-1.png",
     "images": [
       "/prime-estate/mock/images/property-03-1.png",
@@ -1462,6 +1600,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Greensboro",
     "state": "North Carolina",
+    "lat": 36.0726,
+    "long": -79.7920,
     "featuredImage": "/prime-estate/mock/images/property-05-1.png",
     "images": [
       "/prime-estate/mock/images/property-05-1.png",
@@ -1482,6 +1622,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Salem",
     "state": "Oregon",
+    "lat": 44.9429,
+    "long": -123.0351,
     "featuredImage": "/prime-estate/mock/images/property-06-1.png",
     "images": [
       "/prime-estate/mock/images/property-06-1.png",
@@ -1503,6 +1645,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Eugene",
     "state": "Oregon",
+    "lat": 44.0521,
+    "long": -123.0868,
     "featuredImage": "/prime-estate/mock/images/property-03-1.png",
     "images": [
       "/prime-estate/mock/images/property-03-1.png",
@@ -1525,6 +1669,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Buffalo",
     "state": "New York",
+    "lat": 42.8864,
+    "long": -78.8784,
     "featuredImage": "/prime-estate/mock/images/property-24-1.png",
     "images": [
       "/prime-estate/mock/images/property-24-1.png",
@@ -1545,6 +1691,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Rochester",
     "state": "New York",
+    "lat": 43.1629,
+    "long": -77.6132,
     "featuredImage": "/prime-estate/mock/images/property-02-1.png",
     "images": [
       "/prime-estate/mock/images/property-02-1.png",
@@ -1567,6 +1715,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Charlotte",
     "state": "North Carolina",
+    "lat": 35.2271,
+    "long": -80.8431,
     "featuredImage": "/prime-estate/mock/images/property-22-1.png",
     "images": [
       "/prime-estate/mock/images/property-22-1.png",
@@ -1587,6 +1737,8 @@ export const properties = [
     "bathrooms": 4,
     "city": "Austin",
     "state": "Texas",
+    "lat": 30.2672,
+    "long": -97.7431,
     "featuredImage": "/prime-estate/mock/images/property-14-1.png",
     "images": [
       "/prime-estate/mock/images/property-14-1.png",
@@ -1610,6 +1762,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Tacoma",
     "state": "Washington",
+    "lat": 47.2529,
+    "long": -122.4443,
     "featuredImage": "/prime-estate/mock/images/property-11-1.png",
     "images": [
       "/prime-estate/mock/images/property-11-1.png",
@@ -1630,6 +1784,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Spokane",
     "state": "Washington",
+    "lat": 47.2529,
+    "long": -122.4443,
     "featuredImage": "/prime-estate/mock/images/property-02-1.png",
     "images": [
       "/prime-estate/mock/images/property-02-1.png",
@@ -1651,6 +1807,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Tacoma",
     "state": "Washington",
+    "lat": 47.2529,
+    "long": -122.4443,
     "featuredImage": "/prime-estate/mock/images/property-03-1.png",
     "images": [
       "/prime-estate/mock/images/property-03-1.png",
@@ -1673,6 +1831,8 @@ export const properties = [
     "bathrooms": 1,
     "city": "Portland",
     "state": "Oregon",
+    "lat": 45.5152,
+    "long": -122.6784,
     "featuredImage": "/prime-estate/mock/images/property-18-1.png",
     "images": [
       "/prime-estate/mock/images/property-18-1.png",
@@ -1693,6 +1853,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Portland",
     "state": "Oregon",
+    "lat": 45.5152,
+    "long": -122.6784,
     "featuredImage": "/prime-estate/mock/images/property-04-1.png",
     "images": [
       "/prime-estate/mock/images/property-04-1.png",
@@ -1714,6 +1876,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Mesa",
     "state": "Arizona",
+    "lat": 33.4152,
+    "long": -111.8313,
     "featuredImage": "/prime-estate/mock/images/property-07-1.png",
     "images": [
       "/prime-estate/mock/images/property-07-1.png",
@@ -1734,6 +1898,8 @@ export const properties = [
     "bathrooms": 2,
     "city": "Tucson",
     "state": "Arizona",
+    "lat": 32.2226,
+    "long": -110.9747,
     "featuredImage": "/prime-estate/mock/images/property-03-1.png",
     "images": [
       "/prime-estate/mock/images/property-03-1.png",
@@ -1756,6 +1922,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "San Francisco",
     "state": "California",
+    "lat": 37.7749,
+    "long": -122.4194,
     "featuredImage": "/prime-estate/mock/images/property-01-1.png",
     "images": [
       "/prime-estate/mock/images/property-01-1.png",
@@ -1777,6 +1945,8 @@ export const properties = [
     "bathrooms": 3,
     "city": "Los Angeles",
     "state": "California",
+    "lat": 34.1899,
+    "long": -118.1438,
     "featuredImage": "/prime-estate/mock/images/property-14-1.png",
     "images": [
       "/prime-estate/mock/images/property-14-1.png",
