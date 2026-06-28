@@ -141,6 +141,11 @@ html, body {
     display: grid;
     grid-template-columns: 2fr 1fr;
   }
+
+  .property-content__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
   
   .property-price {
     font-size: 20px;
@@ -260,11 +265,9 @@ html, body {
     background-color: #ccc;
     border-radius: 50px;
   }
-  
-  .property-page__columns {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 30px;
+
+  .property-content__map {
+    padding: 24px;
   }
 
   .property-page__description{

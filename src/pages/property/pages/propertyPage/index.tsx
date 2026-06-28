@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
 import RelatedProperties from "@components/RelatedProperties";
+import PropertyMap from "@components/PropertyMap";
 
 import IconSqft2 from "@assets/icons/icon-sqft.svg";
 import IconBed2 from "@assets/icons/icon-bed.svg";
@@ -215,43 +216,57 @@ const Property = () => {
             )}
             <div className="property-content">
                 <div>
-                    <span className="property-badge">
-                        {property.purpose === "rent" ? "For Rent" : ""}
-                        {property.purpose === "sale" ? "For Sale" : ""}
-                    </span>
-
-                    <p className="property-page__price">
-                        <strong>
-                            {property.price?.toLocaleString("en-US", {
-                                style: "currency",
-                                currency: "USD",
-                            })}
-                        </strong>
-                    </p>
-
-                    <p className="property-features">
-                        <span>
-                            <img src={IconSqft2} className="property-icon sqft" alt="Square feet" />
-                            {property.area ? Math.round(property.area) : ""} <strong>sqft</strong>
-                        </span>
-                        <span>
-                            <img src={IconBed2} className="property-icon bed" alt="Bed" />
-                            {property.bedrooms} <strong>bed</strong>
-                        </span>
-                        <span>
-                            <img src={IconBath2} className="property-icon bath" alt="Bath" />
-                            {property.baths} <strong>bath</strong>
-                        </span>
-                    </p>
-
-                    <div className="property-page__columns">
+                    <div className="property-content__grid">
                         <div>
-                            <h3>Amenities</h3>
-                            <ul className="property-page__amenities">
-                                {property.amenities?.map((amenity, index) => (
-                                    <li key={index}>{amenity}</li>
-                                ))}
-                            </ul>
+                            <span className="property-badge">
+                                {property.purpose === "rent" ? "For Rent" : ""}
+                                {property.purpose === "sale" ? "For Sale" : ""}
+                            </span>
+
+                            <p className="property-page__price">
+                                <strong>
+                                    {property.price?.toLocaleString("en-US", {
+                                        style: "currency",
+                                        currency: "USD",
+                                    })}
+                                </strong>
+                            </p>
+
+                            <p className="property-features">
+                                <span>
+                                    <img src={IconSqft2} className="property-icon sqft" alt="Square feet" />
+                                    {property.area ? Math.round(property.area) : ""} <strong>sqft</strong>
+                                </span>
+                                <span>
+                                    <img src={IconBed2} className="property-icon bed" alt="Bed" />
+                                    {property.bedrooms} <strong>bed</strong>
+                                </span>
+                                <span>
+                                    <img src={IconBath2} className="property-icon bath" alt="Bath" />
+                                    {property.baths} <strong>bath</strong>
+                                </span>
+                            </p>
+
+                            <div className="property-page__columns">
+                                <div>
+                                    <h3>Amenities</h3>
+                                    <ul className="property-page__amenities">
+                                        {property.amenities?.map((amenity, index) => (
+                                            <li key={index}>{amenity}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="property-content__map">
+                            {property.lat && property.long && (
+                                <PropertyMap
+                                    latitude={property.lat}
+                                    longitude={property.long}
+                                    title={property.title}
+                                    height="350px"
+                                />
+                            )}
                         </div>
                     </div>
 

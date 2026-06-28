@@ -16,14 +16,6 @@ export const propertiesHandlers = [
 
     let filtered = [...properties];
 
-    console.log("Query params:", {
-      query,
-      purpose,
-      type,
-      priceMin,
-      priceMax,
-    });
-
     if (query) {
       filtered = filtered.filter(
         (p) =>
