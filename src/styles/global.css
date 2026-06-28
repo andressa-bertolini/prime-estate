@@ -1405,3 +1405,36 @@ html, body {
   text-align: center;
   margin: 0;
 }
+
+.list-properties__wrapper {
+  position: relative;
+}
+
+.list-properties__nav {
+  position: sticky;
+  top: 70px;
+  left: 0;
+  z-index: 10;
+  /* background-color: white; */
+  background-color: #1296a9;
+  /* border-bottom: 1px solid black; */
+  padding: 10px 20px;
+}
+
+.list-properties__nav button {
+  background-color: transparent;
+  border: 0;
+  color: white;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.list-properties__nav button.disabled{
+  opacity: 0.5;
+  cursor: default;
+}
+
+.list-properties__nav button img {
+  padding-right: 5px;
+  vertical-align: -7px;
+}

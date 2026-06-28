@@ -1,3 +1,6 @@
+import FullBackgroundCTA from "@layouts/FullBackgroundCTA";
+import HomeKeys from "@assets/images/home-keys.jpg";
+
 import Agent1 from "@assets/images/agent1.png";
 import Agent2 from "@assets/images/agent2.png";
 import Agent3 from "@assets/images/agent3.png";
@@ -23,6 +26,13 @@ const Agents = () => {
                     </div>
                 ))}
             </div>
+            <FullBackgroundCTA
+                image={HomeKeys}
+                imageAlignment="center bottom"
+                text="Prime Estate: Your Trusted Partner in Real Estate"
+                buttonText="Learn More"
+                link="about-us"
+            />
         </div>
     );
 }

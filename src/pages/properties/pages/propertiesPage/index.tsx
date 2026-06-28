@@ -4,6 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import { IProperty, PropertiesService } from "@services/properties/PropertiesService";
 import SadHouse from "@assets/images/sad-house.png";
 
+import IconMap from "@assets/icons/icon-map.svg";
+import IconList from "@assets/icons/icon-list.svg";
+
 import PropertyItem from "@components/PropertyItem";
 import Search from "@components/Search";
 import Skeleton from "@components/Skeleton";
@@ -23,6 +26,7 @@ const Properties = () => {
     const beds = searchParams.get("beds");
     const baths = searchParams.get("baths");
     const sqft = searchParams.get("sqft");
+    const [viewMode, setViewMode] = useState<"list" | "map">("list");
 
     const {
         data: properties,
@@ -110,39 +114,62 @@ const Properties = () => {
                   <div className="search-properties">
                     <Search fullfilters={true} />
                   </div>
+              </div>
+              <div className="list-properties__wrapper">
+                <div className="list-properties__nav">
+                  <button 
+                    className={viewMode === "list" ? "disabled" : ""}
+                    onClick={() => setViewMode("list")}
+                  >
+                    <img src={IconList} alt="List View" />
+                     List 
+                  </button>
+                  <button 
+                    className={viewMode === "map" ? "disabled" : ""}
+                    onClick={() => setViewMode("map")}
+                  >
+                    <img src={IconMap} alt="Map View" />
+                     Map
+                  </button>
                 </div>
-                <div>
-                    {purpose === "rent" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Rent</h1>}
-                    {purpose === "sale" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Sale</h1>}
-                    
-                    <div className="properties-page__list">
-                        {isPending &&
-                            [...Array(9)].map((_, i) => <Skeleton key={i} grid={3} />)
-                        }
-                        {!isPending &&
-                            filteredProperties && filteredProperties.length > 0 ? (
-                                paginatedProperties.map((property: IProperty) => (
-                                    <PropertyItem property={property} key={property.id} />
-                                ))
-                            ) : (
-                                <div className="not-found">
-                                    <p>No properties found.</p>
-                                    <img src={SadHouse} alt="Sad House" />
-                                </div>
-                            )
-                        }
-                    </div>
-                    
-                    {!isPending && filteredProperties.length > 0 && totalPages > 1 && (
-                        <Pagination 
-                            currentPage={currentPage}
-                            totalPages={totalPages}
-                            onPageChange={handlePageChange}
-                            itemsCount={filteredProperties.length}
-                            itemsPerPage={ITEMS_PER_PAGE}
-                        />
-                    )}
-                </div>
+
+                  {purpose === "rent" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Rent</h1>}
+                  {purpose === "sale" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Sale</h1>}
+                  
+                  {viewMode === "list" && <><div className="properties-page__list">
+                      {isPending &&
+                          [...Array(9)].map((_, i) => <Skeleton key={i} grid={3} />)
+                      }
+                      {!isPending &&
+                          filteredProperties && filteredProperties.length > 0 ? (
+                              paginatedProperties.map((property: IProperty) => (
+                                  <PropertyItem property={property} key={property.id} />
+                              ))
+                          ) : (
+                              <div className="not-found">
+                                  <p>No properties found.</p>
+                                  <img src={SadHouse} alt="Sad House" />
+                              </div>
+                          )
+                      }
+                  </div>
+                  
+                  {!isPending && filteredProperties.length > 0 && totalPages > 1 && (
+                    <Pagination 
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        onPageChange={handlePageChange}
+                        itemsCount={filteredProperties.length}
+                        itemsPerPage={ITEMS_PER_PAGE}
+                    />
+                  )}
+                  </>}
+
+                  {viewMode === "map" && <><div className="properties-page__map">
+                  </div>
+                  </>}
+                  
+              </div>
             </div>
         </div>
     );
