@@ -1,4 +1,4 @@
-<div align="center" style="background-color: white; color: black; padding: 20px;">
+<div align="center">
   <img src="./readme/logo.png" alt="Logo" width="60"/>
 
   <h2>Prime Estate</h2>
@@ -17,12 +17,10 @@
   <tr>
     <td width="45%">
 
-- Dynamic filters (type, price, city, etc.)
-- City search with autocomplete (Mocky API)
-- Routing with React Router
-- Data fetching and caching with React Query
-- Reusable and modular components
-- Global state management using Context API
+  - Dynamic filters (type, price, city, etc.)
+  - City search with autocomplete (Mocky API)
+  - Data fetching and caching with React Query
+  - Global state management using Context API
 
     </td>
 
@@ -65,6 +63,19 @@
 
     <td width="55%">
       <img src="./readme/prime-estate-calculator.png" width="100%">
+    </td>
+  </tr>
+  <!------------------------------------------------------------->
+    <tr>
+    <td width="45%">
+
+  - List
+
+    </td>
+
+    <td width="55%">
+      <img src="./readme/prime-estate-about.png" width="100%">
+      <img src="./readme/prime-estate-realtors.png" width="100%">
     </td>
   </tr>
   <!------------------------------------------------------------->
