@@ -17,10 +17,11 @@
   <tr>
     <td width="45%">
 
-  - Dynamic filters (type, price, city, etc.)
-  - City search with autocomplete (Mocky API)
   - Data fetching and caching with React Query
   - Global state management using Context API
+  - Property search with filters (simplified version for better usability)
+  - Property recommendations for rent or purchase
+  - CTAs for the mortgage calculator, real estate agents, and company information
 
     </td>
 
@@ -32,7 +33,8 @@
   <tr>
     <td width="45%">
 
-  - List
+  - Advanced property search with filters
+  - Property search results with list and map views
 
     </td>
 
@@ -45,7 +47,11 @@
   <tr>
     <td width="45%">
 
-  - List
+  - Property image gallery
+  - Interactive map showing the property's location
+  - Contact form to reach the real estate agent
+  - Detailed property information
+  - Related properties
 
     </td>
 
@@ -57,7 +63,7 @@
   <tr>
     <td width="45%">
 
-  - List
+  - Mortgage calculator with two modes: buying power and down payment/income simulation
 
     </td>
 
@@ -69,7 +75,8 @@
     <tr>
     <td width="45%">
 
-  - List
+  - Real estate agency information
+  - Real estate agent profiles
 
     </td>
 
