@@ -1,13 +1,24 @@
-## 🏡 Prime Estate
+<div align="center">
+  <img src="src/assets/images/logo-text.png" alt="Logo" width="60" style="background-color: white; padding: 5px"/>
+
+  ## Prime Estate
+
+  **PrimeEstate** is a real estate platform for searching and filtering properties.
+
+  <a href="https://projects.andressabertolini.com/prime-estate/" target="_blank">
+    <img src="https://img.shields.io/badge/Live%20Demo-1296a9?style=for-the-badge" alt="Live Demo">
+</div>
+<br />
+<hr />
+<br />
+
+## 🚀 About the Project
 
 <a href="https://projects.andressabertolini.com/prime-estate/" target="_blank">
-  <img src="./thumbnail.png" alt="Prime Estate Thumbnail" width="300" />
+  <img src="./thumbnail.png" alt="Prime Estate Thumbnail" />
 </a>
 
-**PrimeEstate** is a real estate platform for searching and filtering properties. It's a fictional project and the goal is to simulate a real estate application environment, serving as a portfolio project.
 
-<a href="https://projects.andressabertolini.com/prime-estate/" target="_blank">
-  <img src="https://img.shields.io/badge/Live%20Demo-1296a9?style=for-the-badge" alt="Ver projeto">
 </a>
 
 <br>
