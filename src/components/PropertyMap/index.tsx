@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import IconPin from "@assets/icons/icon-pin.svg";
 
 interface PropertyMapProps {
     latitude: number;
@@ -21,7 +22,6 @@ const PropertyMap = ({
     useEffect(() => {
         if (!mapContainer.current) return;
 
-
         map.current = new maplibregl.Map({
             container: mapContainer.current,
             style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
@@ -31,7 +31,30 @@ const PropertyMap = ({
             bearing: 0,
         });
 
-        const marker = new maplibregl.Marker({ color: "#3b82f6" })
+        map.current.getCanvas().style.cursor = "default";
+        map.current.boxZoom.disable();
+        map.current.dragPan.disable();
+        map.current.dragRotate.disable();
+        map.current.doubleClickZoom.disable();
+        map.current.scrollZoom.disable();
+        map.current.touchZoomRotate.disable();
+
+        const markerElement = document.createElement("div");
+        markerElement.style.width = "40px";
+        markerElement.style.height = "40px";
+        markerElement.style.display = "flex";
+        markerElement.style.alignItems = "center";
+        markerElement.style.justifyContent = "center";
+        markerElement.style.cursor = "default";
+
+        const img = document.createElement("img");
+        img.src = IconPin;
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.objectFit = "contain";
+        markerElement.appendChild(img);
+
+        const marker = new maplibregl.Marker({ element: markerElement })
             .setLngLat([longitude, latitude])
             .addTo(map.current);
 

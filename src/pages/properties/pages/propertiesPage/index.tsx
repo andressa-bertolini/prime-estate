@@ -11,6 +11,7 @@ import PropertyItem from "@components/PropertyItem";
 import Search from "@components/Search";
 import Skeleton from "@components/Skeleton";
 import Pagination from "@components/Pagination";
+import PropertiesMapView from "@components/PropertiesMapView";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -132,9 +133,6 @@ const Properties = () => {
                      Map
                   </button>
                 </div>
-
-                  {/* {purpose === "rent" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Rent</h1>}
-                  {purpose === "sale" && <h1 className="properties-page__title" style={{paddingLeft: "24px"}}>For Sale</h1>} */}
                   
                   {viewMode === "list" && <><div className="properties-page__list">
                       {isPending &&
@@ -165,9 +163,18 @@ const Properties = () => {
                   )}
                   </>}
 
-                  {viewMode === "map" && <><div className="properties-page__map">
-                  </div>
-                  </>}
+                  {viewMode === "map" && (
+                    <div className="properties-page__map">
+                        {filteredProperties.length > 0 ? (
+                            <PropertiesMapView properties={filteredProperties} height="600px" />
+                        ) : (
+                            <div className="not-found">
+                                <p>No properties found.</p>
+                                <img src={SadHouse} alt="Sad House" />
+                            </div>
+                        )}
+                    </div>
+                  )}
                   
               </div>
             </div>
