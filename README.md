@@ -17,16 +17,18 @@
   <tr>
     <td width="45%">
 
-  - Data fetching and caching with React Query
-  - Global state management using Context API
   - Property search with filters (simplified version for better usability)
   - Property recommendations for rent or purchase
   - CTAs for the mortgage calculator, real estate agents, and company information
+  - Data fetching and caching with React Query
+  - Global state management using Context API
 
     </td>
 
     <td width="55%">
-      <img src="./readme/prime-estate-home.png" width="100%">
+      <a href="https://projects.andressabertolini.com/prime-estate/" target="_blank">
+        <img src="./readme/prime-estate-home.png" width="100%">
+      </a>
     </td>
   </tr>
   <!------------------------------------------------------------->
@@ -39,8 +41,12 @@
     </td>
 
     <td width="55%">
+      <a href="https://projects.andressabertolini.com/prime-estate/properties?query=California&purpose=rent&type=apartment" target="_blank">
       <img src="./readme/prime-estate-property-list.png" width="100%">
+      </a>
+      <a href="https://projects.andressabertolini.com/prime-estate/properties?query=California&purpose=rent&type=apartment" target="_blank">
       <img src="./readme/prime-estate-property-map.png" width="100%">
+      </a>
     </td>
   </tr>
   <!------------------------------------------------------------->
@@ -56,7 +62,9 @@
     </td>
 
     <td width="55%">
+    <a href="https://projects.andressabertolini.com/prime-estate/property/7" target="_blank">
       <img src="./readme/prime-estate-property-page.png" width="100%">
+    </a>
     </td>
   </tr>
   <!------------------------------------------------------------->
@@ -68,7 +76,9 @@
     </td>
 
     <td width="55%">
+      <a href="https://projects.andressabertolini.com/prime-estate/calculator" target="_blank">
       <img src="./readme/prime-estate-calculator.png" width="100%">
+    </a>
     </td>
   </tr>
   <!------------------------------------------------------------->
@@ -81,8 +91,12 @@
     </td>
 
     <td width="55%">
+    <a href="https://projects.andressabertolini.com/prime-estate/about-us" target="_blank">
       <img src="./readme/prime-estate-about.png" width="100%">
+    </a>
+    <a href="https://projects.andressabertolini.com/prime-estate/realtors" target="_blank">
       <img src="./readme/prime-estate-realtors.png" width="100%">
+    </a>
     </td>
   </tr>
   <!------------------------------------------------------------->
