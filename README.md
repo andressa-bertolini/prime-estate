@@ -1,5 +1,5 @@
 <div align="center" style="background-color: white; color: black; padding: 20px;">
-  <img src="src/assets/images/logo-text.png" alt="Logo" width="60"/>
+  <img src="./readme/logo.png" alt="Logo" width="60"/>
 
   <h2>Prime Estate</h2>
 
@@ -8,33 +8,15 @@
   <a href="https://projects.andressabertolini.com/prime-estate/" target="_blank">
     <img src="https://img.shields.io/badge/Live%20Demo-1296a9?style=for-the-badge" alt="Live Demo">
   </a>
-  <a href="https://projects.andressabertolini.com/prime-estate/" target="_blank">
-    <img src="./thumbnail.png" alt="Prime Estate Thumbnail" />
-  </a>
 </div>
 
 ## ✨ Features
 
 <table>
+  <!------------------------------------------------------------->
   <tr>
     <td width="45%">
 
-## Features
-
-- Search properties
-- Filter by city
-- Favorites
-- Mortgage calculator
-
-    </td>
-
-    <td width="55%">
-      <img src="./thumbnail.png" width="100%">
-    </td>
-  </tr>
-</table>
-
-- Property listing
 - Dynamic filters (type, price, city, etc.)
 - City search with autocomplete (Mocky API)
 - Routing with React Router
@@ -42,7 +24,51 @@
 - Reusable and modular components
 - Global state management using Context API
 
-<br>
+    </td>
+
+    <td width="55%">
+      <img src="./readme/prime-estate-home.png" width="100%">
+    </td>
+  </tr>
+  <!------------------------------------------------------------->
+  <tr>
+    <td width="45%">
+
+  - List
+
+    </td>
+
+    <td width="55%">
+      <img src="./readme/prime-estate-property-list.png" width="100%">
+      <img src="./readme/prime-estate-property-map.png" width="100%">
+    </td>
+  </tr>
+  <!------------------------------------------------------------->
+  <tr>
+    <td width="45%">
+
+  - List
+
+    </td>
+
+    <td width="55%">
+      <img src="./readme/prime-estate-property-page.png" width="100%">
+    </td>
+  </tr>
+  <!------------------------------------------------------------->
+  <tr>
+    <td width="45%">
+
+  - List
+
+    </td>
+
+    <td width="55%">
+      <img src="./readme/prime-estate-calculator.png" width="100%">
+    </td>
+  </tr>
+  <!------------------------------------------------------------->
+</table>
 
 <br>
 
