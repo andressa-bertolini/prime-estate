@@ -65,10 +65,6 @@ const Property = () => {
         }
     };
 
-    if (isLoading) {
-        return <p>Loading...</p>;
-    }
-
     if (isError || !property) {
         return <p>Property not found.</p>;
     }

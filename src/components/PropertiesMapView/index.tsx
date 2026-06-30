@@ -12,6 +12,7 @@ interface PropertiesMapViewProps {
 const PropertiesMapView = ({ properties, height = "600px" }: PropertiesMapViewProps) => {
     const mapContainer = useRef<HTMLDivElement>(null);
     const map = useRef<maplibregl.Map | null>(null);
+    const baseUrl = import.meta.env.BASE_URL;
 
     useEffect(() => {
         if (!mapContainer.current || properties.length === 0) return;
@@ -28,19 +29,24 @@ const PropertiesMapView = ({ properties, height = "600px" }: PropertiesMapViewPr
         properties.forEach((property) => {
             if (property.lat && property.long) {
                 const popup = new maplibregl.Popup({ offset: 25 }).setHTML(`
-                    <a href="/property/${property.id}" style="text-decoration: none; color: inherit;">
+                    <a href="${baseUrl}property/${property.id}" style="text-decoration: none; color: inherit;">
                         <div style="max-width: 200px;">
-                            <strong>${property.title}</strong>
-                            <p style="margin: 5px 0; font-size: 14px;">
-                                ${property.price?.toLocaleString("en-US", {
-                                    style: "currency",
-                                    currency: "USD",
-                                })}
-                            </p>
-                            <p style="margin: 5px 0; font-size: 12px;">
-                                ${property.bedrooms} bed${property.bedrooms !== 1 ? 's' : ''} • 
-                                ${property.baths} bath${property.baths !== 1 ? 's' : ''}
-                            </p>
+                            <div>
+                                <img src="${property.featuredImage}" style="width: 200px;"/>
+                            </div>
+                            <div>
+                                <strong style="font-size: 16px;">${property.title}</strong>
+                                <p style="margin: 5px 0; font-size: 16px;">
+                                    ${property.price?.toLocaleString("en-US", {
+                                        style: "currency",
+                                        currency: "USD",
+                                    })}
+                                </p>
+                                <p style="margin: 5px 0; font-size: 12px;">
+                                    ${property.bedrooms} bed${property.bedrooms !== 1 ? 's' : ''} • 
+                                    ${property.bathrooms} bath${property.bathrooms !== 1 ? 's' : ''}
+                                </p>
+                            </div>
                         </div>
                     </a>
                 `);

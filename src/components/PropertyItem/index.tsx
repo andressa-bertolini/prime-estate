@@ -33,11 +33,11 @@ const PropertyItem = ({ property }: PropertyItemProps) => {
                 </span>
                 <span>
                     <img src={IconBed} className="property-icon bed" alt="Bed"/>
-                    {property.bedrooms} <strong>bed</strong>&nbsp;
+                    {property.bedrooms} <strong>bed{property.bedrooms !== 1 ? 's' : ''}</strong>&nbsp;
                 </span>
                 <span>
                     <img src={IconBath} className="property-icon bath" alt="Bath"/>
-                    {property.bathrooms} <strong>bath</strong>
+                    {property.bathrooms} <strong>bath{property.bathrooms !== 1 ? 's' : ''}</strong>
                 </span>
             </p>
             <ul className="property-amenities">

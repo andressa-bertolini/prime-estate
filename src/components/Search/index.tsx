@@ -206,10 +206,6 @@ const Search = ({ fullfilters }: SearchProps) => {
         setIsInitialized(true);
     }, []);
 
-    if (!isInitialized) {
-        return <div>Loading...</div>;
-    }
-
     const safePrice = price && Array.isArray(price) && price.length === 2 
         ? price 
         : [minPrice, maxPrice];

@@ -214,6 +214,7 @@ html, body {
   .properties-page__list {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 24px;
   }  
 
   .related-properties .properties-page__list {
@@ -1422,7 +1423,6 @@ html, body {
   background-color: #1296a9;
   /* border-bottom: 1px solid black; */
   padding: 10px 20px;
-  margin-bottom: 24px;
 }
 
 .list-properties__nav button {

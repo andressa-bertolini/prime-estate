@@ -1163,7 +1163,7 @@ export const properties = [
     "description": "Enjoy stunning Spokane River views from this beautifully appointed 2-bedroom apartment in the heart of downtown Spokane. The contemporary unit features floor-to-ceiling windows, a modern kitchen, and a private balcony where you can take in the river and the famous Spokane Falls. Walking distance to Riverfront Park, the Convention Center, and the best of downtown dining.",
     "purpose": "rent",
     "type": "apartment",
-    "price": 1550,
+    "price": 3550,
     "area": 980,
     "bedrooms": 2,
     "bathrooms": 2,
