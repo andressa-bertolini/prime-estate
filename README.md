@@ -41,10 +41,10 @@
     </td>
 
     <td width="55%">
-      <a href="https://projects.andressabertolini.com/prime-estate/properties?query=California&purpose=rent&type=apartment" target="_blank">
+      <a href="https://projects.andressabertolini.com/prime-estate/properties?query=California&purpose=rent&type=apartment&view=list" target="_blank">
       <img src="./readme/prime-estate-property-list.png" width="100%">
       </a>
-      <a href="https://projects.andressabertolini.com/prime-estate/properties?query=California&purpose=rent&type=apartment" target="_blank">
+      <a href="https://projects.andressabertolini.com/prime-estate/properties?query=California&purpose=rent&type=apartment&view=map" target="_blank">
       <img src="./readme/prime-estate-property-map.png" width="100%">
       </a>
     </td>

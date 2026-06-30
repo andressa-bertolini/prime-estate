@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "@components/ScrollToTop";
 
 /* layouts */
 import Navigation from "@layouts/Navigation";
@@ -15,6 +16,7 @@ import CalculatorRoutes from "@pages/calculator/calculatorRoutes";
 const AppRoutes = () => {
   return (
     <Router basename="/prime-estate">
+      <ScrollToTop />
       <div className="App">
           <Navigation />
           <main>

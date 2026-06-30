@@ -27,7 +27,8 @@ const Properties = () => {
     const beds = searchParams.get("beds");
     const baths = searchParams.get("baths");
     const sqft = searchParams.get("sqft");
-    const [viewMode, setViewMode] = useState<"list" | "map">("list");
+    const view = searchParams.get("view");
+    const [viewMode, setViewMode] = useState<"list" | "map">(view === "map" ? "map" : "list");
 
     const {
         data: properties,
@@ -140,7 +141,7 @@ const Properties = () => {
                       }
                       {!isPending &&
                           filteredProperties && filteredProperties.length > 0 ? (
-                              paginatedProperties.map((property: IProperty) => (
+                              paginatedProperties?.map((property: IProperty) => (
                                   <PropertyItem property={property} key={property.id} />
                               ))
                           ) : (

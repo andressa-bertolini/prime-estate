@@ -57,6 +57,11 @@ html, body {
   .nav a:hover {
     color: #1296a9;
   }
+
+  .nav a:focus-visible {
+    outline-offset: 0;
+    outline: 0;
+  }
   
   @media(max-width: 768px){
     .nav .nav-left a,
@@ -246,6 +251,7 @@ html, body {
   
   .property-page__amenities > li {
     width: 50%;
+    margin-bottom: 5px;
   }
   
   .property-page__amenities,
@@ -1441,4 +1447,9 @@ html, body {
 .list-properties__nav button img {
   padding-right: 5px;
   vertical-align: -7px;
+}
+
+.custom-input .MuiInputLabel-root.Mui-focused,
+.custom-input .MuiInputLabel-root.MuiInputLabel-shrink {
+  color: #333;
 }

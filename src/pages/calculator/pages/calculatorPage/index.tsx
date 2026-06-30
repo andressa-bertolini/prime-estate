@@ -141,7 +141,7 @@ const Calculator = () => {
                             />
                             <button className="button" onClick={calculatePropertyConditions}>Calculate</button>
                             <div className="calculator-result-value">
-                                {property && (
+                                {downPayment && requiredIncome && (
                                 <>
                                     <p className="calculator-result__title">Your income needs to be</p>
                                     <p className="calculator-result__value">{requiredIncome}</p>

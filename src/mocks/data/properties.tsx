@@ -11,7 +11,7 @@ export const properties = [
     "bathrooms": 2,
     "city": "New York City",
     "state": "New York",
-    "lat": 40.7230,
+    "lat": 40.7150,
     "long": -74.0060,
     "featuredImage": "/prime-estate/mock/images/property-01-1.png",
     "images": [

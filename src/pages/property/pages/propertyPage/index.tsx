@@ -12,6 +12,7 @@ import IconSqft2 from "@assets/icons/icon-sqft.svg";
 import IconBed2 from "@assets/icons/icon-bed.svg";
 import IconBath2 from "@assets/icons/icon-bath.svg";
 import IconCheck from "@assets/icons/icon-check.svg";
+import SadHouse from "@assets/images/sad-house.png";
 
 const Property = () => {
     const { id } = useParams<{ id: string }>();
@@ -65,8 +66,15 @@ const Property = () => {
         }
     };
 
+    if (isLoading) {
+        return null;
+    }
+    
     if (isError || !property) {
-        return <p>Property not found.</p>;
+        return <div className="not-found">
+            <p>Property not found.</p>
+            <img src={SadHouse} alt="Sad House" />
+        </div>;
     }
 
     const validateForm = () => {
@@ -235,11 +243,11 @@ const Property = () => {
                                 </span>
                                 <span>
                                     <img src={IconBed2} className="property-icon bed" alt="Bed" />
-                                    {property.bedrooms} <strong>bed</strong>
+                                    {property.bedrooms} <strong>bed{property.bedrooms !== 1 ? 's' : ''}</strong>
                                 </span>
                                 <span>
                                     <img src={IconBath2} className="property-icon bath" alt="Bath" />
-                                    {property.baths} <strong>bath</strong>
+                                    {property.bathrooms} <strong>bath{property.bathrooms !== 1 ? 's' : ''}</strong>
                                 </span>
                             </p>
 
