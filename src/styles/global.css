@@ -828,6 +828,12 @@ html, body {
     top: 70px;
     align-self: start;
   }
+
+  @media (max-width: 767px) {
+    .search-properties {
+      position: static;
+    }
+  }
   
   .search-properties .choice-chips {
     margin-bottom: 20px;
@@ -980,7 +986,7 @@ html, body {
       display: none;
       position: absolute;
       top: 70px;
-      z-index: 2;
+      z-index: 50;
       background-color: #fff;
       right: 0;
       left: 0;
@@ -1453,4 +1459,53 @@ html, body {
 .custom-input .MuiInputLabel-root.Mui-focused,
 .custom-input .MuiInputLabel-root.MuiInputLabel-shrink {
   color: #333;
+}
+
+.filters-toggle-btn {
+  display: none; 
+}
+
+@media (max-width: 767px) {
+  .filters-toggle-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+  }
+
+  .filters-toggle-btn.is-sticky {
+    position: sticky;
+    top: 116px;
+    z-index: 20;
+  }
+
+  .filters-toggle-btn.is-open {
+    position: fixed;
+    top: 70px;
+    z-index: 20;
+  }
+
+  .search-properties__wrapper {
+    display: none;
+  }
+
+  .search-properties__wrapper.is-open {
+    display: block; 
+  }
+
+  .search-properties__wrapper.is-open .search-properties{
+    position: fixed;
+    top: 113px;
+    left: 0;
+    right: 0;
+    z-index: 25;
+    background-color: #f0f0f0;
+  }
+}
+
+.filters-toggle-btn {
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  background-color: #f0f0f0;
 }

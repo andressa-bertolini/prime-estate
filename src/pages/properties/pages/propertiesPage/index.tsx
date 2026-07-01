@@ -6,6 +6,7 @@ import SadHouse from "@assets/images/sad-house.png";
 
 import IconMap from "@assets/icons/icon-map.svg";
 import IconList from "@assets/icons/icon-list.svg";
+import IconFilter from "@assets/icons/icon-filter.svg";
 
 import PropertyItem from "@components/PropertyItem";
 import Search from "@components/Search";
@@ -18,6 +19,8 @@ const ITEMS_PER_PAGE = 9;
 const Properties = () => {
     const [searchParams] = useSearchParams();
     const [currentPage, setCurrentPage] = useState(1);
+    const [showFilters, setShowFilters] = useState(false);
+    const [filterSticky, setFilterSticky] = useState(false);
     
     const queryString = searchParams.get("query")?.toLowerCase() || '';
     const purpose = searchParams.get("purpose") || "rent";
@@ -118,10 +121,26 @@ const Properties = () => {
       });
     }, [currentPage]);
 
+    useEffect(() => {
+      const handleScroll = () => {
+        setFilterSticky(window.scrollY >= 160);
+      };
+    
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <div className="properties-page">
             <div className="properties-page__grid">
-              <div className="search-properties__wrapper">
+              <button
+                className={`filters-toggle-btn ${filterSticky && !showFilters ? "is-sticky" : ""} ${showFilters ? "is-open" : ""}`}
+                onClick={() => setShowFilters(!showFilters)}
+              >
+                <img src={IconFilter} alt="Filter" />
+                {showFilters ? "Hide Filters" : "Filters"}
+              </button>
+              <div className={`search-properties__wrapper ${showFilters ? "is-open" : ""}`}>
                   <div className="search-properties">
                     <Search fullfilters={true} />
                   </div>
