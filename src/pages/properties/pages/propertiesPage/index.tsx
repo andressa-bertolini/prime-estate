@@ -142,7 +142,7 @@ const Properties = () => {
               </button>
               <div className={`search-properties__wrapper ${showFilters ? "is-open" : ""}`}>
                   <div className="search-properties">
-                    <Search fullfilters={true} />
+                    <Search fullfilters={true} onSearch={() => setShowFilters(false)} />
                   </div>
               </div>
               <div className="list-properties__wrapper">

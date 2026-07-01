@@ -18,9 +18,10 @@ import Stack from '@mui/material/Stack';
 
 type SearchProps = {
     fullfilters: boolean;
+    onSearch?: () => void;
 };
 
-const Search = ({ fullfilters }: SearchProps) => {
+const Search = ({ fullfilters, onSearch }: SearchProps) => {
     const [urlSearchParams] = useSearchParams();
     const navigate = useNavigate();
 
@@ -119,6 +120,7 @@ const Search = ({ fullfilters }: SearchProps) => {
 
         e.preventDefault();
         setOpenFilter(false);
+        onSearch?.();
         navigate(`/properties?${params.toString()}`);
     };
 
@@ -216,12 +218,6 @@ const Search = ({ fullfilters }: SearchProps) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="search-options">
-                {/* <div className="search-options__tab" onClick={() => setOpenFilter(!openFilter)}>
-                    {openFilter ? "Hide filters": "More filters" }
-                    <span className="search-options-icon">
-                        {(openFilter ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />)}
-                    </span>
-                </div> */}
                 <div className={(openFilter ? "open" : "") + " search-fields"}>
                     <div>
                         <label>

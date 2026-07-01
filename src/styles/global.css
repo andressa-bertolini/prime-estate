@@ -1483,7 +1483,7 @@ html, body {
 
   .filters-toggle-btn.is-sticky {
     position: sticky;
-    top: 116px;
+    top: 114px;
     z-index: 20;
   }
 
@@ -1508,6 +1508,19 @@ html, body {
     right: 0;
     z-index: 25;
     background-color: #f0f0f0;
+    padding-top: 5px;
+  }
+
+  .search-properties__wrapper.is-open .search-properties .extra-filters {
+    margin-bottom: 10px;
+  }
+
+  .search-properties__wrapper.is-open .search-properties .search-fields label {
+    margin-bottom: 8px;
+  }
+
+  .search-properties__wrapper.is-open .search-properties label > span {
+    font-size: 14px;
   }
 }
 
@@ -1517,6 +1530,8 @@ html, body {
   border: none;
   background-color: #f0f0f0;
 }
+
+.filters-toggle-btn a {color: #000000}
 
 .App > header,
 nav.navigation-wrapper {
