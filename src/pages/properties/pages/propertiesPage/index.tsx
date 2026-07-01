@@ -102,6 +102,15 @@ const Properties = () => {
       setCurrentPage(page);
     };
 
+    const purposeUrl = searchParams.get("purpose") || "rent";
+
+    useEffect(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, [purposeUrl]);
+
     useEffect(() => {
       window.scrollTo({
         top: 0,
@@ -139,7 +148,7 @@ const Properties = () => {
                       {isPending &&
                           [...Array(9)].map((_, i) => <Skeleton key={i} grid={3} />)
                       }
-                      {!isPending &&
+                      {!isPending ? (
                           filteredProperties && filteredProperties.length > 0 ? (
                               paginatedProperties?.map((property: IProperty) => (
                                   <PropertyItem property={property} key={property.id} />
@@ -150,7 +159,7 @@ const Properties = () => {
                                   <img src={SadHouse} alt="Sad House" />
                               </div>
                           )
-                      }
+                      ) : null}
                   </div>
                   
                   {!isPending && filteredProperties.length > 0 && totalPages > 1 && (
@@ -165,16 +174,16 @@ const Properties = () => {
                   </>}
 
                   {viewMode === "map" && (
-                    <div className="properties-page__map">
-                        {filteredProperties.length > 0 ? (
-                            <PropertiesMapView properties={filteredProperties} height="600px" />
-                        ) : (
-                            <div className="not-found">
-                                <p>No properties found.</p>
-                                <img src={SadHouse} alt="Sad House" />
-                            </div>
-                        )}
-                    </div>
+                      <div className="properties-page__map">
+                          {isPending ? null : filteredProperties.length > 0 ? (
+                              <PropertiesMapView properties={filteredProperties} height="600px" />
+                          ) : (
+                              <div className="not-found">
+                                  <p>No properties found.</p>
+                                  <img src={SadHouse} alt="Sad House" />
+                              </div>
+                          )}
+                      </div>
                   )}
                   
               </div>

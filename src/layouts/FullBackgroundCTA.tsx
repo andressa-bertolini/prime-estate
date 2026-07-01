@@ -13,7 +13,7 @@ const FullBackgroundCTA: React.FC<FullBackgroundCTAProps> = ({image, imageAlignm
     <div className="full-background-cta" style={{backgroundImage: `url(${image})`, backgroundPosition: imageAlignment}}>
         <div>
             <h2>{ text }</h2>
-            <Link to={ link }>{ buttonText }</Link>
+            <Link to={`/${link.replace(/^\/+/, "")}`}>{ buttonText }</Link>
         </div>
     </div>
   )

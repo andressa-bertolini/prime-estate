@@ -141,7 +141,7 @@ VITE_MOCKAPI_HOST=your_host_here
 
 4. Start the development server:
 ```
-npm run dev
+npm run dev 
 ```
 
 The app will run at http://localhost:5173

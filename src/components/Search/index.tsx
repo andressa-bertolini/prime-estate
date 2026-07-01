@@ -149,14 +149,14 @@ const Search = ({ fullfilters }: SearchProps) => {
             isCalled = true;
 
             const placesData = await SearchService.fetchPlaces();
-            const states = placesData.map((place) => ({
+            const states = placesData?.map((place) => ({
                 name: place.state,
                 type: "state"
-            }));
+            })) ?? [];
 
-            const cities = placesData.flatMap(place =>
+            const cities = placesData?.flatMap(place =>
                 place.cities ? place.cities.map(city => ({ name: city, type: "city" })) : []
-            );
+            ) ?? [];
 
             setPlaces([...states, ...cities]);
         };

@@ -251,7 +251,8 @@ html, body {
   
   .property-page__amenities > li {
     width: 50%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 15px;
   }
   
   .property-page__amenities,
