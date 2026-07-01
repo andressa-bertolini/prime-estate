@@ -142,14 +142,18 @@ html, body {
     color: #1296a9;
   }
 
-  .property-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+  @media (min-width: 768px) {
+    .property-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
   }
 
-  .property-content__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  @media (min-width: 768px) {
+    .property-content__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
   }
   
   .property-price {
@@ -274,8 +278,10 @@ html, body {
     border-radius: 50px;
   }
 
-  .property-content__map {
-    padding: 24px;
+  @media(min-width: 769px){
+    .property-content__map {
+      padding: 24px;
+    }
   }
 
   .property-page__description{
@@ -1377,9 +1383,11 @@ html, body {
     }
 }
 
-.calculator-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+@media(min-width: 769px){
+  .calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .calculator-container {
@@ -1508,4 +1516,15 @@ html, body {
   padding: 10px 20px;
   border: none;
   background-color: #f0f0f0;
+}
+
+.App > header,
+nav.navigation-wrapper {
+  position: relative;
+  z-index: 1000;
+}
+
+main {
+  position: relative;
+  z-index: 1;
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Logo from "@assets/images/logo-text.png";
 import IconBurgerMenu from "@assets/icons/icon-burger-menu.svg";
@@ -8,6 +8,7 @@ import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 const Navigation = () => {
     const [navOpen, setNavOpen] = useState(false);
     const [isTop, setIsTop] = useState(true);
+    const navRef = useRef<HTMLElement>(null);
 
     const location = useLocation();
 
@@ -21,10 +22,23 @@ const Navigation = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (!navOpen) return;
+
+        const handleClickOutside = (event: MouseEvent) => {
+            if (navRef.current && !navRef.current.contains(event.target as Node)) {
+                setNavOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, [navOpen]);
+
     const isHomeTop = location.pathname === "/" && isTop;
 
     return(
-        <nav className={`nav container ${isHomeTop ? "nav-home-top" : ""}`}>
+        <nav ref={navRef} className={`nav container ${isHomeTop ? "nav-home-top" : ""}`}>
             <NavLink to="/" style={{padding: 0}}><img src={Logo} className="logo" alt="Logo"/></NavLink>
             <div className={(navOpen == true ? "open":"") + " mobile-nav"}>
                 <div className="nav-left" onClick={() => setNavOpen(false)}>
