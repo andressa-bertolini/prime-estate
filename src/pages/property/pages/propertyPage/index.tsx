@@ -4,6 +4,7 @@ import { Navigation } from "swiper/modules";
 import { PropertiesService } from "@services/properties/PropertiesService";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 import RelatedProperties from "@components/RelatedProperties";
 import PropertyMap from "@components/PropertyMap";
@@ -163,7 +164,7 @@ const Property = () => {
                 ))}
             </Swiper>
 
-            {modalOpen && property.images && (
+            {modalOpen && property.images && createPortal(
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                         <button
@@ -216,7 +217,8 @@ const Property = () => {
                             ))}
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
             <div className="property-content">
                 <div>
