@@ -2,8 +2,12 @@ import { useMemo, useState, useEffect } from 'react';
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { IProperty, PropertiesService } from "@services/properties/PropertiesService";
-import SadHouse from "@assets/images/sad-house.png";
+import { 
+  Autocomplete, 
+  TextField,
+} from '@mui/material';
 
+import SadHouse from "@assets/images/sad-house.png";
 import IconMap from "@assets/icons/icon-map.svg";
 import IconList from "@assets/icons/icon-list.svg";
 import IconFilter from "@assets/icons/icon-filter.svg";
@@ -16,11 +20,14 @@ import PropertiesMapView from "@components/PropertiesMapView";
 
 const ITEMS_PER_PAGE = 9;
 
+const options = ["Relevance","Highest Price", "Lower Price"];
+
 const Properties = () => {
     const [searchParams] = useSearchParams();
     const [currentPage, setCurrentPage] = useState(1);
     const [showFilters, setShowFilters] = useState(false);
     const [filterSticky, setFilterSticky] = useState(false);
+    const [orderBy, setOrderBy] = useState<string>("Relevance");
     
     const queryString = searchParams.get("query")?.toLowerCase() || '';
     const purpose = searchParams.get("purpose") || "rent";
@@ -88,9 +95,15 @@ const Properties = () => {
             return propertyBaths >= parseInt(baths, 10);
           });
         }
+
+        if (orderBy === "Highest Price") {
+          filtered = [...filtered].sort((a, b) => (b.price || 0) - (a.price || 0));
+        } else if (orderBy === "Lower Price") {
+          filtered = [...filtered].sort((a, b) => (a.price || 0) - (b.price || 0));
+        }
       
         return filtered;
-    }, [properties, queryString, priceMin, priceMax, beds, baths]);
+    }, [properties, queryString, priceMin, priceMax, beds, baths, orderBy]);
 
     useMemo(() => {
         setCurrentPage(1);
@@ -147,20 +160,41 @@ const Properties = () => {
               </div>
               <div className="list-properties__wrapper">
                 <div className="list-properties__nav">
-                  <button 
-                    className={viewMode === "list" ? "disabled" : ""}
-                    onClick={() => setViewMode("list")}
-                  >
-                    <img src={IconList} alt="List View" />
-                     List 
-                  </button>
-                  <button 
-                    className={viewMode === "map" ? "disabled" : ""}
-                    onClick={() => setViewMode("map")}
-                  >
-                    <img src={IconMap} alt="Map View" />
-                     Map
-                  </button>
+                  <div>
+                    <button 
+                      className={`view-button ${viewMode === "list" ? "disabled" : ""}`}
+                      onClick={() => setViewMode("list")}
+                    >
+                      <img src={IconList} alt="List View" />
+                      List 
+                    </button>
+                    <button 
+                      className={`view-button ${viewMode === "map" ? "disabled" : ""}`}
+                      onClick={() => setViewMode("map")}
+                    >
+                      <img src={IconMap} alt="Map View" />
+                      Map
+                    </button>
+                  </div>
+                  <div className="list-properties__orderby">
+                    <span>Order by</span> 
+                    <Autocomplete
+                      options={options}
+                      value={orderBy}
+                      disableClearable
+                      onChange={(_, newValue) => setOrderBy(newValue)}
+                      className="custom-input-alt"
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          inputProps={{
+                            ...params.inputProps,
+                            readOnly: true,
+                          }}
+                        />
+                      )}
+                    />
+                  </div>
                 </div>
                   
                   {viewMode === "list" && <><div className="properties-page__list">

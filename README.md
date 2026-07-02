@@ -120,9 +120,6 @@
 
 <br>
 
-## Future Improvements
-- Add price sorting to properties list
-
 ## 🛠️ Installation
 
 1. Clone the repository:

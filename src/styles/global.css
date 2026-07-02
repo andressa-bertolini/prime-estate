@@ -495,6 +495,51 @@ html, body {
     color: #000;
   }
 
+  .custom-input-alt.MuiAutocomplete-root {
+    width: 125px;
+  }
+  .custom-input-alt.MuiAutocomplete-root .MuiOutlinedInput-notchedOutline {
+    top: 0;
+  }
+
+.custom-input-alt.MuiAutocomplete-root .MuiOutlinedInput-root {
+  color: white;
+  background-color: #1296a9;
+  border-radius: 0;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.custom-input-alt .MuiOutlinedInput-notchedOutline {
+  border: 1px solid white;
+}
+
+.custom-input-alt .MuiAutocomplete-input {
+  padding: 0 !important;
+  color: white;
+}
+
+.custom-input-alt .MuiSvgIcon-root {
+  color: white;
+}
+
+.custom-input-alt.MuiAutocomplete-root .MuiOutlinedInput-notchedOutline legend {
+  display: none;
+}
+
+.custom-input-alt.MuiAutocomplete-root .MuiOutlinedInput-notchedOutline {
+  top: 0;
+  border-color: white;
+}
+
+.custom-input-alt.MuiAutocomplete-root .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: white;
+}
+
+.custom-input-alt.MuiAutocomplete-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: white;
+}
+
   .custom-slider {
     padding-top: 9px !important;
     padding-bottom: 0 !important;
@@ -1440,18 +1485,33 @@ html, body {
   top: 70px;
   left: 0;
   z-index: 10;
-  /* background-color: white; */
+  color: white;
   background-color: #1296a9;
-  /* border-bottom: 1px solid black; */
   padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.list-properties__nav button {
+@media (max-width: 767px) {
+  .list-properties__nav {
+    padding: 10px;
+  }
+}
+
+.list-properties__nav .view-button {
   background-color: transparent;
   border: 0;
   color: white;
   margin-right: 15px;
   cursor: pointer;
+  border: 1px solid white;
+  padding: 4px 10px;
+}
+
+.list-properties__nav span {
+  font-size: 12px;
+  margin-right: 5px;
 }
 
 .list-properties__nav button.disabled{
@@ -1542,4 +1602,16 @@ nav.navigation-wrapper {
 main {
   position: relative;
   z-index: 1;
+}
+
+.list-properties__orderby {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .list-properties__orderby > span{
+    display: none;
+  }
 }
