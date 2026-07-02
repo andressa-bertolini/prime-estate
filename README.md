@@ -37,6 +37,7 @@
 
   - Advanced property search with filters
   - Property search results with list and map views
+  - Sorting by price and relevance
 
     </td>
 
