@@ -21,7 +21,7 @@ const PropertiesMapView = ({ properties, height = "600px" }: PropertiesMapViewPr
             container: mapContainer.current,
             style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
             center: [-87.6298, 41.8781],
-            zoom: 12,
+            zoom: 10,
         });
 
         map.current.getCanvas().style.cursor = "default";
@@ -81,7 +81,7 @@ const PropertiesMapView = ({ properties, height = "600px" }: PropertiesMapViewPr
         });
 
         if (bounds.getSouthWest() && bounds.getNorthEast()) {
-            map.current.fitBounds(bounds, { padding: 50, duration: 0 });
+            map.current.fitBounds(bounds, { padding: 50, duration: 0, maxZoom: 16 });
         }
 
         return () => {
