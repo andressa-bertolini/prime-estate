@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useRef } from 'react';
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { IProperty, PropertiesService } from "@services/properties/PropertiesService";
@@ -23,12 +23,11 @@ const ITEMS_PER_PAGE = 9;
 const options = ["Relevance","Highest Price", "Lower Price"];
 
 const Properties = () => {
-    const [searchParams] = useSearchParams();
-    const [currentPage, setCurrentPage] = useState(1);
+    const [searchParams, setSearchParams] = useSearchParams();
     const [showFilters, setShowFilters] = useState(false);
     const [filterSticky, setFilterSticky] = useState(false);
     const [orderBy, setOrderBy] = useState<string>("Relevance");
-    
+
     const queryString = searchParams.get("query")?.toLowerCase() || '';
     const purpose = searchParams.get("purpose") || "rent";
     const type = searchParams.get("type");
@@ -38,7 +37,9 @@ const Properties = () => {
     const baths = searchParams.get("baths");
     const sqft = searchParams.get("sqft");
     const view = searchParams.get("view");
-    const [viewMode, setViewMode] = useState<"list" | "map">(view === "map" ? "map" : "list");
+
+    const currentPage = Math.max(1, parseInt(searchParams.get("page") || "1", 10));
+    const viewMode: "list" | "map" = view === "map" ? "map" : "list";
 
     const {
         data: properties,
@@ -105,9 +106,16 @@ const Properties = () => {
         return filtered;
     }, [properties, queryString, priceMin, priceMax, beds, baths, orderBy]);
 
-    useMemo(() => {
-        setCurrentPage(1);
-    }, [queryString, purpose, priceMin, priceMax, beds, baths]);
+    const filtersKey = `${queryString}|${purpose}|${type}|${priceMin}|${priceMax}|${beds}|${baths}`;
+    const prevFiltersKey = useRef(filtersKey);
+    useEffect(() => {
+      if (prevFiltersKey.current === filtersKey) return;
+      prevFiltersKey.current = filtersKey;
+
+      const params = new URLSearchParams(searchParams);
+      params.set("page", "1");
+      setSearchParams(params, { replace: true });
+    }, [filtersKey]);
 
     const totalPages = Math.ceil(filteredProperties.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -115,7 +123,15 @@ const Properties = () => {
     const paginatedProperties = filteredProperties.slice(startIndex, endIndex);
 
     const handlePageChange = (page: number) => {
-      setCurrentPage(page);
+      const params = new URLSearchParams(searchParams);
+      params.set("page", String(page));
+      setSearchParams(params);
+    };
+
+    const handleViewModeChange = (mode: "list" | "map") => {
+      const params = new URLSearchParams(searchParams);
+      params.set("view", mode);
+      setSearchParams(params);
     };
 
     const purposeUrl = searchParams.get("purpose") || "rent";
@@ -163,14 +179,14 @@ const Properties = () => {
                   <div>
                     <button 
                       className={`view-button ${viewMode === "list" ? "disabled" : ""}`}
-                      onClick={() => setViewMode("list")}
+                      onClick={() => handleViewModeChange("list")}
                     >
                       <img src={IconList} alt="List View" />
                       List 
                     </button>
                     <button 
                       className={`view-button ${viewMode === "map" ? "disabled" : ""}`}
-                      onClick={() => setViewMode("map")}
+                      onClick={() => handleViewModeChange("map")}
                     >
                       <img src={IconMap} alt="Map View" />
                       Map
