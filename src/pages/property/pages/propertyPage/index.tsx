@@ -102,15 +102,23 @@ const Property = () => {
     };
 
     const formatPhoneNumber = (value: string) => {
-        const cleaned = value.replace(/\D/g, "");
-        
+        let cleaned = value.replace(/\D/g, "");
+    
+        if (cleaned.startsWith("1")) {
+            cleaned = cleaned.slice(1);
+        }
+    
+        cleaned = cleaned.slice(0, 10);
+    
         if (cleaned.length <= 3) {
             return `+1 (${cleaned}`;
-        } else if (cleaned.length <= 6) {
-            return `+1 (${cleaned.slice(0, 3)}) ${cleaned.slice(3)}`;
-        } else {
-            return `+1 (${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6, 10)}`;
         }
+    
+        if (cleaned.length <= 6) {
+            return `+1 (${cleaned.slice(0, 3)}) ${cleaned.slice(3)}`;
+        }
+    
+        return `+1 (${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
     };
     
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
