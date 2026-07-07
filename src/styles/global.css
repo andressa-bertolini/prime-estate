@@ -681,6 +681,7 @@ html, body {
     font-weight: 600;
     font-size: 14px; 
     font-family: 'Open Sans', sans-serif;
+    color: #000;
   }
   
   .choice-chips .choice-chip.active {
@@ -1192,6 +1193,7 @@ html, body {
     height: 40px;
     border-radius: 50%;
     margin: 0 5px;
+    color: #000;
   }
 
   .pagination-number.pagination-number-active{
@@ -1531,6 +1533,7 @@ html, body {
 
 .filters-toggle-btn {
   display: none; 
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -1543,7 +1546,7 @@ html, body {
 
   .filters-toggle-btn.is-sticky {
     position: sticky;
-    top: 114px;
+    top: 118px;
     z-index: 20;
   }
 

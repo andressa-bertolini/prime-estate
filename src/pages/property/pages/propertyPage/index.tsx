@@ -1,9 +1,9 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { PropertiesService } from "@services/properties/PropertiesService";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import { createPortal } from "react-dom";
 
 import RelatedProperties from "@components/RelatedProperties";
@@ -19,6 +19,10 @@ const Property = () => {
     const { id } = useParams<{ id: string }>();
     const [modalOpen, setModalOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    const minSwipeDistance = 50;
 
     const { data: property, isLoading, isError } = useQuery({
         queryKey: ["property", id],
@@ -27,6 +31,29 @@ const Property = () => {
     });
 
     const slidesPerView = window.innerWidth < 768 ? 1 : 1.5;
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+    
+    const handleTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+    
+    const handleTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+    
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+    
+        if (isLeftSwipe) {
+            goToNextImage();
+        } else if (isRightSwipe) {
+            goToPreviousImage();
+        }
+    };
 
     const [formData, setFormData] = useState({
         name: "",
@@ -66,17 +93,6 @@ const Property = () => {
             );
         }
     };
-
-    if (isLoading) {
-        return null;
-    }
-    
-    if (isError || !property) {
-        return <div className="not-found">
-            <p>Property not found.</p>
-            <img src={SadHouse} alt="Sad House" />
-        </div>;
-    }
 
     const validateForm = () => {
         const errors: typeof formErrors = {};
@@ -150,6 +166,25 @@ const Property = () => {
         }
     };
 
+    useEffect(() => {
+        setSubmitSuccess(false);
+        setFormData({ name: "", email: "", phone: "" });
+        setFormErrors({});
+        setCurrentImageIndex(0);
+        setModalOpen(false);
+    }, [id]);
+
+    if (isLoading) {
+        return null;
+    }
+    
+    if (isError || !property) {
+        return <div className="not-found">
+            <p>Property not found.</p>
+            <img src={SadHouse} alt="Sad House" />
+        </div>;
+    }
+
     return (
         <div className="property-page">
             <Swiper
@@ -183,7 +218,12 @@ const Property = () => {
                             ✕
                         </button>
 
-                        <div className="modal-image-container">
+                        <div 
+                            className="modal-image-container"
+                            onTouchStart={handleTouchStart}
+                            onTouchMove={handleTouchMove}
+                            onTouchEnd={handleTouchEnd}
+                        >
                             <img
                                 src={property.images[currentImageIndex]}
                                 alt={`${property.title} - ${currentImageIndex + 1}`}

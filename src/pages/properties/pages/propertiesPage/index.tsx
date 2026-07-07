@@ -106,8 +106,7 @@ const Properties = () => {
         return filtered;
     }, [properties, queryString, priceMin, priceMax, beds, baths, orderBy]);
 
-    const filtersKey = `${queryString}|${purpose}|${type}|${priceMin}|${priceMax}|${beds}|${baths}`;
-    const prevFiltersKey = useRef(filtersKey);
+    const filtersKey = `${queryString}|${purpose}|${type}|${priceMin}|${priceMax}|${beds}|${baths}|${orderBy}`;    const prevFiltersKey = useRef(filtersKey);
     useEffect(() => {
       if (prevFiltersKey.current === filtersKey) return;
       prevFiltersKey.current = filtersKey;

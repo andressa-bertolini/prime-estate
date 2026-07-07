@@ -33,7 +33,6 @@ const PropertyMap = ({
 
         map.current.getCanvas().style.cursor = "default";
         map.current.boxZoom.disable();
-        map.current.dragPan.disable();
         map.current.dragRotate.disable();
         map.current.doubleClickZoom.disable();
         map.current.scrollZoom.disable();
