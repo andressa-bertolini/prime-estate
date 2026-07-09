@@ -14,6 +14,11 @@ const Calculator = () => {
         const incomeValue = Number(income.replace(/,/g, "")) || 0;
         const entryValue = Number(entry.replace(/,/g, "")) || 0;
 
+        if (incomeValue === 0) {
+            setPurchasingPower("");
+            return;
+        }
+
         const maximumInstallment = incomeValue * 0.30; // 30% da renda
         const interestRate = 12; // 12% ao ano
         const months = 360; // 30 anos
@@ -92,7 +97,7 @@ const Calculator = () => {
                         <p>Use our calculator to estimate your budget and start your search for the perfect home</p>
                         <TextField
                             className="custom-input"
-                            label="Income"
+                            label="Income ($)"
                             variant="outlined"
                             fullWidth
                             margin="normal"
@@ -103,7 +108,7 @@ const Calculator = () => {
 
                         <TextField
                             className="custom-input"
-                            label="Entry"
+                            label="Entry ($)"
                             variant="outlined"
                             fullWidth
                             margin="normal"
@@ -131,7 +136,7 @@ const Calculator = () => {
                         <label>
                             <TextField
                                 className="custom-input"
-                                label="Property's Price"
+                                label="Property's Price ($)"
                                 variant="outlined"
                                 fullWidth
                                 margin="normal"
