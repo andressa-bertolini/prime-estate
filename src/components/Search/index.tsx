@@ -118,6 +118,9 @@ const Search = ({ fullfilters, onSearch }: SearchProps) => {
         if (beds) params.append('beds', String(beds));
         if (baths) params.append('baths', String(baths));
 
+        const currentView = urlSearchParams.get('view');
+        if (currentView) params.append('view', currentView);
+        
         e.preventDefault();
         setOpenFilter(false);
         onSearch?.();

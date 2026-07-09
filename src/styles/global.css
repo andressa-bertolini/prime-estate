@@ -297,6 +297,12 @@ html, body {
     width: 33.3%;
   }
 
+  @media(max-width: 768px){
+    .skeleton-3 {
+      width: 100%;
+    }
+  }
+
   .skeleton-4 {
     width: 25%;
   }

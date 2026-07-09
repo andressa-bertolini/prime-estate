@@ -150,6 +150,14 @@ const Properties = () => {
     }, [currentPage]);
 
     useEffect(() => {
+      if (!searchParams.get("page")) {
+        const params = new URLSearchParams(searchParams);
+        params.set("page", "1");
+        setSearchParams(params, { replace: true });
+      }
+    }, []);
+
+    useEffect(() => {
       const handleScroll = () => {
         setFilterSticky(window.scrollY >= 160);
       };
