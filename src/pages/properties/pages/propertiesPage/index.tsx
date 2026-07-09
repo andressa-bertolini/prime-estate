@@ -27,6 +27,7 @@ const Properties = () => {
     const [showFilters, setShowFilters] = useState(false);
     const [filterSticky, setFilterSticky] = useState(false);
     const [orderBy, setOrderBy] = useState<string>("Relevance");
+    const [isFiltering, setIsFiltering] = useState(false);
 
     const queryString = searchParams.get("query")?.toLowerCase() || '';
     const purpose = searchParams.get("purpose") || "rent";
@@ -106,7 +107,9 @@ const Properties = () => {
         return filtered;
     }, [properties, queryString, priceMin, priceMax, beds, baths, orderBy]);
 
-    const filtersKey = `${queryString}|${purpose}|${type}|${priceMin}|${priceMax}|${beds}|${baths}|${orderBy}`;    const prevFiltersKey = useRef(filtersKey);
+    const filtersKey = `${queryString}|${purpose}|${type}|${priceMin}|${priceMax}|${beds}|${baths}|${orderBy}`;    
+    const prevFiltersKey = useRef(filtersKey);
+
     useEffect(() => {
       if (prevFiltersKey.current === filtersKey) return;
       prevFiltersKey.current = filtersKey;
@@ -114,6 +117,10 @@ const Properties = () => {
       const params = new URLSearchParams(searchParams);
       params.set("page", "1");
       setSearchParams(params, { replace: true });
+
+      setIsFiltering(true);
+      const timer = setTimeout(() => setIsFiltering(false), 1000);
+      return () => clearTimeout(timer);
     }, [filtersKey]);
 
     const totalPages = Math.ceil(filteredProperties.length / ITEMS_PER_PAGE);
@@ -221,47 +228,47 @@ const Properties = () => {
                   </div>}
                 </div>
                   
-                  {viewMode === "list" && <><div className="properties-page__list">
-                      {isPending &&
-                          [...Array(9)].map((_, i) => <Skeleton key={i} grid={3} />)
-                      }
-                      {!isPending ? (
-                          filteredProperties && filteredProperties.length > 0 ? (
-                              paginatedProperties?.map((property: IProperty) => (
-                                  <PropertyItem property={property} key={property.id} />
-                              ))
-                          ) : (
-                              <div className="not-found">
-                                  <p>No properties found.</p>
-                                  <img src={SadHouse} alt="Sad House" />
-                              </div>
-                          )
-                      ) : null}
-                  </div>
-                  
-                  {!isPending && filteredProperties.length > 0 && totalPages > 1 && (
-                    <Pagination 
-                        currentPage={currentPage}
-                        totalPages={totalPages}
-                        onPageChange={handlePageChange}
-                        itemsCount={filteredProperties.length}
-                        itemsPerPage={ITEMS_PER_PAGE}
-                    />
-                  )}
-                  </>}
+                {viewMode === "list" && <><div className="properties-page__list">
+                  {(isPending || isFiltering) &&
+                      [...Array(9)].map((_, i) => <Skeleton key={i} grid={3} />)
+                  }
+                  {!isPending && !isFiltering ? (
+                      filteredProperties && filteredProperties.length > 0 ? (
+                          paginatedProperties?.map((property: IProperty) => (
+                              <PropertyItem property={property} key={property.id} />
+                          ))
+                      ) : (
+                          <div className="not-found">
+                              <p>No properties found.</p>
+                              <img src={SadHouse} alt="Sad House" />
+                          </div>
+                      )
+                  ) : null}
+              </div>
 
-                  {viewMode === "map" && (
-                      <div className="properties-page__map">
-                          {isPending ? null : filteredProperties.length > 0 ? (
-                              <PropertiesMapView properties={filteredProperties} height="600px" />
-                          ) : (
-                              <div className="not-found">
-                                  <p>No properties found.</p>
-                                  <img src={SadHouse} alt="Sad House" />
-                              </div>
-                          )}
-                      </div>
-                  )}
+              {!isPending && !isFiltering && filteredProperties.length > 0 && totalPages > 1 && (
+                <Pagination 
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                    itemsCount={filteredProperties.length}
+                    itemsPerPage={ITEMS_PER_PAGE}
+                />
+              )}
+              </>}
+
+              {viewMode === "map" && (
+                  <div className="properties-page__map">
+                      {(isPending || isFiltering) ? null : filteredProperties.length > 0 ? (
+                          <PropertiesMapView properties={filteredProperties} height="600px" />
+                      ) : (
+                          <div className="not-found">
+                              <p>No properties found.</p>
+                              <img src={SadHouse} alt="Sad House" />
+                          </div>
+                      )}
+                  </div>
+              )}
                   
               </div>
             </div>
