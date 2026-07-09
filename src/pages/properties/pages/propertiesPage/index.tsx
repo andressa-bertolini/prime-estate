@@ -199,7 +199,8 @@ const Properties = () => {
                       Map
                     </button>
                   </div>
-                  <div className="list-properties__orderby">
+                  
+                  {viewMode === "list" && <div className="list-properties__orderby">
                     <span>Order by</span> 
                     <Autocomplete
                       options={options}
@@ -217,7 +218,7 @@ const Properties = () => {
                         />
                       )}
                     />
-                  </div>
+                  </div>}
                 </div>
                   
                   {viewMode === "list" && <><div className="properties-page__list">
