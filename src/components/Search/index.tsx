@@ -120,7 +120,7 @@ const Search = ({ fullfilters, onSearch }: SearchProps) => {
 
         const currentView = urlSearchParams.get('view');
         if (currentView) params.append('view', currentView);
-        
+
         e.preventDefault();
         setOpenFilter(false);
         onSearch?.();
@@ -209,7 +209,7 @@ const Search = ({ fullfilters, onSearch }: SearchProps) => {
         }
         
         setIsInitialized(true);
-    }, []);
+    }, [urlSearchParams.toString()]);
 
     const safePrice = price && Array.isArray(price) && price.length === 2 
         ? price 
