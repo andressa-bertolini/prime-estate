@@ -391,7 +391,7 @@ export const properties = [
   },
   {
     "id": 17,
-    "title": "Charming Apartment Near Downtown",
+    "title": "Apartment Near Downtown",
     "description": "This charming one-bedroom apartment in Denver's vibrant RiNo arts district offers the perfect base for exploring everything Colorado has to offer. The thoughtfully designed 650 sq ft space features an updated kitchen, cozy living area, and easy access to the city's best restaurants, galleries, and outdoor activities. A commuter's dream with light rail just a block away.",
     "purpose": "rent",
     "type": "apartment",
@@ -403,7 +403,7 @@ export const properties = [
     "state": "Colorado",
     "lat": 39.7392,
     "long": -104.9903,
-    "featuredImage": "/prime-estate/mock/images/property-16-1.png",
+    "featuredImage": "/prime-estate/mock/images/property-16-2.png",
     "images": [
       "/prime-estate/mock/images/property-16-1.png",
       "/prime-estate/mock/images/property-16-2.png"
@@ -580,7 +580,7 @@ export const properties = [
     "state": "Arizona",
     "lat": 33.4152,
     "long": -111.8313,
-    "featuredImage": "/prime-estate/mock/images/property-03-1.png",
+    "featuredImage": "/prime-estate/mock/images/property-03-2.png",
     "images": [
       "/prime-estate/mock/images/property-03-1.png",
       "/prime-estate/mock/images/property-03-2.png",
@@ -603,7 +603,7 @@ export const properties = [
     "state": "California",
     "lat": 32.7157,
     "long": -117.1611,
-    "featuredImage": "/prime-estate/mock/images/property-05-1.png",
+    "featuredImage": "/prime-estate/mock/images/property-05-2.png",
     "images": [
       "/prime-estate/mock/images/property-05-1.png",
       "/prime-estate/mock/images/property-05-2.png",
@@ -785,7 +785,7 @@ export const properties = [
     "state": "Kansas",
     "lat": 38.9196,
     "long": -94.6552,
-    "featuredImage": "/prime-estate/mock/images/property-07-1.png",
+    "featuredImage": "/prime-estate/mock/images/property-07-2.png",
     "images": [
       "/prime-estate/mock/images/property-07-1.png",
       "/prime-estate/mock/images/property-07-2.png",
@@ -829,7 +829,7 @@ export const properties = [
     "state": "Massachusetts",
     "lat": 42.2652,
     "long": -71.8018,
-    "featuredImage": "/prime-estate/mock/images/property-01-1.png",
+    "featuredImage": "/prime-estate/mock/images/property-01-2.png",
     "images": [
       "/prime-estate/mock/images/property-01-1.png",
       "/prime-estate/mock/images/property-01-2.png",
@@ -919,7 +919,7 @@ export const properties = [
     "state": "North Carolina",
     "lat": 35.2271,
     "long": -80.8431,
-    "featuredImage": "/prime-estate/mock/images/property-01-1.png",
+    "featuredImage": "/prime-estate/mock/images/property-01-3.png",
     "images": [
       "/prime-estate/mock/images/property-01-1.png",
       "/prime-estate/mock/images/property-01-2.png",
@@ -1033,7 +1033,7 @@ export const properties = [
     "state": "Pennsylvania",
     "lat": 39.9526,
     "long": -75.1652,
-    "featuredImage": "/prime-estate/mock/images/property-07-1.png",
+    "featuredImage": "/prime-estate/mock/images/property-07-3.png",
     "images": [
       "/prime-estate/mock/images/property-07-1.png",
       "/prime-estate/mock/images/property-07-2.png",
@@ -1375,7 +1375,7 @@ export const properties = [
     "state": "Kansas",
     "lat": 38.9196,
     "long": -94.6552,
-    "featuredImage": "/prime-estate/mock/images/property-13-1.png",
+    "featuredImage": "/prime-estate/mock/images/property-13-2.png",
     "images": [
       "/prime-estate/mock/images/property-13-1.png",
       "/prime-estate/mock/images/property-13-2.png",
@@ -1878,7 +1878,7 @@ export const properties = [
     "state": "Arizona",
     "lat": 33.4152,
     "long": -111.8313,
-    "featuredImage": "/prime-estate/mock/images/property-07-1.png",
+    "featuredImage": "/prime-estate/mock/images/property-07-3.png",
     "images": [
       "/prime-estate/mock/images/property-07-1.png",
       "/prime-estate/mock/images/property-07-2.png",
@@ -1900,7 +1900,7 @@ export const properties = [
     "state": "Arizona",
     "lat": 32.2226,
     "long": -110.9747,
-    "featuredImage": "/prime-estate/mock/images/property-03-1.png",
+    "featuredImage": "/prime-estate/mock/images/property-03-4.png",
     "images": [
       "/prime-estate/mock/images/property-03-1.png",
       "/prime-estate/mock/images/property-03-2.png",
