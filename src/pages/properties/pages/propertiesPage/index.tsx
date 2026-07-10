@@ -118,6 +118,11 @@ const Properties = () => {
       params.set("page", "1");
       setSearchParams(params, { replace: true });
 
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
       setIsFiltering(true);
       const timer = setTimeout(() => setIsFiltering(false), 1000);
       return () => clearTimeout(timer);
