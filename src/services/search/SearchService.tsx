@@ -2,7 +2,7 @@ import axios from "axios";
 import { Place, FetchParams } from "../../types/search.types"
 
 const SearchAPI = axios.create({
-  baseURL: 'api/'
+  baseURL: `${import.meta.env.BASE_URL}api/`
 });
 
 const fetchPlaces = async (params: FetchParams): Promise<Place[]> => {

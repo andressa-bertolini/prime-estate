@@ -2,7 +2,7 @@ import axios from "axios";
 import { Property, FetchParams } from "../../types/properties.types"
 
 const PropertiesApi = axios.create({
-  baseURL: 'api/'
+  baseURL: `${import.meta.env.BASE_URL}api/`
 });
 
 const fetchProperties = async (params: FetchParams): Promise<Property[]> => {
