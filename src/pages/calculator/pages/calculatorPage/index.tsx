@@ -14,7 +14,7 @@ const Calculator = () => {
         const incomeValue = Number(income.replace(/,/g, "")) || 0;
         const entryValue = Number(entry.replace(/,/g, "")) || 0;
 
-        if (incomeValue === 0) {
+        if (income === "" || entry === "" || incomeValue === 0) {
             setPurchasingPower("");
             return;
         }
@@ -41,6 +41,8 @@ const Calculator = () => {
         const propertyValue = Number(property.replace(/,/g, "")) || 0;
 
         if (propertyValue === 0) {
+            setDownPayment("");
+            setRequiredIncome("");
             return;
         }
     
