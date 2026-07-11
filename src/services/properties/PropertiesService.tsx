@@ -7,12 +7,15 @@ const PropertiesApi = axios.create({
 
 const fetchProperties = async (params: FetchParams): Promise<Property[]> => {
   const { ...filters } = params || {};
-  const query = new URLSearchParams({
-    ...filters
-  });
+  const query = new URLSearchParams({ ...filters });
   try {
     const response = await PropertiesApi.get(`/properties?${query.toString()}`);
     let properties = response.data;
+
+    if (!Array.isArray(properties)) {
+      console.error("Unexpected response shape from /properties:", properties);
+      return [];
+    }
 
     if (params.limit) {
       const limitNum = Number(params.limit);
@@ -22,7 +25,6 @@ const fetchProperties = async (params: FetchParams): Promise<Property[]> => {
     }
 
     return properties;
-
   } catch (error: any) {
     console.error(error);
     return [];
